@@ -1,3 +1,7 @@
+#!/usr/bin/bash
+
+
+sudo su
 echo -e "[ids]" >>/etc/keyd/default.conf
 echo -e "" >>/etc/keyd/default.conf
 echo -e "*" >>/etc/keyd/default.conf

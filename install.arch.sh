@@ -28,9 +28,6 @@ mkdir ft
 mkdir Downloads
 mkdir Pictures
 
-echo "INSTALL PACKER.NVIM"
-git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim
-
 echo "create my shortcuts in zsh "
 
 git clone https://aur.archlinux.org/snapd.git
