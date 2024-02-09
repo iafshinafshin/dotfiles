@@ -1,0 +1,24 @@
+#!/usr/bin/bash
+
+PS3='Select your option : '
+colorschemes=("Alacritty setup themes(Solarized dark(iterm2) | Solarized dark | Everforest)")
+alacritty=~/.config/alacritty
+
+if [ ! -d "$alacritty" ]; then
+	mkdir "$alacritty"
+else
+	mkdir files.bak
+	mv $alacritty/*\.toml $alacritty/*\.yml $alacritty/*\.yaml files.bak/
+fi
+
+select option in "${colorschemes[@]}"; do
+	case $option in
+	"Alacritty setup themes(Solarized dark(iterm2) | Solarized dark | Everforest)")
+		cp -rvf solazied-dark-iterm2.toml solarized_dark-me.toml install everforest.toml alacritty.toml $alacritty
+		clear
+		echo "Alacritty setup successful"
+		exit
+		;;
+	*) echo "invalid option $REPLY" ;;
+	esac
+done
