@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+
+# echo -e "\x1b[3m italic"
+# echo -e "\n"
+#
+# echo -e "\e[3m italic"
+# echo -e "\n"
+#
+# echo -e "\x1b[1m bold"
+# echo -e "\n"
+#
+# echo -e "\e[1m bold"
+# echo -e "\n"
+#
+# echo -e "\e[1m\e[3m bold italic"
+# echo -e "\n"
+#
+# echo -e "\x1b[1m\x1b[3m bold italic"
+# echo -e "\n"
+# echo -e "\x1b[3m\x1b[4m underline italic"
+# echo -e "\n"
+#
+# echo -e "\e[3m\e[4m underline italic"
+# echo -e "\n"
+#
+# echo -e "\e[2m normal"
+# echo -e "\n"
+#
+for ((i = 0; i < 8; i++)); do
+  echo    "_____________"
+	echo -e "|""\e["$i"m type font |"
+  echo    "-------------"
+  echo -e "\n"
+done
