@@ -14,7 +14,7 @@ fi
 select option in "${colorschemes[@]}"; do
 	case $option in
 	"Alacritty setup themes(Solarized dark(iterm2) | Solarized dark | Everforest)")
-		cp -rvf solazied-dark-iterm2.toml solarized_dark-me.toml install everforest.toml alacritty.toml $alacritty
+		cp -rf solazied-dark-iterm2.toml solarized_dark-me.toml install everforest.toml alacritty.toml $alacritty
 		clear
 		echo "Alacritty setup successful"
 		exit

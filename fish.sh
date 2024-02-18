@@ -11,8 +11,8 @@ select option in "${colorschemes[@]}"; do
 			sudo apt upadte -y
 			sudo apt install fish -y
 		else
-			cp -rvf ./.config/fish/config.fish
-			cp -rvf $fish_dir/
+			cp -rf ./.config/fish/config.fish
+			cp -rf $fish_dir/
 		fi
 		exit
 		;;
@@ -21,8 +21,8 @@ select option in "${colorschemes[@]}"; do
 			sudo dnf upadte -y
 			sudo dnf install fish -y
 		else
-			cp -rvf ./.config/fish/config.fish
-			cp -rvf $fish_dir/
+			cp -rf ./.config/fish/config.fish
+			cp -rf $fish_dir/
 		fi
 		exit
 		;;
@@ -31,8 +31,8 @@ select option in "${colorschemes[@]}"; do
 			sudo pacman -Sy -y
 			sudo pacman -S fish -y
 		else
-			cp -rvf ./.config/fish/config.fish
-			cp -rvf $fish_dir/
+			cp -rf ./.config/fish/config.fish
+			cp -rf $fish_dir/
 		fi
 		exit
 		;;
@@ -41,8 +41,8 @@ select option in "${colorschemes[@]}"; do
 			sudo apt-get update -y
 			sudo apt-get install fish -y
 		else
-			cp -rvf ./.config/fish/config.fish
-			cp -rvf $fish_dir/
+			cp -rf ./.config/fish/config.fish
+			cp -rf $fish_dir/
 		fi
 		exit
 		;;
@@ -50,8 +50,8 @@ select option in "${colorschemes[@]}"; do
 		if [ ! -d "$fish_dir" ]; then
 			brew install fish
 		else
-			cp -rvf ./.config/fish/config.fish
-			cp -rvf $fish_dir/
+			cp -rf ./.config/fish/config.fish
+			cp -rf $fish_dir/
 		fi
 		exit
 		;;
