@@ -24,6 +24,7 @@ alias g="git"
 alias dghq="cd $GHQ_DIR"
 alias thus="cd /run/media/afshin"
 alias ughq='cd ~/ghq & ghq get -u ./*/*/* & cd -'
+alias ide="~/.config/fish/ide"
 
 set -gx EDITOR nvim
 
