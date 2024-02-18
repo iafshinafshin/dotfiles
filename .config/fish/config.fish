@@ -21,6 +21,7 @@ alias rm="rm -rf"
 alias img="feh -F"
 alias tree="ll --tree --level=2"
 alias g="git"
+alias lg="lazygit"
 alias dghq="cd $GHQ_DIR"
 alias thus="cd /run/media/afshin"
 alias ughq='cd ~/ghq & ghq get -u ./*/*/* & cd -'
