@@ -1,5 +1,6 @@
 return {
 	"MattesGroeger/vim-bookmarks",
+	lazy = false,
 	dependencies = {
 		"tom-anders/telescope-vim-bookmarks.nvim",
 	},

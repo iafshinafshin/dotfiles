@@ -24,7 +24,8 @@ return {
 	-- Refactoring tool
 	{
 		"ThePrimeagen/refactoring.nvim",
-		keys = {
+		lazy = false,
+		eys = {
 			{
 				"<leader>r",
 				function()
@@ -83,7 +84,7 @@ return {
 		keys = { { "<leader>cs", "<cmd>SymbolsOutline<cr>", desc = "Symbols Outline" } },
 		cmd = "SymbolsOutline",
 		opts = {
-			position = "bottom",
+			position = "down",
 		},
 	},
 

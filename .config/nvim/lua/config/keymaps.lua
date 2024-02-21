@@ -30,7 +30,7 @@ keymap.set("n", "N", "'nN'[v:searchforward].'zv'", { expr = true, desc = "Prev s
 keymap.set("x", "N", "'nN'[v:searchforward]", { expr = true, desc = "Prev search result" })
 
 -- Increment/decreme
-keymap.set("n", "+", "<C-a>")
+keymap.set("n", "=", "<C-a>")
 keymap.set("n", "-", "<C-x>")
 
 -- Delete a word backwards
@@ -82,16 +82,11 @@ keymap.set("n", "<C-j>", function()
 	vim.diagnostic.goto_next()
 end, opts)
 
--- #faba32
+-- hsl(41, 95, 59)
 --
--- hsl(0, 0, 100)
--- #faba32
-keymap.set("n", "<leader>ar", function()
-	require("craftzdog.hsl").hex_to_rgb()
-end)
-keymap.set("n", "<leader>al", function()
-	require("craftzdog.hsl").hslToHex(h, s, l)
-end)
+-- hsl(200 30 64)
+-- rgb(27 160 189)
+
 keymap.set("n", "<leader>ah", function()
 	require("craftzdog.hsl").replaceHexWithHSL()
 end)
