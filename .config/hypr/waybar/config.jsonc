@@ -1,0 +1,180 @@
+{
+  "layer": "top", // Waybar at top layer
+  // "position": "bottom", // Waybar position (top|bottom|left|right)
+  "height": 30, // Waybar height (to be removed for auto height)
+  // "width": 1280, // Waybar width
+  // "spacing": 4, // Gaps between modules (4px)
+  // Choose the order of the modules
+  // "modules-left": ["hyprland/workspaces", "hyprland/window"],
+  "modules-left": ["hyprland/workspaces", "custom/right-0"],
+  "modules-center": ["custom/left-8", "hyprland/window", "custom/right-1"],
+  "modules-right": [
+    "custom/left-7",
+    "clock",
+    "custom/left-6",
+    "pulseaudio",
+    "custom/left-5",
+    "custom/setting",
+    "custom/left-4",
+    "cpu",
+    "custom/left-3",
+    "memory",
+    "custom/left-2",
+    "network",
+    "custom/left-1",
+    "hyprland/language",
+    "custom/left-0",
+    "custom/powermenu",
+  ],
+  // Modules configuration
+  "custom/powermenu": {
+    "format": "  ",
+    "on-click": "wlogout",
+    "tooltip": false,
+  },
+  "custom/setting": {
+    "format": "  ",
+    "on-click": "XDG_CURRENT_DESKTOP='gnome' gnome-control-center",
+    "tooltip": false,
+  },
+  "hyprland/language": {
+    "format": " {}",
+    "min-length": 5,
+    "format-en": "Us",
+    "format-fa": "Ir",
+    // "on-click": "swaymsg 'input * xkb_switch_layout next'",
+    "tooltip": false,
+  },
+  "hyprland/window": {
+    "format": "{}",
+    "tooltip": false,
+  },
+  "wlr/workspaces": {
+    "on-click": "activate",
+  },
+  "mpd": {
+    "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ {volume}% ",
+    "format-disconnected": "Disconnected ",
+    "format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped ",
+    "unknown-tag": "N/A",
+    "interval": 2,
+    "consume-icons": {
+      "on": " ",
+    },
+    "random-icons": {
+      "off": "<span color=\"#f53c3c\"></span> ",
+      "on": " ",
+    },
+    "repeat-icons": {
+      "on": " ",
+    },
+    "single-icons": {
+      "on": "1 ",
+    },
+    "state-icons": {
+      "paused": "",
+      "playing": "",
+    },
+    "tooltip-format": "MPD (connected)",
+    "tooltip-format-disconnected": "MPD (disconnected)",
+  },
+  "clock": {
+    "tooltip-format": "{:%H:%M}",
+    "tooltip": true,
+    "format-alt": "{:%B %d, %Y}",
+    "format": "{:%I:%M %p}",
+  },
+  "cpu": {
+    "format": "󰍛 {usage}% ",
+    "tooltip": true,
+    "on-click": "alacritty -e btop",
+  },
+  "memory": {
+    "format": "{}%  ",
+    "tooltip": true,
+    "on-click": "alacritty -e btop",
+  },
+  "network": {
+    // "interface": "wlp2*", // (Optional) To force the use of this interface
+    "format-wifi": "{essid} {signalStrength}% ",
+    "format-ethernet": "{ipaddr}/{cidr} ",
+    "tooltip-format": "{ifname} via {gwaddr} ",
+    "format-linked": "{ifname} (No IP) ",
+    "format-disconnected": "Disconnected ⚠",
+    "format-alt": "{ifname}: {ipaddr}/{cidr}",
+  },
+  "pulseaudio": {
+    // "scroll-step": 1, // %, can be a float
+    "format": "{volume}% {icon} {format_source}",
+    "format-bluetooth": "{volume}% {icon} {format_source}",
+    "format-bluetooth-muted": " {icon} {format_source}",
+    "format-muted": " {format_source}",
+    "format-source": "{volume}% ",
+    "format-source-muted": "",
+    "format-icons": {
+      "headphone": "",
+      "hands-free": "",
+      "headset": "",
+      "phone": "",
+      "portable": "",
+      "car": "",
+      "default": ["", "", ""],
+    },
+    "on-click": "pavucontrol",
+  },
+  "custom/media": {
+    "format": "{icon} {}",
+    "return-type": "json",
+    "max-length": 40,
+    "format-icons": {
+      "spotify": "",
+      "default": "🎜",
+    },
+    "escape": true,
+    // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
+  },
+  "custom/left-0": {
+    "format": "",
+    "tooltip": false,
+  },
+  "custom/left-1": {
+    "format": "",
+    "tooltip": false,
+  },
+  "custom/left-2": {
+    "format": "",
+    "tooltip": false,
+  },
+  "custom/left-3": {
+    "format": "",
+    "tooltip": false,
+  },
+  "custom/left-4": {
+    "format": "",
+    "tooltip": false,
+  },
+  "custom/left-5": {
+    "format": "",
+    "tooltip": false,
+  },
+  "custom/left-6": {
+    "format": "",
+    "tooltip": false,
+  },
+  "custom/left-7": {
+    "format": "",
+    "tooltip": false,
+  },
+  "custom/left-8": {
+    "format": "",
+    "tooltip": false,
+  },
+  "custom/right-0": {
+    "format": "",
+    "tooltip": false,
+  },
+  "custom/right-1": {
+    "format": "",
+    "tooltip": false,
+  },
+}
