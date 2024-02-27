@@ -115,6 +115,7 @@ tooltip {
 }
 #language {
   font-size: 20px;
+  font-weight: bold;
   background: #fabd16;
   opacity: 0.8;
   color: #282828;
