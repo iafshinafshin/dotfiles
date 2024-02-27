@@ -61,15 +61,15 @@ return {
 	},
 
 	-- animations
-	{
-		"echasnovski/mini.animate",
-		event = "VeryLazy",
-		opts = function(_, opts)
-			opts.scroll = {
-				enable = false,
-			}
-		end,
-	},
+	-- {
+	-- 	"echasnovski/mini.animate",
+	-- 	event = "VeryLazy",
+	-- 	opts = function(_, opts)
+	-- 		opts.scroll = {
+	-- 			enable = false,
+	-- 		}
+	-- 	end,
+	-- },
 
 	-- buffer line
 	{
@@ -91,7 +91,7 @@ return {
 		-- 	options = {
 		-- 		mode = "tabs",
 		-- 		separator_style = "slant",
-		-- 		always_show_bufferline = false,
+		-- 		always_show_bufferline = true,
 		-- 		show_buffer_close_icons = false,
 		-- 		show_close_icon = false,
 		-- 		color_icons = true,
@@ -127,6 +127,7 @@ return {
 			options = {
 				-- globalstatus = false,
 				theme = "solarized_dark",
+				-- theme = "rose-pine",
 				-- theme = "tokyonight",
 				-- theme = "nightfly",
 				-- theme = "everforest",

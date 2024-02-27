@@ -97,13 +97,14 @@ return {
 	},
 	{
 		"akinsho/toggleterm.nvim",
+		lazy = false,
 		config = function()
 			require("toggleterm").setup({
 				open_mapping = [[<c-\>]],
 				direction = "horizontal",
 				float_opts = {
 					border = "curved",
-					width = 130,
+					width = 90,
 					height = 40,
 				},
 			})
@@ -111,6 +112,7 @@ return {
 	},
 	{
 		"fedepujol/move.nvim",
+		lazy = true,
 		config = function()
 			local opts = { noremap = true, silent = true }
 			-- Normal-mode commands
@@ -139,12 +141,15 @@ return {
 	},
 	{
 		"mg979/vim-visual-multi",
+		lazy = false,
 	},
 	{
 		"f-person/git-blame.nvim",
+		lazy = false,
 	},
 	{
 		"kevinhwang91/nvim-ufo",
+		lazy = false,
 		dependencies = "kevinhwang91/promise-async",
 		config = function()
 			require("ufo").setup({
@@ -172,7 +177,6 @@ return {
 			vim.keymap.set("n", "]t", function()
 				require("todo-comments").jump_next()
 			end, { desc = "Next todo comment" })
-
 			vim.keymap.set("n", "[t", function()
 				require("todo-comments").jump_prev()
 			end, { desc = "Previous todo comment" })
@@ -180,6 +184,23 @@ return {
 			vim.keymap.set("n", "<leader>t", "<cmd>TodoTelescope<cr>", { desc = "Previous todo comment" })
 
 			require("todo-comments").setup()
+		end,
+	},
+	{
+		"Wansmer/treesj",
+		lazy = false,
+		dependencies = { "nvim-treesitter/nvim-treesitter" },
+		config = function()
+			local keymap = vim.keymap
+			local tsj = require("treesj")
+
+			tsj.setup({
+				use_default_keymaps = false,
+			})
+			keymap.set("n", "<leader>j", require("treesj").toggle)
+			keymap.set("n", "<leader>J", function()
+				require("treesj").toggle({ split = { recursive = true } })
+			end)
 		end,
 	},
 }

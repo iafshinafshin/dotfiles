@@ -1,7 +1,6 @@
 local discipline = require("craftzdog.discipline")
 
 -- discipline.cowboy()
-
 local keymap = vim.keymap
 local opts = { noremap = true, silent = true }
 
@@ -28,6 +27,7 @@ keymap.set("x", "n", "'Nn'[v:searchforward]", { expr = true, desc = "Next search
 keymap.set("o", "n", "'Nn'[v:searchforward]", { expr = true, desc = "Next search result" })
 keymap.set("n", "N", "'nN'[v:searchforward].'zv'", { expr = true, desc = "Prev search result" })
 keymap.set("x", "N", "'nN'[v:searchforward]", { expr = true, desc = "Prev search result" })
+keymap.set({ "n", "v" }, "<leader>y", [["+y]])
 
 -- Increment/decreme
 keymap.set("n", "=", "<C-a>")
@@ -35,6 +35,8 @@ keymap.set("n", "-", "<C-x>")
 
 -- Delete a word backwards
 keymap.set("n", "dw", 'vb"_d')
+keymap.set("n", "<leader>as", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+
 -- Select all
 keymap.set("n", "<C-a>", "gg<S-v>G")
 
