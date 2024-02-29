@@ -20,7 +20,7 @@ cd ~/
 
 paru -S wofi mako thunar ttf-jetbrains-mono-nerd noto-fonts-emoji starship grim gvfs lxappearance
 
-paru -s python2 node nodejs npm visual-studio-code-bin mpv zsh fish feh neovim alacritty exa
+paru -s python2 node nodejs npm visual-studio-code-bin mpv zsh fish feh neovim alacritty eza
 
 echo "create my directorys"
 mkdir ct

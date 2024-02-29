@@ -245,6 +245,7 @@ return {
 		opts = {
 			projects = { -- define project roots
 				"~/.ghq/github.com/iafshinafshin/*",
+				"~/.ghq/gitlab.com/*",
 				"~/.config/*",
 			},
 		},
