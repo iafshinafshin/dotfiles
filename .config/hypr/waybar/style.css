@@ -9,10 +9,11 @@
 window#waybar {
   /* background: #003d52; */
   /* backdrop-filter: blur(1px); */
-  background: rgba(0, 0, 0, 0);
-  /* background: #282828; */
+  /* background: rgba(0, 0, 0, 0); */
+  background: #282828;
   /* background: rgba(21, 18, 27, 0); */
-  opacity: 0.9;
+  /* background-color: rgba(128, 0, 0, 0); */
+  opacity: 0.7;
   color: #0078ef;
   font-size: 16px;
   margin: 0px;
@@ -192,15 +193,15 @@ tooltip {
 
 #workspaces button {
   /* padding: 5px; */
-  color: #689d6a;
-  background-color: #282828;
+  color: #282828;
+  background-color: #689d6a;
   border-radius: 0;
   padding-left: 8px;
 }
 
 #workspaces button.active {
-  color: #fabd2f;
-  background-color: #282828;
+  color: #ffcf2b;
+  background-color: #689d6a;
 }
 
 #workspaces button.focused {
@@ -223,7 +224,7 @@ tooltip {
 }
 #custom-right-0 {
   font-size: 26px;
-  color: #282828;
+  color: #689d6a;
   /* opacity: 0.8; */
   margin: 0px;
 }

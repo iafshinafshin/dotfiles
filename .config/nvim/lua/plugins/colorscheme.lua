@@ -61,9 +61,9 @@ return {
 		"bluz71/vim-nightfly-colors",
 		lazy = true,
 		priority = 1000,
-		-- opts = {
-		-- 	colorscheme = "nightfly",
-		-- },
+		opts = {
+			colorscheme = "nightfly",
+		},
 	},
 	{
 		"joshdick/onedark.vim",
@@ -87,7 +87,7 @@ return {
 		priority = 1000,
 		config = function()
 			vim.g.everforest_diagnostic_line_highlight = 1
-			-- vim.cmd([[colorscheme everforest]])
+			vim.cmd([[colorscheme everforest]])
 		end,
 		opts = {
 			colorscheme = "everforest",
