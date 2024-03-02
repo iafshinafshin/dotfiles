@@ -2,8 +2,9 @@
 
 echo "Upadte with pacman"
 
-sudo pacman -Sy
+# sudo pacman -Sy
 
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 echo "create my shortcuts in zsh "
 echo 'alias ll="exa --icons -lrh -t=created"' >>.zshrc
 echo 'alias la="exa --icons -lrh -a -t=created"' >>.zshrc
@@ -13,7 +14,6 @@ echo 'alias cp="cp -rvf"' >>.zshrc
 echo 'alias rm="rm -rvf"' >>.zshrc
 
 echo "installing oh my zsh"
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 echo "install zsh plugins"
 git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
