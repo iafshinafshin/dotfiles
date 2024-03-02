@@ -33,7 +33,7 @@ keymap.set({ "n", "v" }, "<leader>y", [["+y]])
 keymap.set("n", "=", "<C-a>")
 keymap.set("n", "-", "<C-x>")
 
--- Delete a word backwards
+-- Delete and backwards
 keymap.set("n", "dw", 'vb"_d')
 keymap.set("n", "<leader>as", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
@@ -56,7 +56,7 @@ keymap.set("n", "<C-m>", "<C-i>", opts)
 keymap.set("n", "te", ":tabedit<Return>")
 keymap.set("n", "<tab>", ":tabnext<Return>", opts)
 keymap.set("n", "<s-tab>", ":tabprev<Return>", opts)
-keymap.set("n", "<leader><tab>d", "<cmd>tabclose<cr>", { desc = "Close Tab" })
+keymap.set("n", "<leader><tab>d", "<cmd>tabclose<cr>", { expr = true, desc = "Close Tab" })
 -- Split window
 keymap.set("n", "ss", ":split<Return>", opts)
 keymap.set("n", "sv", ":vsplit<Return>", opts)
@@ -66,14 +66,13 @@ keymap.set("n", "sh", "<C-w>h")
 keymap.set("n", "sk", "<C-w>k")
 keymap.set("n", "sj", "<C-w>j")
 keymap.set("n", "sl", "<C-w>l")
-
--- Resize window
-keymap.set("n", "<C-w><left>", "<C-w><")
-keymap.set("n", "<C-w><right>", "<C-w>>")
+-- Resize window keymap.set("n", "<C-w><left>", "<C-w><") keymap.set("n", "<C-w><right>", "<C-w>>")
 keymap.set("n", "<C-w><up>", "<C-w>+")
 keymap.set("n", "<C-w><down>", "<C-w>-")
 
 -- my config
+vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 
 -- keymap.set("i", "<C-s>", "<C-p>", opts)
 -- keymap.set("i", "<C-j>", "<down>")
@@ -89,7 +88,7 @@ end, opts)
 -- hsl(200 30 64)
 -- rgb(27 160 189)
 
-keymap.set("n", "<leader>ah", function()
+keymap.set("n", "<leader>r", function()
 	require("craftzdog.hsl").replaceHexWithHSL()
 end)
 

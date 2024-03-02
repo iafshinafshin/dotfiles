@@ -140,10 +140,6 @@ return {
 		end,
 	},
 	{
-		"mg979/vim-visual-multi",
-		lazy = false,
-	},
-	{
 		"f-person/git-blame.nvim",
 		lazy = false,
 	},
@@ -201,6 +197,13 @@ return {
 			keymap.set("n", "<leader>J", function()
 				require("treesj").toggle({ split = { recursive = true } })
 			end)
+		end,
+	},
+	{
+		"mbbill/undotree",
+		lazy = false,
+		config = function()
+			vim.keymap.set("n", "<leader>au", vim.cmd.UndotreeToggle)
 		end,
 	},
 }

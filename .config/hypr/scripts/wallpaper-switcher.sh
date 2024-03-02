@@ -4,7 +4,7 @@
 DIR=$HOME/Pictures
 
 # Transition config (type swww img --help for more settings
-FPS=30
+FPS=60
 TYPE="any"
 # TYPE="simple"
 DURATION=3
@@ -68,9 +68,19 @@ main() {
 		swww img ${DIR}/${RANDOM_PIC} $SWWW_PARAMS
 		return
 	fi
-
 	pic_index=$(echo $choice | cut -d. -f1)
-	swww img ${DIR}/${PICS[$pic_index]} $SWWW_PARAMS
+
+	current_wall=${DIR}/${PICS[$pic_index]}
+	if [[ ! -f ~/Pictures/current_wallpaper.jpg ]]; then
+		convert $current_wall ~/Pictures/current_wallpaper.jpg
+	else
+		rm -rf ~/Pictures/current_wallpaper.jpg
+		convert $current_wall ~/Pictures/current_wallpaper.jpg
+	fi
+	wal -q -i ~/Pictures/current_wallpaper.jpg
+
+	swww img ~/Pictures/current_wallpaper.jpg $SWWW_PARAMS
+	# swww img ${DIR}/${PICS[$pic_index]} $SWWW_PARAMS
 }
 
 # Check if wofi is already running
