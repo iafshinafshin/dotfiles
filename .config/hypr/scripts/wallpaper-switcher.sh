@@ -78,6 +78,9 @@ main() {
 		convert $current_wall ~/Pictures/current_wallpaper.jpg
 	fi
 	wal -q -i ~/Pictures/current_wallpaper.jpg
+	rm -rf ~/.cache/wal/colors-kitty.conf
+	rm -rf ~/.cache/wal/colors-alacritty.yml
+	rm -rf ~/.cache/wal/colors--nodim-alacritty.yml
 
 	swww img ~/Pictures/current_wallpaper.jpg $SWWW_PARAMS
 	# swww img ${DIR}/${PICS[$pic_index]} $SWWW_PARAMS
