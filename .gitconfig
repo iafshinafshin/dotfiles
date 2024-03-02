@@ -1,0 +1,61 @@
+[user]
+  name = Afshin
+	email = iafshinafshin@gmail.com
+	signingKey = ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDCFWKDx75USK8AKmmIcCqniyBtBRIUQgxGTgrm4kW/km+SzI/epBIJGc85RPe+p0yIXCcx8Fyi+Iibd9/D9VTH9zBqpL6XYUlzLU+6o1QpTdcTlH2r5RQDtktULI7JMikf6ITEOGBfAzv07U4xV7OVn8OnuB4F6I/CuE++hnmX/dDUWERhC+lpwuriiLpo+NaI8/WQpW0QCWZkwh6swD+Uo3/S3hR7WwLEFQ92jJ3A04I/jwvmqdxTS+ofWsboHjhYrn7lc0bk1NJYQ1XBBKetrh5Nva4NxCka1k65T32mkUeYKWCd0GUk0JF+Z0HvlsrrFZbsvlBKq4WTYcZgkKy00GUEsr9oO6aWrtru/+Z4FwhS5U89F31IxEHSTG5d/Y0imS8n9fdsskCyGlHwBANZKknA0/SCggMIzj339WzqEB2K9PLbuieslIfitsXv86hmecMory/q1gKf1cSFw3iowzzWwh5v5vny7z8tnyVaKJt+8DVSUHRSZRhdVkgWmD0= iafshinafshin@gmail.com
+[core]
+	excludesfile = ~/.gitignore
+	editor = nvim
+	ignorecase = false
+[push]
+  default = simple
+[color]
+  status = auto
+  diff = auto
+  branch = auto
+  interactive = auto
+  grep = auto
+  ui = auto
+[alias]
+  a = "!git status --short | peco | awk '{print $2}' | xargs git add"
+  d = diff
+  co = checkout
+  ci = commit
+  ca = commit -a
+  ps = "!git push origin $(git rev-parse --abbrev-ref HEAD)"
+  pl = "!git pull origin $(git rev-parse --abbrev-ref HEAD)"
+  st = status
+  br = branch
+  ba = branch -a
+  bm = branch --merged
+  bn = branch --no-merged
+  df = "!git hist | peco | awk '{print $2}' | xargs -I {} git diff {}^ {}"
+  hist = log --pretty=format:\"%Cgreen%h %Creset%cd %Cblue[%cn] %Creset%s%C(yellow)%d%C(reset)\" --graph --date=relative --decorate --all
+  llog = log --graph --name-status --pretty=format:\"%C(red)%h %C(reset)(%cd) %C(green)%an %Creset%s %C(yellow)%d%Creset\" --date=relative
+  open = "!hub browse"
+  type = cat-file -t
+  dump = cat-file -p
+  find = "!f() { git log --pretty=format:\"%h %cd [%cn] %s%d\" --date=relative -S'pretty' -S\"$@\" | peco | awk '{print $1}' | xargs -I {} git diff {}^ {}; }; f"
+  # edit conflicted file on merge
+  edit-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; vim `f`"
+  # add conflicted file on merge
+  add-unmerged = "!f() { git ls-files --unmerged | cut -f2 | sort -u ; }; git add `f`"
+
+[hub]
+  protocol = https
+[github]
+	user = iafshinafshin
+[diff]
+  tool = nvimdiff
+[difftool "nvimdiff"]
+	cmd = nvim -d \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "nvimdiff"]
+	cmd = nvim -d \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	required = true
+	process = git-lfs filter-process
+[ghq]
+  root = ~/.ghq
