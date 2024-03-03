@@ -19,8 +19,9 @@ else
 fi
 swww query || swww init
 #change-wallpaper using swww
-wal -q -i ~/Pictures/current_wallpaper.jpg
 rm -rf ~/.cache/wal/colors-kitty.conf
 rm -rf ~/.cache/wal/colors-alacritty.yml
 rm -rf ~/.cache/wal/colors--nodim-alacritty.yml
 swww img $current_wall --transition-fps 60 --transition-type any --transition-duration 3
+slipe 14
+wal -q -i ~/Pictures/current_wallpaper.jpg
