@@ -21,7 +21,8 @@ require("lazy").setup({
 				-- colorscheme = "rose-pine"
 				-- colorscheme = "solarized-osaka",
 				-- colorscheme = "tokyonight-night",
-				colorscheme = "everforest",
+				colorscheme = "gruvbox",
+				-- colorscheme = "everforest",
 				news = {
 					lazyvim = true,
 					neovim = true,
