@@ -39,7 +39,6 @@ packer.startup(function(use)
 			{ "saadparwaiz1/cmp_luasnip" },
 			{ "hrsh7th/cmp-nvim-lsp" },
 			{ "hrsh7th/cmp-nvim-lua" },
-
 			-- Snippets
 			{ "L3MON4D3/LuaSnip" },
 			{ "rafamadriz/friendly-snippets" },
@@ -60,6 +59,7 @@ packer.startup(function(use)
 	use("kyazdani42/nvim-web-devicons") -- File icons
 	use("nvim-telescope/telescope.nvim")
 	use("nvim-telescope/telescope-file-browser.nvim")
+	use("folke/trouble.nvim")
 	use("windwp/nvim-autopairs")
 	use("windwp/nvim-ts-autotag")
 	use({ "numToStr/Comment.nvim", requires = {
