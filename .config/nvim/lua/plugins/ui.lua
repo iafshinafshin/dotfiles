@@ -50,6 +50,19 @@ return {
 			})
 
 			opts.presets.lsp_doc_border = true
+			vim.notify = function(msg, log_level, opts)
+				if
+					string.match(
+						msg,
+						"method textDocument/documentColor is not supported by any of the servers registered for the current buffer"
+					)
+				then
+				-- Do nothing to suppress the warning
+				else
+					-- Call the original vim.notify function for other messages
+					vim.notify(msg, log_level, opts)
+				end
+			end
 		end,
 	},
 
@@ -87,36 +100,6 @@ return {
 				show_close_icon = false,
 			},
 		},
-		-- opts = {
-		-- 	options = {
-		-- 		mode = "tabs",
-		-- 		separator_style = "slant",
-		-- 		always_show_bufferline = true,
-		-- 		show_buffer_close_icons = false,
-		-- 		show_close_icon = false,
-		-- 		color_icons = true,
-		-- 	},
-		-- 	highlights = {
-		-- 		separator = {
-		-- 			fg = "#073642",
-		-- 			bg = "#002b36",
-		-- 		},
-		-- 		separator_selected = {
-		-- 			fg = "#073642",
-		-- 		},
-		-- 		background = {
-		-- 			fg = "#657b83",
-		-- 			bg = "#002b36",
-		-- 		},
-		-- 		buffer_selected = {
-		-- 			fg = "#fdf6e3",
-		-- 			bold = true,
-		-- 		},
-		-- 		fill = {
-		-- 			bg = "#073642",
-		-- 		},
-		-- 	},
-		-- },
 	},
 
 	-- statusline
