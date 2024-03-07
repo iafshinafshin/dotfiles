@@ -1,9 +1,9 @@
-local status, zenMode = pcall(require, "zen-mode")
+local status, zen_mode = pcall(require, "zen-mode")
 if not status then
-	return
+  return
 end
 
-zenMode.setup({
+zen_mode.setup({
 	plugins = {
 		gitsigns = true,
 		tmux = true,
@@ -11,4 +11,4 @@ zenMode.setup({
 	},
 })
 
-vim.keymap.set("n", "<leader>z", "<cmd>ZenMode<cr>", { silent = true, expr = true, desc = "Zen Mode" })
+vim.keymap.set("n", "<Leader>z", "<cmd>ZenMode<CR>", {desc = "Zen Mode" })

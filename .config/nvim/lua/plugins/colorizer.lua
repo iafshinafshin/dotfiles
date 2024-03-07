@@ -65,24 +65,4 @@ return {
 			-- bar_char = "󰄮",
 		},
 	},
-	-- {
-	-- 	"iafshinafshin/ccc.nvim",
-	-- 	lazy = false,
-	-- 	keys = {
-	-- 		{
-	-- 			"sc",
-	-- 			":CccConvert<Return>",
-	-- 			desc = "Replace Current Value With (Rgb, Hsl, Hex)",
-	-- 		},
-	-- 		{
-	-- 			"sp",
-	-- 			":CccPick<Return>",
-	-- 			desc = "Color Picker",
-	-- 		},
-	-- 	},
-	-- 	config = {
-	-- 		-- point_char = "󰄮", --   ■ 󰄮 ▓ ▚ █ ▣ ▮ ▯ ╳ ╬ ╋ 🞠 ⋈ 󰣏
-	-- 		-- bar_char = "󰄮",
-	-- 	},
-	-- },
 }

@@ -4,6 +4,7 @@
 local keymap = vim.keymap
 local opts = { noremap = true, silent = true }
 
+-- keymap.set("n", "<space>", "<Leader>")
 keymap.set("n", "<leader>uL", function()
 	require("lazyvim.util").toggle("relativenumber")
 end, { desc = "Toggle Relative Line Numbers" })
@@ -29,6 +30,8 @@ keymap.set("n", "N", "'nN'[v:searchforward].'zv'", { expr = true, desc = "Prev s
 keymap.set("x", "N", "'nN'[v:searchforward]", { expr = true, desc = "Prev search result" })
 keymap.set({ "n", "v" }, "<leader>y", [["+y]])
 
+keymap.set({ "i", "x", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>", { desc = "Save file" })
+
 -- Increment/decreme
 keymap.set("n", "=", "<C-a>")
 keymap.set("n", "-", "<C-x>")
@@ -41,6 +44,9 @@ keymap.set("n", "<leader>as", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Lef
 keymap.set("n", "<C-a>", "gg<S-v>G")
 
 -- keymap.set("n", "i", "a", opts)
+keymap.set("n", "<Esc>", ":nohl<Return>", opts)
+
+vim.keymap.set("n", "<Leader>vm",":MaximizerToggle<Return>", { desc = "Max Currnet Window Split"})
 
 -- Save with root permission (not working for now)
 vim.api.nvim_create_user_command("W", "w !sudo tee > /dev/null %", {})
@@ -76,19 +82,15 @@ keymap.set("n", "<C-w><down>", "<C-w>-")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 
--- keymap.set("i", "<C-s>", "<C-p>", opts)
--- keymap.set("i", "<C-j>", "<down>")
--- keymap.set("i", "<C-l>", "<up>")
-
 -- hsl(41, 95, 59)
 --
 -- hsl(200 30 64)
 -- rgb(27 160 189)
 
-keymap.set("n", "<leader>r", function()
-	require("craftzdog.hsl").replaceHexWithHSL()
-end)
-
-keymap.set("n", "<leader>i", function()
-	require("craftzdog.lsp").toggleInlayHints()
-end)
+-- keymap.set("n", "<leader>r", function()
+-- 	require("craftzdog.hsl").replaceHexWithHSL()
+-- end)
+--
+-- keymap.set("n", "<leader>i", function()
+-- 	require("craftzdog.lsp").toggleInlayHints()
+-- end)
