@@ -114,6 +114,16 @@ _G.packer_plugins = {
     path = "/home/afshin/.local/share/nvim/site/pack/packer/start/cmp_luasnip",
     url = "https://github.com/saadparwaiz1/cmp_luasnip"
   },
+  ["dressing.nvim"] = {
+    loaded = true,
+    path = "/home/afshin/.local/share/nvim/site/pack/packer/start/dressing.nvim",
+    url = "https://github.com/stevearc/dressing.nvim"
+  },
+  ["duplicate.nvim"] = {
+    loaded = true,
+    path = "/home/afshin/.local/share/nvim/site/pack/packer/start/duplicate.nvim",
+    url = "https://github.com/hinell/duplicate.nvim"
+  },
   everforest = {
     config = { "\27LJ\2\nF\0\0\2\0\3\0\0056\0\0\0009\0\1\0)\1\1\0=\1\2\0K\0\1\0)everforest_diagnostic_line_highlight\6g\bvim\0" },
     loaded = true,
@@ -140,15 +150,20 @@ _G.packer_plugins = {
     path = "/home/afshin/.local/share/nvim/site/pack/packer/start/gruvbox.nvim",
     url = "https://github.com/ellisonleao/gruvbox.nvim"
   },
+  ["image.nvim"] = {
+    loaded = true,
+    path = "/home/afshin/.local/share/nvim/site/pack/packer/start/image.nvim",
+    url = "https://github.com/3rd/image.nvim"
+  },
   ["lazygit.nvim"] = {
     loaded = true,
     path = "/home/afshin/.local/share/nvim/site/pack/packer/start/lazygit.nvim",
     url = "https://github.com/kdheepak/lazygit.nvim"
   },
-  ["lsp-zero.nvim"] = {
+  ["legendary.nvim"] = {
     loaded = true,
-    path = "/home/afshin/.local/share/nvim/site/pack/packer/start/lsp-zero.nvim",
-    url = "https://github.com/VonHeikemen/lsp-zero.nvim"
+    path = "/home/afshin/.local/share/nvim/site/pack/packer/start/legendary.nvim",
+    url = "https://github.com/mrjones2014/legendary.nvim"
   },
   ["lspkind-nvim"] = {
     loaded = true,
@@ -189,6 +204,16 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/afshin/.local/share/nvim/site/pack/packer/start/neovim",
     url = "https://github.com/rose-pine/neovim"
+  },
+  ["neovim-project"] = {
+    loaded = true,
+    path = "/home/afshin/.local/share/nvim/site/pack/packer/start/neovim-project",
+    url = "https://github.com/coffebar/neovim-project"
+  },
+  ["neovim-session-manager"] = {
+    loaded = true,
+    path = "/home/afshin/.local/share/nvim/site/pack/packer/start/neovim-session-manager",
+    url = "https://github.com/Shatur/neovim-session-manager"
   },
   ["noice.nvim"] = {
     loaded = true,
@@ -234,6 +259,16 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/afshin/.local/share/nvim/site/pack/packer/start/nvim-notify",
     url = "https://github.com/rcarriga/nvim-notify"
+  },
+  ["nvim-surround"] = {
+    loaded = true,
+    path = "/home/afshin/.local/share/nvim/site/pack/packer/start/nvim-surround",
+    url = "https://github.com/kylechui/nvim-surround"
+  },
+  ["nvim-tree.lua"] = {
+    loaded = true,
+    path = "/home/afshin/.local/share/nvim/site/pack/packer/start/nvim-tree.lua",
+    url = "https://github.com/nvim-tree/nvim-tree.lua"
   },
   ["nvim-treesitter"] = {
     loaded = true,
@@ -292,6 +327,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/afshin/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
+  },
+  ["todo-comments.nvim"] = {
+    loaded = true,
+    path = "/home/afshin/.local/share/nvim/site/pack/packer/start/todo-comments.nvim",
+    url = "https://github.com/folke/todo-comments.nvim"
   },
   ["tokyonight.nvim"] = {
     loaded = true,

@@ -1,13 +1,11 @@
-local status, noice = pcall(require, "noice")
-if not status then return end
-local status1, notify = pcall(require, "nvim-notify")
+local status, noice = pcall(require, "noice") if not status then return end
+local status1, notify = pcall(require, "notify")
 if not status1 then return end
-local status2 = pcall(require, "nui.nvim")
+local status2, nui = pcall(require, "nui")
 if not status2 then return end
 
 noice.setup({
   lsp = {
-    -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
     override = {
       ['vim.lsp.util.convert_input_to_markdown_lines'] = true,
       ['vim.lsp.util.stylize_markdown'] = true,
@@ -32,59 +30,17 @@ noice.setup({
   },
 })
 
-
-
-noice.setup(function(_,opts)
-  table.insert(opts.routes, {
-    filter = {
-      event = "notify",
-      find = "No information available",
-    },
-    opts = { skip = true },
-  })
-  local focused = true
-  vim.api.nvim_create_autocmd("FocusGained", {
-    callback = function()
-      focused = true
-    end,
-  })
-  vim.api.nvim_create_autocmd("FocusLost", {
-    callback = function()
-      focused = false
-    end,
-  })
-  table.insert(opts.routes, 1, {
-    filter = {
-      cond = function()
-        return not focused
-      end,
-    },
-    view = "notify_send",
-    opts = { stop = false },
-  })
-
-  opts.commands = {
-    all = {
-      -- options for the message history that you get with `:Noice`
-      view = "split",
-      opts = { enter = true, format = "details" },
-      filter = {},
-    },
-  }
-
-  vim.api.nvim_create_autocmd("FileType", {
-    pattern = "markdown",
-    callback = function(event)
-      vim.schedule(function()
-        require("noice.text.markdown").keys(event.buf)
-      end)
-    end,
-  })
-
-  opts.presets.lsp_doc_border = true
-end)
-
 notify.setup({
-  timeout = 5000,
+    timeout = 3000,
+    max_height = function()
+      return math.floor(vim.o.lines * 0.75)
+    end,
+    max_width = function()
+      return math.floor(vim.o.columns * 0.75)
+    end,
+    on_open = function(win)
+      vim.api.nvim_win_set_config(win, { zindex = 100 })
+    end,
 })
 
+nui.setup({})

@@ -4,11 +4,7 @@ if not status then
 end
 
 zen_mode.setup({
-	plugins = {
-		gitsigns = true,
-		tmux = true,
-		kitty = { enabled = false, font = "+2" },
-	},
+  plugins = { gitsigns = true, tmux = true, kitty = { enabled = false, font = "+2" } }
 })
 
-vim.keymap.set("n", "<Leader>z", "<cmd>ZenMode<CR>", {desc = "Zen Mode" })
+vim.keymap.set("n", "<Leader>z", "<cmd>ZenMode<CR>", { desc = "Zen Mode" })

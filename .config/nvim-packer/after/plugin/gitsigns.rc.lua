@@ -2,11 +2,6 @@ local status, gitsigns = pcall(require, "gitsigns")
 if (not status) then return end
 
 gitsigns.setup({
-  plugins = {
-    gitsigns = true,
-    tmux = true,
-    kitty = { enabled = false, font = "+2" },
-  },
   signs = {
     add = { text = "▎" },
     change = { text = "▎" },
