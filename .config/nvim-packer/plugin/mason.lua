@@ -5,15 +5,15 @@ if (not status1) then return end
 local status2, mason_installer = pcall(require, "mason-tool-installer")
 if (not status2) then return end
 -- require("packer").setup(function(use)
---   
+--
 -- end)
 mason.setup({
-	ui = {
+  ui = {
     icons = {
-			package_installed = "✓",
-			package_pending = "➜",
-			package_uninstalled = "✗",
-		},
+      package_installed = "✓",
+      package_pending = "➜",
+      package_uninstalled = "✗",
+    },
   },
 })
 masonlspconfig.setup({
@@ -39,6 +39,7 @@ mason_installer.setup({
     "emmet-language-server",
     "easy-coding-standard",
     "eslint_d",
+    "pylint",
     "prettierd",
     "graphql-language-service-cli",
     "prisma-language-server",

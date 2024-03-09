@@ -114,6 +114,11 @@ _G.packer_plugins = {
     path = "/home/afshin/.local/share/nvim/site/pack/packer/start/cmp_luasnip",
     url = "https://github.com/saadparwaiz1/cmp_luasnip"
   },
+  ["conform.nvim"] = {
+    loaded = true,
+    path = "/home/afshin/.local/share/nvim/site/pack/packer/start/conform.nvim",
+    url = "https://github.com/stevearc/conform.nvim"
+  },
   ["dressing.nvim"] = {
     loaded = true,
     path = "/home/afshin/.local/share/nvim/site/pack/packer/start/dressing.nvim",
@@ -125,7 +130,7 @@ _G.packer_plugins = {
     url = "https://github.com/hinell/duplicate.nvim"
   },
   everforest = {
-    config = { "\27LJ\2\nF\0\0\2\0\3\0\0056\0\0\0009\0\1\0)\1\1\0=\1\2\0K\0\1\0)everforest_diagnostic_line_highlight\6g\bvim\0" },
+    config = { "\27LJ\2\nM\0\0\2\0\4\0\0066\0\0\0009\0\1\0009\0\2\0)\1\1\0=\1\3\0K\0\1\0)everforest_diagnostic_line_highlight\6g\agr\bvim\0" },
     loaded = true,
     path = "/home/afshin/.local/share/nvim/site/pack/packer/start/everforest",
     url = "https://github.com/sainnhe/everforest"
@@ -154,6 +159,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/afshin/.local/share/nvim/site/pack/packer/start/image.nvim",
     url = "https://github.com/3rd/image.nvim"
+  },
+  ["indent-blankline.nvim"] = {
+    loaded = true,
+    path = "/home/afshin/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim",
+    url = "https://github.com/lukas-reineke/indent-blankline.nvim"
   },
   ["lazygit.nvim"] = {
     loaded = true,
@@ -199,6 +209,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/afshin/.local/share/nvim/site/pack/packer/start/mason.nvim",
     url = "https://github.com/williamboman/mason.nvim"
+  },
+  ["mini.indentscope"] = {
+    loaded = true,
+    path = "/home/afshin/.local/share/nvim/site/pack/packer/start/mini.indentscope",
+    url = "https://github.com/echasnovski/mini.indentscope"
   },
   neovim = {
     loaded = true,
@@ -249,6 +264,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/afshin/.local/share/nvim/site/pack/packer/start/nvim-colorizer.lua",
     url = "https://github.com/NvChad/nvim-colorizer.lua"
+  },
+  ["nvim-lint"] = {
+    loaded = true,
+    path = "/home/afshin/.local/share/nvim/site/pack/packer/start/nvim-lint",
+    url = "https://github.com/mfussenegger/nvim-lint"
   },
   ["nvim-lspconfig"] = {
     loaded = true,
@@ -368,7 +388,7 @@ _G.packer_plugins = {
 time([[Defining packer_plugins]], false)
 -- Config for: everforest
 time([[Config for everforest]], true)
-try_loadstring("\27LJ\2\nF\0\0\2\0\3\0\0056\0\0\0009\0\1\0)\1\1\0=\1\2\0K\0\1\0)everforest_diagnostic_line_highlight\6g\bvim\0", "config", "everforest")
+try_loadstring("\27LJ\2\nM\0\0\2\0\4\0\0066\0\0\0009\0\1\0009\0\2\0)\1\1\0=\1\3\0K\0\1\0)everforest_diagnostic_line_highlight\6g\agr\bvim\0", "config", "everforest")
 time([[Config for everforest]], false)
 
 -- Command lazy-loads
