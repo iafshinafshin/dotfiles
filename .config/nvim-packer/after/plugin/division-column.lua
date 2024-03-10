@@ -2,18 +2,11 @@ local status, division_col = pcall(require, "statuscol")
 if not status then
 	return
 end
-local status1, builtin = pcall(require, "statuscol.builtin")
-if not status1 then
-	return
-end
+local builtin = require("statuscol.builtin")
 
 division_col.setup({
 	relculright = true,
 	segments = {
-		{
-			sign = { name = { "GitSign*" }, maxwidth = 1, colwidth = 1 },
-			click = "v:lua.ScSa",
-		},
 		{
 			sign = { name = { "Diagnostic" }, auto = true },
 			click = "v:lua.ScSa",
@@ -24,14 +17,7 @@ division_col.setup({
 		},
 		{ text = { builtin.lnumfunc, " " }, click = "v:lua.ScLa" },
 		{
-			sign = {
-				namespace = { "gitsigns" },
-				maxwidth = 1,
-				colwidth = 1,
-				auto = false,
-				fillchar = " ",
-				fillcharhl = "StatusColumnSeparator",
-			},
+			sign = { namespace = { "gitsign*" }, colwidth = 1, wrap = true },
 			click = "v:lua.ScSa",
 		},
 	},
