@@ -1,21 +1,22 @@
 local status, conform = pcall(require, "conform")
-if not status then return end
-
+if not status then
+  return
+end
 
 conform.setup({
   formatters_by_ft = {
-    javascript = { "prettier", "ast_grep" },
-    typescript = { "prettier", "ast_grep" },
-    javascriptreact = { "prettier", "ast_grep" },
-    typescriptreact = { "prettier", "ast_grep" },
+    javascript = { "prettierd", "prettier", "ast_grep" },
+    typescript = { "prettierd", "prettier", "ast_grep" },
+    javascriptreact = { "prettierd", "prettier", "ast_grep" },
+    typescriptreact = { "prettierd", "prettier", "ast_grep" },
     svelte = { "prettier" },
-    css = { "prettier", "ast_grep" },
-    html = { "prettier", "ast_grep" },
-    json = { "prettier", "ast_grep" },
-    yaml = { "prettier", "ast_grep" },
-    markdown = { "prettier", "ast_grep" },
-    graphql = { "prettier", "ast_grep" },
-    lua = { "stylua" },
+    css = { "prettierd", "prettier", "ast_grep" },
+    html = { "prettierd", "prettier", "ast_grep" },
+    json = { "prettierd", "prettier", "ast_grep" },
+    yaml = { "prettierd", "prettier", "ast_grep" },
+    markdown = { "prettierd", "prettier", "ast_grep" },
+    graphql = { "prettierd", "prettier", "ast_grep" },
+    lua = { "stylua", "ast_grep" },
     python = { "isort", "black" },
   },
   format_on_save = {

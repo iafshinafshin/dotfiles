@@ -1,165 +1,139 @@
---vim.lsp.set_log_level("debug")
+-- import lspconfig plugin
+local lspconfig = require("lspconfig")
 
-local status, nvim_lsp = pcall(require, "lspconfig")
-if not status then
-	return
+-- import cmp-nvim-lsp plugin
+local cmp_nvim_lsp = require("cmp_nvim_lsp")
+
+local keymap = vim.keymap -- for conciseness
+
+local opts = { noremap = true, silent = true }
+local on_attach = function(bufnr, client)
+	opts.buffer = bufnr
+
+	-- set keybinds
+	opts.desc = "Go to declaration"
+	keymap.set("n", "gD", vim.lsp.buf.declaration, opts) -- go to declaration
+
+	opts.desc = "See available code actions"
+	keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts) -- see available code actions, in visual mode will apply to selection
+
+	opts.desc = "Smart rename"
+	keymap.set("n", "<leader>gr", vim.lsp.buf.rename, opts) -- smart rename
+
+	opts.desc = "Show line diagnostics"
+	keymap.set("n", "<leader>d", vim.diagnostic.open_float, opts) -- show diagnostics for line
+
+	opts.desc = "Go to previous diagnostic"
+	keymap.set("n", "[d", vim.diagnostic.goto_prev, opts) -- jump to previous diagnostic in buffer
+
+	opts.desc = "Go to next diagnostic"
+	keymap.set("n", "]d", vim.diagnostic.goto_next, opts) -- jump to next diagnostic in buffer
+
+	opts.desc = "Restart LSP"
+	keymap.set("n", "<leader>rs", ":LspRestart<CR>", opts) -- mapping to restart lsp if necessary
 end
 
-local protocol = require("vim.lsp.protocol")
+-- used to enable autocompletion (assign to every lsp server config)
+local capabilities = cmp_nvim_lsp.default_capabilities()
 
-local augroup_format = vim.api.nvim_create_augroup("Format", { clear = true })
-local enable_format_on_save = function(_, bufnr)
-	vim.api.nvim_clear_autocmds({ group = augroup_format, buffer = bufnr })
-	vim.api.nvim_create_autocmd("BufWritePre", {
-		group = augroup_format,
-		buffer = bufnr,
-		callback = function()
-			vim.lsp.buf.format({ bufnr = bufnr })
-		end,
-	})
-end
-
--- Use an on_attach function to only map the following keys
--- after the language server attaches to the current buffer
-local on_attach = function(client, bufnr)
-	local function buf_set_keymap(...)
-		vim.api.nvim_buf_set_keymap(bufnr, ...)
-	end
-
-	--Enable completion triggered by <c-x><c-o>
-	--local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
-	--buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
-
-	-- Mappings.
-	local opts = { noremap = true, silent = true }
-
-	-- See `:help vim.lsp.*` for documentation on any of the below functions
-	buf_set_keymap("n", "gD", "<Cmd>lua vim.lsp.buf.declaration()<CR>", opts)
-	--buf_set_keymap('n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)
-	buf_set_keymap("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
-	vim.keymap.set("n", "gr", vim.lsp.buf.rename, { desc = "Rename" }) -- smart rename
-	--buf_set_keymap('n', 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)
-end
-
-protocol.CompletionItemKind = {
-	" ",
-	"󰨙 ",
-	" ",
-	"󰘦 ",
-	" ",
-	" ",
-	" ",
-	"󰏿 ",
-	" ",
-	" ",
-	" ",
-	" ",
-	" ",
-	" ",
-	" ",
-	" ",
-	"󰊕 ",
-	" ",
-	" ",
-	" ",
-	"󰊕 ",
-	" ",
-	"󰦮 ",
-	" ",
-	"󰎠 ",
-	" ",
-	" ",
-	" ",
-	" ",
-	" ",
-	" ",
-	" ",
-	"󰆼 ",
-	"󰏚 ",
-	" ",
-	" ",
-	" ",
-	" ",
-	"󰀫 ",
-}
-
--- Set up completion using nvim_cmp with LSP source
-local capabilities = require("cmp_nvim_lsp").default_capabilities()
-
-nvim_lsp.flow.setup({
-	on_attach = on_attach,
-	capabilities = capabilities,
-})
-
-nvim_lsp.tsserver.setup({
-	on_attach = on_attach,
-	filetypes = { "typescript", "typescriptreact", "typescript.tsx" },
-	cmd = { "typescript-language-server", "--stdio" },
-	capabilities = capabilities,
-})
-
-nvim_lsp.sourcekit.setup({
-	on_attach = on_attach,
-	capabilities = capabilities,
-})
-
-nvim_lsp.lua_ls.setup({
-	capabilities = capabilities,
-	on_attach = function(client, bufnr)
-		on_attach(client, bufnr)
-		enable_format_on_save(client, bufnr)
-	end,
-	settings = {
-		Lua = {
-			diagnostics = {
-				-- Get the language server to recognize the `vim` global
-				globals = { "vim" },
-			},
-
-			workspace = {
-				-- Make the server aware of Neovim runtime files
-				library = vim.api.nvim_get_runtime_file("", true),
-				checkThirdParty = false,
-			},
-		},
-	},
-})
-
-nvim_lsp.tailwindcss.setup({
-	on_attach = on_attach,
-	capabilities = capabilities,
-})
-
-nvim_lsp.cssls.setup({
-	on_attach = on_attach,
-	capabilities = capabilities,
-})
-
-nvim_lsp.astro.setup({
-	on_attach = on_attach,
-	capabilities = capabilities,
-})
-
-vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
-	underline = true,
-	update_in_insert = false,
-	virtual_text = { spacing = 4, prefix = "\u{ea71}" },
-	severity_sort = true,
-})
-
--- Diagnostic symbols in the sign column (gutter)
-local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
+-- Change the Diagnostic symbols in the sign column (gutter)
+-- (not in youtube nvim video)   
+local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }
 for type, icon in pairs(signs) do
 	local hl = "DiagnosticSign" .. type
 	vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
 end
 
-vim.diagnostic.config({
-	virtual_text = {
-		prefix = "●",
-	},
-	update_in_insert = true,
-	float = {
-		source = "always", -- Or "if_many"
+-- configure html server
+lspconfig["html"].setup({
+	capabilities = capabilities,
+	on_attach = on_attach,
+})
+
+-- configure typescript server with plugin
+lspconfig["tsserver"].setup({
+	capabilities = capabilities,
+	on_attach = on_attach,
+})
+
+-- php
+lspconfig["intelephense"].setup({
+	capabilities = capabilities,
+	on_attach = on_attach,
+})
+
+-- configure css server
+lspconfig["cssls"].setup({
+	capabilities = capabilities,
+	on_attach = on_attach,
+})
+
+-- configure tailwindcss server
+lspconfig["tailwindcss"].setup({
+	capabilities = capabilities,
+	on_attach = on_attach,
+})
+
+-- configure svelte server
+lspconfig["svelte"].setup({
+	capabilities = capabilities,
+	on_attach = function(client, bufnr)
+		on_attach(client, bufnr)
+
+		vim.api.nvim_create_autocmd("BufWritePost", {
+			pattern = { "*.js", "*.ts" },
+			callback = function(ctx)
+				if client.name == "svelte" then
+					client.notify("$/onDidChangeTsOrJsFile", { uri = ctx.file })
+				end
+			end,
+		})
+	end,
+})
+
+-- configure prisma orm server
+lspconfig["prismals"].setup({
+	capabilities = capabilities,
+	on_attach = on_attach,
+})
+
+-- configure graphql language server
+lspconfig["graphql"].setup({
+	capabilities = capabilities,
+	on_attach = on_attach,
+	filetypes = { "graphql", "gql", "svelte", "typescriptreact", "javascriptreact" },
+})
+
+-- configure emmet language server
+lspconfig["emmet_ls"].setup({
+	capabilities = capabilities,
+	on_attach = on_attach,
+	filetypes = { "html", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less", "svelte" },
+})
+
+-- configure python server
+lspconfig["pyright"].setup({
+	capabilities = capabilities,
+	on_attach = on_attach,
+})
+
+-- configure lua server (with special settings)
+lspconfig["lua_ls"].setup({
+	capabilities = capabilities,
+	on_attach = on_attach,
+	settings = { -- custom settings for lua
+		Lua = {
+			-- make the language server recognize "vim" global
+			diagnostics = {
+				globals = { "vim" },
+			},
+			workspace = {
+				-- make language server aware of runtime files
+				library = {
+					[vim.fn.expand("$VIMRUNTIME/lua")] = true,
+					[vim.fn.stdpath("config") .. "/lua"] = true,
+				},
+			},
+		},
 	},
 })

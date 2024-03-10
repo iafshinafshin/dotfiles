@@ -1,6 +1,7 @@
 local status, lint = pcall(require, "lint")
-if not status then return end
-
+if not status then
+  return
+end
 
 lint.linters_by_ft = {
   javascript = { "eslint_d" },
@@ -8,7 +9,10 @@ lint.linters_by_ft = {
   javascriptreact = { "eslint_d" },
   typescriptreact = { "eslint_d" },
   svelte = { "eslint_d" },
-  python = { "pylint" },
+  python = { "pylint", "pylama" },
+  -- lua = { "luacheck" },
+  markdown = { "markdownlint" },
+  bash = { "shellcheck" },
 }
 
 local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })

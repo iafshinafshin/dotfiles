@@ -11,8 +11,8 @@ end
 
 function fzf_change_directory
     begin
+        echo $HOME/.ghq/github.com/iafshinafshin/dotfiles/.config/nvim-packer
         echo $HOME/.config
-        echo $HOME/.ghq/github.com/iafshinafshin/dotfiles/.config/nvim/
         find $(ghq root) -maxdepth 4 -type d -name .git | sed 's/\/\.git//'
         ls -ad */ | perl -pe "s#^#$PWD/#" | grep -v \.git
         # ls -ad $HOME/Developments/*/* |grep -v \.git

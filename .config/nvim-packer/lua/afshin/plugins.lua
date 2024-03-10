@@ -30,10 +30,12 @@ packer.startup(function(use)
 
 	use("onsails/lspkind-nvim") -- vscode-like pictograms
 	-- lsp configs
+	use("nvimtools/none-ls.nvim")
 	use("jose-elias-alvarez/null-ls.nvim") -- Use Neovim as a language server to inject LSP diagnostics, code actions, and more via Lua
 
 	-- LSP Support
 	use("neovim/nvim-lspconfig")
+	use({ "antosha417/nvim-lsp-file-operations", config = true })
 	use("williamboman/mason.nvim")
 	use("williamboman/mason-lspconfig.nvim")
 	use("WhoIsSethDaniel/mason-tool-installer.nvim")
@@ -103,6 +105,29 @@ packer.startup(function(use)
 		},
 	})
 	use("mrjones2014/legendary.nvim")
+	use({
+		"kevinhwang91/nvim-ufo",
+		requires = "kevinhwang91/promise-async",
+		config = function()
+			require("ufo").setup({
+				provider_selector = function()
+					return { "indent" }
+					-- return { "lsp", "indent" }
+				end,
+			})
+			vim.o.foldcolumn = "2"
+			vim.o.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
+			vim.o.foldlevelstart = 99
+			vim.o.foldenable = true
+			vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
+
+			vim.keymap.set("n", "zR", require("ufo").openAllFolds)
+			vim.keymap.set("n", "zM", require("ufo").closeAllFolds)
+			vim.keymap.set("n", "zr", require("ufo").openFoldsExceptKinds)
+			vim.keymap.set("n", "zm", require("ufo").closeFoldsWith) -- closeAllFolds == closeFoldsWith(0)
+			vim.keymap.set("n", "zk", require("ufo").peekFoldedLinesUnderCursor)
+		end,
+	})
 	use("hinell/duplicate.nvim")
 	use("windwp/nvim-autopairs")
 	use("windwp/nvim-ts-autotag")
@@ -145,53 +170,63 @@ packer.startup(function(use)
 		end,
 	})
 	use("folke/which-key.nvim")
+	-- use({
+	-- 	"folke/noice.nvim",
+	-- 	opts = {
+	-- 		lsp = {
+	-- 			override = {
+	-- 				["vim.lsp.util.convert_input_to_markdown_lines"] = true,
+	-- 				["vim.lsp.util.stylize_markdown"] = true,
+	-- 				["cmp.entry.get_documentation"] = true,
+	-- 			},
+	-- 		},
+	-- 		-- you can enable a preset for easier configuration
+	-- 		presets = {
+	-- 			bottom_search = true, -- use a classic bottom cmdline for search
+	-- 			command_palette = true, -- position the cmdline and popupmenu together
+	-- 			long_message_to_split = true, -- long messages will be sent to a split
+	-- 			inc_rename = true, -- enables an input dialog for inc-rename.nvim
+	-- 			lsp_doc_border = true, -- add a border to hover docs and signature help
+	-- 		},
+	-- 		messages = {
+	-- 			enabled = true, -- enables the Noice messages UI
+	-- 			view = "notify", -- default view for messages
+	-- 			view_error = "notify", -- view for errors
+	-- 			view_warn = "notify", -- view for warnings
+	-- 			view_history = "messages", -- view for :messages
+	-- 			view_search = "virtualtext", -- view for search count messages. Set to `false` to disable
+	-- 		},
+	-- 		routes = {
+	-- 			{
+	-- 				filter = {
+	-- 					event = "msg_show",
+	-- 					any = {
+	-- 						{ find = "%d+L, %d+B" },
+	-- 						{ find = "; after #%d+" },
+	-- 						{ find = "; before #%d+" },
+	-- 					},
+	-- 				},
+	-- 				view = "mini",
+	-- 			},
+	-- 		},
+	-- 	},
+	-- 	requires = {
+	-- 	},
+	-- })
+	use("MunifTanjim/nui.nvim")
 	use({
-		"folke/noice.nvim",
+		"rcarriga/nvim-notify",
 		opts = {
-			lsp = {
-				override = {
-					["vim.lsp.util.convert_input_to_markdown_lines"] = true,
-					["vim.lsp.util.stylize_markdown"] = true,
-					["cmp.entry.get_documentation"] = true,
-				},
-			},
-			routes = {
-				{
-					filter = {
-						event = "msg_show",
-						any = {
-							{ find = "%d+L, %d+B" },
-							{ find = "; after #%d+" },
-							{ find = "; before #%d+" },
-						},
-					},
-					view = "mini",
-				},
-			},
-			presets = {
-				bottom_search = true,
-				command_palette = true,
-				long_message_to_split = true,
-				inc_rename = true,
-			},
-		},
-		requires = {
-			"MunifTanjim/nui.nvim",
-			{
-				"rcarriga/nvim-notify",
-				opts = {
-					timeout = 3000,
-					max_height = function()
-						return math.floor(vim.o.lines * 0.75)
-					end,
-					max_width = function()
-						return math.floor(vim.o.columns * 0.75)
-					end,
-					on_open = function(win)
-						vim.api.nvim_win_set_config(win, { zindex = 100 })
-					end,
-				},
-			},
+			timeout = 3000,
+			max_height = function()
+				return math.floor(vim.o.lines * 0.75)
+			end,
+			max_width = function()
+				return math.floor(vim.o.columns * 0.75)
+			end,
+			on_open = function(win)
+				vim.api.nvim_win_set_config(win, { zindex = 100 })
+			end,
 		},
 	})
 	use("NvChad/nvim-colorizer.lua")
@@ -208,4 +243,5 @@ packer.startup(function(use)
 	use("lewis6991/gitsigns.nvim")
 	use("dinhhuy258/git.nvim") -- For git blame & browse
 	use("kdheepak/lazygit.nvim")
+	use({ "luukvbaal/statuscol.nvim", event = { "BufReadPre", "BufNewFile" } })
 end)

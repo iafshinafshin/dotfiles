@@ -6,7 +6,7 @@ local opts = { noremap = true, silent = true }
 
 -- keymap.set("n", "<space>", "<Leader>")
 keymap.set("n", "<leader>uL", function()
-	require("lazyvim.util").toggle("relativenumber")
+  require("lazyvim.util").toggle("relativenumber")
 end, { desc = "Toggle Relative Line Numbers" })
 -- Do things without affecting the registers
 keymap.set("n", "x", '"_x')
@@ -74,9 +74,11 @@ keymap.set("n", "sh", "<C-w>h")
 keymap.set("n", "sk", "<C-w>k")
 keymap.set("n", "sj", "<C-w>j")
 keymap.set("n", "sl", "<C-w>l")
--- Resize window keymap.set("n", "<C-w><left>", "<C-w><") keymap.set("n", "<C-w><right>", "<C-w>>")
-keymap.set("n", "<C-w><up>", "<C-w>+")
-keymap.set("n", "<C-w><down>", "<C-w>-")
+-- Resize window
+keymap.set("n", "<C-right>", "<C-w><")
+keymap.set("n", "<C-left>", "<C-w>>")
+keymap.set("n", "<C-down>", "<C-w>+")
+keymap.set("n", "<C-up>", "<C-w>-")
 
 -- my config
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
@@ -85,7 +87,7 @@ vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 -- hsl(41, 95, 59)
 --
 -- hsl(200 30 64)
--- rgb(27 160 189)
+-- rgb(15 86 102)
 
 -- keymap.set("n", "<leader>r", function()
 -- 	require("craftzdog.hsl").replaceHexWithHSL()
