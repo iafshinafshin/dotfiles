@@ -222,11 +222,12 @@ return {
 					local Path = require("plenary.path")
 					local config = require("session_manager.config")
 					require("session_manager").setup({
-						sessions_dir = Path:new(vim.fn.stdpath("data"), "sessions"), -- The directory where the session files will be saved.
+						sessions_dir = require("plenary.path"):new(vim.fn.stdpath("data"), "sessions"), -- The directory where the session files will be saved.
 						session_filename_to_dir = session_filename_to_dir, -- Function that replaces symbols into separators and colons to transform filename into a session directory.
 						dir_to_session_filename = dir_to_session_filename, -- Function that replaces separators and colons into special symbols to transform session directory into a filename. Should use `vim.loop.cwd()` if the passed `dir` is `nil`.
-						autoload_mode = config.AutoloadMode.LastSession, -- Define what to do when Neovim is started without arguments. Possible values: Disabled, CurrentDir, LastSession
-						autosave_last_session = true, -- Automatically save last session on exit and on session switch.
+						autoload_mode = false, -- Define what to do when Neovim is started without arguments. Possible values: Disabled, CurrentDir, LastSession
+						-- autoload_mode = config.AutoloadMode.LastSession,             -- Define what to do when Neovim is started without arguments. Possible values: Disabled, CurrentDir, LastSession
+						autosave_last_session = false, -- Automatically save last session on exit and on session switch.
 						autosave_ignore_not_normal = true, -- Plugin will not save a session when no buffers are opened, or all of them aren't writable or listed.
 						autosave_ignore_dirs = {}, -- A list of directories where the session will not be autosaved.
 						autosave_ignore_filetypes = { -- All buffers of these file types will be closed before the session is saved.
@@ -245,14 +246,28 @@ return {
 		opts = {
 			projects = { -- define project roots
 				"~/.ghq/github.com/iafshinafshin/*",
-				"~/.ghq/gitlab.com/*",
-				"~/.config/*",
+				"~/.ghq/github.com/iafshinafshin/dotfiles/.config/*",
 			},
 		},
 		init = function()
 			-- enable saving the state of plugins in the session
 			vim.opt.sessionoptions:append("globals") -- save global variables that start with an uppercase letter and contain at least one lowercase letter.
 		end,
+		keys = {
+
+			{
+				description = "find a project based on patterns",
+				mode = { "n" },
+				"<leader>ad",
+				"<CMD>Telescope neovim-project discover<CR>",
+			},
+			{
+				description = "select a project from your recent history",
+				mode = { "n" },
+				"<leader>ap",
+				"<CMD>Telescope neovim-project history<CR>",
+			},
+		},
 	},
 	{
 		"mrjones2014/legendary.nvim",
@@ -290,18 +305,6 @@ return {
 					"<CMD>VisualDuplicate +1<CR>",
 				},
 				-- project
-				{
-					description = "find a project based on patterns",
-					mode = { "n" },
-					"<leader>ad",
-					"<CMD>Telescope neovim-project discover<CR>",
-				},
-				{
-					description = "select a project from your recent history",
-					mode = { "n" },
-					"<leader>ap",
-					"<CMD>Telescope neovim-project history<CR>",
-				},
 			})
 		end,
 	},

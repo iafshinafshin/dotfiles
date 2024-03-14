@@ -5,7 +5,7 @@ end
 
 lualine.setup({
 	options = {
-		globalstatus = true,
+		globalstatus = false,
 		theme = "solarized_dark",
 		-- theme = "rose-pine",
 		-- theme = "tokyonight",

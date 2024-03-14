@@ -1,6 +1,7 @@
 return {
 	{
 		"nvim-tree/nvim-tree.lua",
+		lazy = true,
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 		config = function()
 			local nvimtree = require("nvim-tree")
@@ -59,11 +60,12 @@ return {
 	},
 	{
 		"mbbill/undotree",
-		lazy = true,
+		lazy = false,
+		opts = {},
 		config = function()
+			-- require("undotree").setup({})
 			local keymap = vim.keymap -- for conciseness
-
-			keymap.set("n", "<leader>eu", "<cmd>NvimTreeToggle<CR>", { desc = "Undo Tree" }) -- toggle file explorer
+			keymap.set("n", "<leader>eu", ":UndotreeToggle<Return>", { desc = "Undo Tree" }) -- toggle file explorer
 		end,
 	},
 }

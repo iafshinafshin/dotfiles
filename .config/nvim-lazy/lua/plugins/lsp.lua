@@ -6,8 +6,8 @@ return {
 			"williamboman/mason-lspconfig.nvim",
 			"WhoIsSethDaniel/mason-tool-installer.nvim",
 		},
-		opts = function(_, opts)
-			vim.list_extend(opts.ensure_installed, {
+		opts = {
+			ensure_installed = {
 				"prettier", -- prettier formatter
 				"stylua",
 				"selene",
@@ -34,9 +34,8 @@ return {
 				"taplo",
 				"easy-coding-standard",
 				"intelephense",
-			})
-		end,
-
+			},
+		},
 		config = function()
 			local mason = require("mason")
 			mason.setup({
@@ -72,44 +71,39 @@ return {
 				opts.buffer = bufnr
 
 				-- set keybinds
-				opts.desc = "Show LSP references"
-				keymap.set("n", "gR", "<cmd>Telescope lsp_references<CR>", opts) -- show definition, references
-
-				opts.desc = "Go to declaration"
-				keymap.set("n", "gD", vim.lsp.buf.declaration, opts) -- go to declaration
-
-				opts.desc = "Show LSP definitions"
-				keymap.set("n", "gd", "<cmd>Telescope lsp_definitions<CR>", opts) -- show lsp definitions
-
-				opts.desc = "Show LSP implementations"
-				keymap.set("n", "gi", "<cmd>Telescope lsp_implementations<CR>", opts) -- show lsp implementations
-
-				opts.desc = "Show LSP type definitions"
-				keymap.set("n", "gt", "<cmd>Telescope lsp_type_definitions<CR>", opts) -- show lsp type definitions
-
-				opts.desc = "See available code actions"
-				keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts) -- see available code actions, in visual mode will apply to selection
-
-				opts.desc = "Smart rename"
-				keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts) -- smart rename
-
-				opts.desc = "Show buffer diagnostics"
-				keymap.set("n", "<leader>D", "<cmd>Telescope diagnostics bufnr=0<CR>", opts) -- show  diagnostics for file
-
-				opts.desc = "Show line diagnostics"
-				keymap.set("n", "<leader>d", vim.diagnostic.open_float, opts) -- show diagnostics for line
-
-				opts.desc = "Go to previous diagnostic"
-				keymap.set("n", "[d", vim.diagnostic.goto_prev, opts) -- jump to previous diagnostic in buffer
-
-				opts.desc = "Go to next diagnostic"
-				keymap.set("n", "]d", vim.diagnostic.goto_next, opts) -- jump to next diagnostic in buffer
-
-				opts.desc = "Show documentation for what is under cursor"
-				keymap.set("n", "K", vim.lsp.buf.hover, opts) -- show documentation for what is under cursor
-
-				opts.desc = "Restart LSP"
-				keymap.set("n", "<leader>rs", ":LspRestart<CR>", opts) -- mapping to restart lsp if necessary
+				-- 	opts.desc = "Show LSP references"
+				-- 	keymap.set("n", "gR", "<cmd>Telescope lsp_references<CR>", opts) -- show definition, references
+				--
+				-- 	opts.desc = "Go to declaration"
+				-- 	keymap.set("n", "gD", vim.lsp.buf.declaration, opts) -- go to declaration
+				--
+				-- 	opts.desc = "Show LSP definitions"
+				-- 	keymap.set("n", "gd", "<cmd>Telescope lsp_definitions<CR>", opts) -- show lsp definitions
+				--
+				-- 	opts.desc = "Show LSP implementations"
+				-- 	keymap.set("n", "gi", "<cmd>Telescope lsp_implementations<CR>", opts) -- show lsp implementations
+				--
+				-- 	opts.desc = "Show LSP type definitions"
+				-- 	keymap.set("n", "gt", "<cmd>Telescope lsp_type_definitions<CR>", opts) -- show lsp type definitions
+				--
+				-- 	opts.desc = "See available code actions"
+				-- 	keymap.set({ "n", "v" }, "<leader>ac", vim.lsp.buf.code_action, opts) -- see available code actions, in visual mode will apply to selection
+				--
+				-- 	opts.desc = "Smart rename"
+				-- 	keymap.set("n", "gr", vim.lsp.buf.rename, opts) -- smart rename
+				--
+				-- 	opts.desc = "Show line diagnostics"
+				-- 	keymap.set("n", "G", vim.diagnostic.open_float, opts) -- show diagnostics for line
+				--
+				-- 	opts.desc = "Go to previous diagnostic"
+				-- 	keymap.set("n", "[d", vim.diagnostic.goto_prev, opts) -- jump to previous diagnostic in buffer
+				--
+				-- 	opts.desc = "Go to next diagnostic"
+				-- 	keymap.set("n", "]d", vim.diagnostic.goto_next, opts) -- jump to next diagnostic in buffer
+				-- 	keymap.set("n", "<C-j>", vim.diagnostic.goto_next) -- jump to next diagnostic in buffer
+				--
+				-- 	opts.desc = "Restart LSP"
+				-- 	keymap.set("n", "<leader>lr", ":LspRestart<CR>", opts) -- mapping to restart lsp if necessary
 			end
 
 			-- used to enable autocompletion (assign to every lsp server config)
@@ -222,19 +216,20 @@ return {
 
 			conform.setup({
 				formatters_by_ft = {
-					javascript = { "prettier" },
-					typescript = { "prettier" },
-					javascriptreact = { "prettier" },
-					typescriptreact = { "prettier" },
+					javascript = { "prettierd", "prettier", "ast_grep" },
+					typescript = { "prettierd", "prettier", "ast_grep" },
+					javascriptreact = { "prettierd", "prettier", "ast_grep" },
+					typescriptreact = { "prettierd", "prettier", "ast_grep" },
 					svelte = { "prettier" },
-					css = { "prettier" },
-					html = { "prettier" },
-					json = { "prettier" },
-					yaml = { "prettier" },
-					markdown = { "prettier" },
-					graphql = { "prettier" },
-					lua = { "stylua" },
+					css = { "prettierd", "prettier", "ast_grep" },
+					html = { "prettierd", "prettier", "ast_grep" },
+					json = { "prettierd", "prettier", "ast_grep" },
+					yaml = { "prettierd", "prettier", "ast_grep" },
+					markdown = { "prettierd", "prettier", "ast_grep" },
+					graphql = { "prettierd", "prettier", "ast_grep" },
+					lua = { "stylua", "ast_grep" },
 					python = { "isort", "black" },
+					rust = { "rust-analyzer" },
 				},
 				format_on_save = {
 					lsp_fallback = true,
@@ -266,7 +261,10 @@ return {
 				javascriptreact = { "eslint_d" },
 				typescriptreact = { "eslint_d" },
 				svelte = { "eslint_d" },
-				python = { "pylint" },
+				python = { "pylint", "pylama" },
+				-- lua = { "luacheck" },
+				markdown = { "markdownlint" },
+				bash = { "shellcheck" },
 			}
 
 			local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })
@@ -281,6 +279,71 @@ return {
 			vim.keymap.set("n", "<leader>llr", function()
 				lint.try_lint()
 			end, { desc = "Trigger linting for current file" })
+		end,
+	},
+	{
+		"nvimdev/lspsaga.nvim",
+    lazy = false,
+		config = function()
+			require("lspsaga").setup({
+				symbol_in_winbar = {
+					enable = true,
+					separator = "  ",
+					show_file = true,
+					folder_level = 0,
+					color_mode = true,
+				},
+				ui = {
+					border = "rounded",
+					enable = true,
+				},
+				lightbulb = {
+					enable = false,
+				},
+				outline = {
+					layout = "float",
+				},
+			})
+
+			local opts = { noremap = true, silent = true }
+			vim.keymap.set("n", "<C-j>", "<Cmd>Lspsaga diagnostic_jump_next<CR>", opts)
+			vim.keymap.set("n", "]d", "<Cmd>Lspsaga diagnostic_jump_next<CR>", opts)
+			vim.keymap.set("n", "[d", "<Cmd>Lspsaga diagnostic_jump_prev<CR>", opts)
+			vim.keymap.set("n", "gl", "<Cmd>Lspsaga show_line_diagnostics<CR>", opts)
+			vim.keymap.set("n", "K", "<Cmd>Lspsaga hover_doc<CR>", opts)
+			vim.keymap.set("n", "gd", "<Cmd>Lspsaga finder<CR>", opts)
+			vim.keymap.set("n", "gt", "<Cmd>Lspsaga goto_type_definition<CR>", opts)
+			-- vim.keymap.set('i', '<C-k>', '<Cmd>Lspsaga signature_help<CR>', opts)
+			vim.keymap.set("i", "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
+			vim.keymap.set("n", "gp", "<Cmd>Lspsaga peek_definition<CR>", opts)
+			-- vim.keymap.set("n", "gr", "<Cmd>Lspsaga rename<CR>", opts)
+			vim.keymap.set("n", "gr", vim.lsp.buf.rename, { desc = "Rename" }, opts) -- smart rename
+    -- error lens
+    vim.fn.sign_define {
+      {
+        name = 'DiagnosticSignError',
+        text = '',
+        texthl = 'DiagnosticSignError',
+        linehl = 'ErrorLine',
+      },
+      {
+        name = 'DiagnosticSignWarn',
+        text = '',
+        texthl = 'DiagnosticSignWarn',
+        linehl = 'WarningLine',
+      },
+      {
+        name = 'DiagnosticSignInfo',
+        text = '',
+        texthl = 'DiagnosticSignInfo',
+        linehl = 'InfoLine',
+      },
+      {
+        name = 'DiagnosticSignHint',
+        text = '',
+        texthl = 'DiagnosticSignHint',
+        linehl = 'HintLine',
+      },}
 		end,
 	},
 }

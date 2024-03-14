@@ -5,27 +5,39 @@ return {
 	config = function()
 		local alpha = require("alpha")
 		local dashboard = require("alpha.themes.dashboard")
+		local logo = [[
 
+        ███████╗██╗   ██╗███╗   ██╗        ██╗     ██╗███████╗███████╗    
+        ██╔════╝██║   ██║████╗  ██║        ██║     ██║██╔════╝██╔════╝    
+        █████╗  ██║   ██║██╔██╗ ██║█████╗  ██║     ██║█████╗  █████╗      
+        ██╔══╝  ██║   ██║██║╚██╗██║╚════╝  ██║     ██║██╔══╝  ██╔══╝      
+        ██║     ╚██████╔╝██║ ╚████║███████╗███████╗██║██║     ███████╗    
+        ╚═╝      ╚═════╝ ╚═╝  ╚═══╝╚══════╝╚══════╝╚═╝╚═╝     ╚══════╝    
+      ]]
+		logo = string.rep("\n", 8) .. logo
 		-- Set header
-		dashboard.section.header.val = {
-			"                                                     ",
-			"  ███╗   ██╗███████╗ ██████╗ ██╗   ██╗██╗███╗   ███╗ ",
-			"  ████╗  ██║██╔════╝██╔═══██╗██║   ██║██║████╗ ████║ ",
-			"  ██╔██╗ ██║█████╗  ██║   ██║██║   ██║██║██╔████╔██║ ",
-			"  ██║╚██╗██║██╔══╝  ██║   ██║╚██╗ ██╔╝██║██║╚██╔╝██║ ",
-			"  ██║ ╚████║███████╗╚██████╔╝ ╚████╔╝ ██║██║ ╚═╝ ██║ ",
-			"  ╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝ ",
-			"                                                     ",
-		}
+		dashboard.section.header.val = vim.split(logo, "\n")
+		-- dashboard.section.header.val = {
+		-- 	"                                                     ",
+		-- 	"  ███╗   ██╗███████╗ ██████╗ ██╗   ██╗██╗███╗   ███╗ ",
+		-- 	"  ████╗  ██║██╔════╝██╔═══██╗██║   ██║██║████╗ ████║ ",
+		-- 	"  ██╔██╗ ██║█████╗  ██║   ██║██║   ██║██║██╔████╔██║ ",
+		-- 	"  ██║╚██╗██║██╔══╝  ██║   ██║╚██╗ ██╔╝██║██║╚██╔╝██║ ",
+		-- 	"  ██║ ╚████║███████╗╚██████╔╝ ╚████╔╝ ██║██║ ╚═╝ ██║ ",
+		-- 	"  ╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝ ",
+		-- 	"                                                     ",
+		-- }
 
 		-- Set menu
 		dashboard.section.buttons.val = {
-			dashboard.button("e", "  : New File", "<cmd>ene<CR>"),
-			dashboard.button("SPC e", "  : Toggle file explorer", "<cmd>NvimTreeToggle<CR>"),
-			dashboard.button("SPC f", "󰱼  : Find File", ";f"),
-			dashboard.button("SPC r", "  : Find Word", ";r"),
-			dashboard.button("SPC s", "󰁯  : Restore Session For Current Directory", "<cmd>SessionRestore<CR>"),
-			dashboard.button("q", "  : Quit NVIM", "<cmd>qa<CR>"),
+			dashboard.button("n", "  : New File", "<cmd>ene<CR>"),
+			dashboard.button("e", "  : Toggle file explorer", ":NvimTreeToggle<Return>"),
+			dashboard.button("pd", "󰺧  : Discover Projects", ":Telescope neovim-project discover<Return>"),
+			dashboard.button("pr", "󰺯  : Recent Projects", ":Telescope neovim-project<Return>"),
+			dashboard.button("f", "󰱼  : Find File", ";f"),
+			dashboard.button("r", "  : Find Word", ";r"),
+			-- dashboard.button("SPC s", "󰁯  : Restore Session For Current Directory", "SessionRestore"),
+			dashboard.button("q", "  : Quit ", "<cmd>qa<CR>"),
 		}
 
 		-- Send config to alpha

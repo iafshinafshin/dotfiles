@@ -9,7 +9,7 @@ set -g theme_display_user yes
 set -g theme_hide_hostname no
 set -g theme_hostname always
 
-alias ll="exa --icons -lrh -t=changed "
+alias ls="exa --icons -lrh -t=changed "
 alias la="exa --icons -lrh -a -t=changed "
 alias l="exa --icons "
 alias nv="nvim "

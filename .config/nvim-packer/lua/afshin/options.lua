@@ -14,7 +14,7 @@ vim.opt.updatetime = 200
 vim.opt.cursorline = true
 vim.opt.signcolumn = "yes"
 vim.opt.relativenumber = true
--- vim.opt.signcolumn = "yes" -- Always show the signcolumn, otherwise it would shift the text each time
+-- .signcolumn = "yes" -- Always show the signcolumn, otherwise it would shift the text each time
 
 vim.opt.splitbelow = true -- Put new windows below current
 vim.opt.splitright = true -- Put new windows right of current
