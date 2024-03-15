@@ -36,10 +36,9 @@ keymap.set("n", "<leader>as", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Lef
 -- Select all
 keymap.set("n", "<C-a>", "gg<S-v>G")
 
--- keymap.set("n", "i", "a", opts)
+keymap.set("n", "<leader>ad", "<CMD>Telescope neovim-project discover<CR>", opts)
+keymap.set("n", "<leader>ah", "<CMD>Telescope neovim-project history<CR>", opts)
 keymap.set("n", "<Esc>", ":nohl<Return>", opts)
-
-vim.keymap.set("n", "<Leader>vm", ":MaximizerToggle<Return>", { desc = "Max Currnet Window Split" }, opts)
 
 -- Save with root permission (not working for now)
 vim.api.nvim_create_user_command("W", "w !sudo tee > /dev/null %", {})

@@ -63,7 +63,7 @@ return {
 				},
 			})
 
-			-- telescope.load_extension("file_browser")
+			telescope.load_extension("file_browser")
 
 			vim.keymap.set("n", ";f", function()
 				builtin.find_files({

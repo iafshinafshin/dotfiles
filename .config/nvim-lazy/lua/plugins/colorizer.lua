@@ -50,21 +50,16 @@ return {
 		"uga-rosa/ccc.nvim",
 		event = { "BufReadPre", "BufNewFile" },
 		lazy = true,
-		keys = {
-			{
-				"sc",
-				":CccConvert<Return>",
-				desc = "Replace Current Value With (Rgb, Hsl, Hex)",
-			},
-			{
-				"sp",
-				":CccPick<Return>",
-				desc = "Color Picker",
-			},
-		},
-		config = {
-			-- point_char = "󰄮", --   ■ 󰄮 ▓ ▚ █ ▣ ▮ ▯ ╳ ╬ ╋ 🞠 ⋈ 󰣏
-			-- bar_char = "󰄮",
-		},
+		config = function()
+			local keymap = vim.keymap
+			local opts = { noremap = true, silent = true }
+			keymap.set("n", "sc", ":CccConvert<Return>", { desc = "Replace Current Value With (Rgb, Hsl, Hex)" }, opts)
+			keymap.set("n", "sp", ":CccPick<Return>", { desc = "Color Picker" }, opts)
+			require("ccc").setup({
+				highlighter = { auto_enable = true, lsp = true },
+				point_char = "■", --   ■ 󰄮 ▓ ▚ █ ▣ ▮ ▯ ╳ ╬ ╋ 🞠 ⋈ 󰣏
+				-- bar_char = "󰄮",
+			})
+		end,
 	},
 }

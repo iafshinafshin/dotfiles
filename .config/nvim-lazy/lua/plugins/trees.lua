@@ -1,7 +1,8 @@
 return {
 	{
 		"nvim-tree/nvim-tree.lua",
-		lazy = true,
+		-- lazy = true,
+		event = { "BufReadPre", "BufNewFile" },
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 		config = function()
 			local nvimtree = require("nvim-tree")
@@ -17,8 +18,10 @@ return {
 			-- configure nvim-tree
 			nvimtree.setup({
 				view = {
-					width = 35,
-					relativenumber = true,
+					width = 30,
+					relativenumber = false,
+					number = false,
+					signcolumn = "no",
 				},
 				-- change folder arrow icons
 				renderer = {
@@ -27,9 +30,30 @@ return {
 					},
 					icons = {
 						glyphs = {
+							default = "",
+							symlink = "",
+							bookmark = "󰆤",
+							modified = "●",
 							folder = {
+								-- arrow_closed = "",
+								-- arrow_open = "",
 								arrow_closed = "", -- arrow when folder is closed
 								arrow_open = "", -- arrow when folder is open
+								default = "",
+								open = "",
+								empty = "",
+								empty_open = "",
+								symlink = "",
+								symlink_open = "",
+							},
+							git = {
+								unstaged = "󰄱",
+								staged = "",
+								unmerged = "",
+								renamed = "➜",
+								untracked = "",
+								deleted = "✖",
+								ignored = "",
 							},
 						},
 					},
@@ -61,7 +85,7 @@ return {
 	{
 		"mbbill/undotree",
 		lazy = false,
-		opts = {},
+		event = { "BufReadPre", "BufNewFile" },
 		config = function()
 			-- require("undotree").setup({})
 			local keymap = vim.keymap -- for conciseness
