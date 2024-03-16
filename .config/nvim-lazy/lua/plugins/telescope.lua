@@ -1,14 +1,13 @@
 return {
 	{
 		"nvim-telescope/telescope.nvim",
+		event = { "BufReadPre", "BufNewFile" },
+		lazy = false,
 		dependencies = {
 			"nvim-telescope/telescope-file-browser.nvim",
 		},
 		config = function()
-			local status, telescope = pcall(require, "telescope")
-			if not status then
-				return
-			end
+			local telescope = require("telescope")
 			local actions = require("telescope.actions")
 			local builtin = require("telescope.builtin")
 

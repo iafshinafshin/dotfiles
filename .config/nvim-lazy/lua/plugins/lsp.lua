@@ -11,6 +11,8 @@ return {
 				"prettier", -- prettier formatter
 				"stylua",
 				"selene",
+				"phpcbf",
+				"jq",
 				"luacheck",
 				"shellcheck",
 				"shfmt",
@@ -221,15 +223,17 @@ return {
 					javascriptreact = { "prettierd", "prettier", "ast_grep" },
 					typescriptreact = { "prettierd", "prettier", "ast_grep" },
 					svelte = { "prettier" },
+					php = { "phpcbf" },
 					css = { "prettierd", "prettier", "ast_grep" },
 					html = { "prettierd", "prettier", "ast_grep" },
-					json = { "prettierd", "prettier", "ast_grep" },
+					json = { "prettierd", "prettier", "ast_grep", "jq" },
 					yaml = { "prettierd", "prettier", "ast_grep" },
 					markdown = { "prettierd", "prettier", "ast_grep" },
 					graphql = { "prettierd", "prettier", "ast_grep" },
 					lua = { "stylua", "ast_grep" },
-					python = { "isort", "black" },
+					python = { "isort", "black", "ast_grep" },
 					rust = { "rust-analyzer" },
+					bash = { "beautysh", "shfmt" },
 				},
 				format_on_save = {
 					lsp_fallback = true,
@@ -262,7 +266,7 @@ return {
 				typescriptreact = { "eslint_d" },
 				svelte = { "eslint_d" },
 				python = { "pylint", "pylama" },
-				-- lua = { "luacheck" },
+				lua = { "luacheck" },
 				markdown = { "markdownlint" },
 				bash = { "shellcheck" },
 			}
@@ -283,7 +287,7 @@ return {
 	},
 	{
 		"nvimdev/lspsaga.nvim",
-    lazy = false,
+		lazy = false,
 		config = function()
 			require("lspsaga").setup({
 				symbol_in_winbar = {
@@ -318,32 +322,33 @@ return {
 			vim.keymap.set("n", "gp", "<Cmd>Lspsaga peek_definition<CR>", opts)
 			-- vim.keymap.set("n", "gr", "<Cmd>Lspsaga rename<CR>", opts)
 			vim.keymap.set("n", "gr", vim.lsp.buf.rename, { desc = "Rename" }, opts) -- smart rename
-    -- error lens
-    vim.fn.sign_define {
-      {
-        name = 'DiagnosticSignError',
-        text = '',
-        texthl = 'DiagnosticSignError',
-        linehl = 'ErrorLine',
-      },
-      {
-        name = 'DiagnosticSignWarn',
-        text = '',
-        texthl = 'DiagnosticSignWarn',
-        linehl = 'WarningLine',
-      },
-      {
-        name = 'DiagnosticSignInfo',
-        text = '',
-        texthl = 'DiagnosticSignInfo',
-        linehl = 'InfoLine',
-      },
-      {
-        name = 'DiagnosticSignHint',
-        text = '',
-        texthl = 'DiagnosticSignHint',
-        linehl = 'HintLine',
-      },}
+			-- error lens
+			vim.fn.sign_define({
+				{
+					name = "DiagnosticSignError",
+					text = "",
+					texthl = "DiagnosticSignError",
+					linehl = "ErrorLine",
+				},
+				{
+					name = "DiagnosticSignWarn",
+					text = "",
+					texthl = "DiagnosticSignWarn",
+					linehl = "WarningLine",
+				},
+				{
+					name = "DiagnosticSignInfo",
+					text = "",
+					texthl = "DiagnosticSignInfo",
+					linehl = "InfoLine",
+				},
+				{
+					name = "DiagnosticSignHint",
+					text = "",
+					texthl = "DiagnosticSignHint",
+					linehl = "HintLine",
+				},
+			})
 		end,
 	},
 }

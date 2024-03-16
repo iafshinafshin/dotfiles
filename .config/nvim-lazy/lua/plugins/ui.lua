@@ -2,6 +2,7 @@ return {
 	{
 		"stevearc/dressing.nvim",
 		event = "VeryLazy",
+		lazy = "VeryLazy",
 	},
 	{
 		"folke/noice.nvim",

@@ -1,8 +1,8 @@
 return {
 	{
 		"nvim-tree/nvim-tree.lua",
-		-- lazy = true,
 		event = { "BufReadPre", "BufNewFile" },
+		-- lazy = false,
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 		config = function()
 			local nvimtree = require("nvim-tree")
@@ -84,7 +84,6 @@ return {
 	},
 	{
 		"mbbill/undotree",
-		lazy = false,
 		event = { "BufReadPre", "BufNewFile" },
 		config = function()
 			-- require("undotree").setup({})

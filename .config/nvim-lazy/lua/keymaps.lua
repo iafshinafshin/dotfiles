@@ -38,6 +38,18 @@ keymap.set("n", "<C-a>", "gg<S-v>G")
 
 keymap.set("n", "<leader>ad", "<CMD>Telescope neovim-project discover<CR>", opts)
 keymap.set("n", "<leader>ah", "<CMD>Telescope neovim-project history<CR>", opts)
+
+keymap.set("i", "<C-e>", "<C-o>$;", opts)
+
+function MyProj()
+	vim.ui.select(
+		{ "~/w", "~/.ghq/github.com/iafshinafshin", "~/.ghq/github.com/iafshinafshin/dotfiles/.config" },
+		{ prompt = "Select Your Projects", type = "directory" },
+		function(selection)
+			vim.cmd("tabnew | e" .. selection .. " | Alpha")
+		end
+	)
+end
 keymap.set("n", "<Esc>", ":nohl<Return>", opts)
 
 -- Save with root permission (not working for now)

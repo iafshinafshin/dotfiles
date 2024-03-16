@@ -60,6 +60,7 @@ return {
 				point_char = "■", --   ■ 󰄮 ▓ ▚ █ ▣ ▮ ▯ ╳ ╬ ╋ 🞠 ⋈ 󰣏
 				-- bar_char = "󰄮",
 			})
+			require("lspconfig").cssls.setup({})
 		end,
 	},
 }
