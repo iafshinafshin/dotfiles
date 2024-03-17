@@ -35,7 +35,7 @@ return {
 			dashboard.button("e", " : File explorer", ":NvimTreeToggle<Return>"),
 			-- dashboard.button("pd", "󰺧  : Discover Projects", ":Telescope neovim-project discover<Return>"),
 			-- dashboard.button("pr", "󰺯  : Recent Projects", ":Telescope neovim-project<Return>"),
-			dashboard.button("f", "󰱼 : Find file", "Telescope"),
+			dashboard.button("f", "󰱼 : Find file", "Telescope file_browser"),
 			dashboard.button("r", " : Find text", "<cmd> Telescope live_grep <cr>"),
 			dashboard.button("s", "󰁯 : Restore session for current directory", ":SessionRestore<Return>"),
 			dashboard.button("l", "󰒲 : Lazy", "<cmd> Lazy <cr>"),

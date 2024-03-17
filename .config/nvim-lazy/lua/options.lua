@@ -68,6 +68,24 @@ vim.cmd([[colorscheme solarized-osaka]])
 -- vim.cmd([[colorscheme everforest]])
 -- vim.cmd([[colorscheme tokyonight]])
 
+-- vim.api.nvim_create_autocmd("FileType", {
+-- 	pattern = { "javascript", "php", "typescript" },
+-- 	callback = function()
+-- 		local keymap = vim.keymap
+-- 		local opts = { noremap = true, silent = true }
+-- 		keymap.set("i", "<C-e>", "<C-o>$;", opts)
+-- 	end,
+-- })
+--
+-- vim.api.nvim_create_autocmd("FileType", {
+-- 	pattern = { "json", "jsonc", "lua" },
+-- 	callback = function()
+-- 		local keymap = vim.keymap
+-- 		local opts = { noremap = true, silent = true }
+-- 		keymap.set("i", "<C-e>", "<C-o>$,", opts)
+-- 	end,
+-- })
+
 if vim.g.neovide then
 	vim.o.guifont = "JetbrainsMono Nerd Font"
 	-- vim.g.neovide_scale_factor = 1.1
@@ -80,3 +98,7 @@ if vim.g.neovide then
 		end,
 	})
 end
+
+local simi = require("afshin.semicolom_inserter")
+
+simi.end_of_tag()

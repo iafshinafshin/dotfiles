@@ -39,8 +39,6 @@ keymap.set("n", "<C-a>", "gg<S-v>G")
 keymap.set("n", "<leader>ad", "<CMD>Telescope neovim-project discover<CR>", opts)
 keymap.set("n", "<leader>ah", "<CMD>Telescope neovim-project history<CR>", opts)
 
-keymap.set("i", "<C-e>", "<C-o>$;", opts)
-
 function MyProj()
 	vim.ui.select(
 		{ "~/w", "~/.ghq/github.com/iafshinafshin", "~/.ghq/github.com/iafshinafshin/dotfiles/.config" },
@@ -85,8 +83,8 @@ keymap.set("n", "<C-down>", "<C-w>+")
 keymap.set("n", "<C-up>", "<C-w>-")
 
 -- my config
-vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
-vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
+vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", opts)
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", opts)
 
 -- hsl(41, 95, 59)
 --

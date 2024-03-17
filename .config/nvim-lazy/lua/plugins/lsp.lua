@@ -11,6 +11,7 @@ return {
 				"prettier", -- prettier formatter
 				"stylua",
 				"selene",
+				"biome",
 				"phpcbf",
 				"jq",
 				"luacheck",
@@ -19,6 +20,7 @@ return {
 				"tailwindcss-language-server",
 				"typescript-language-server",
 				"phpactor",
+				"phpcs",
 				"pylama",
 				"css-lsp",
 				"cssmodules-language-server",
@@ -218,15 +220,15 @@ return {
 
 			conform.setup({
 				formatters_by_ft = {
-					javascript = { "prettierd", "prettier", "ast_grep" },
-					typescript = { "prettierd", "prettier", "ast_grep" },
-					javascriptreact = { "prettierd", "prettier", "ast_grep" },
-					typescriptreact = { "prettierd", "prettier", "ast_grep" },
+					javascript = { "prettierd", "prettier", "biome", "ast_grep" },
+					typescript = { "prettierd", "prettier", "biome", "ast_grep" },
+					javascriptreact = { "prettierd", "prettier", "biome", "ast_grep" },
+					typescriptreact = { "prettierd", "prettier", "biome", "ast_grep" },
 					svelte = { "prettier" },
 					php = { "phpcbf" },
 					css = { "prettierd", "prettier", "ast_grep" },
 					html = { "prettierd", "prettier", "ast_grep" },
-					json = { "prettierd", "prettier", "ast_grep", "jq" },
+					json = { "prettierd", "prettier", "jq", "ast_grep", "biome" },
 					yaml = { "prettierd", "prettier", "ast_grep" },
 					markdown = { "prettierd", "prettier", "ast_grep" },
 					graphql = { "prettierd", "prettier", "ast_grep" },
@@ -321,7 +323,8 @@ return {
 			vim.keymap.set("i", "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
 			vim.keymap.set("n", "gp", "<Cmd>Lspsaga peek_definition<CR>", opts)
 			-- vim.keymap.set("n", "gr", "<Cmd>Lspsaga rename<CR>", opts)
-			vim.keymap.set("n", "gr", vim.lsp.buf.rename, { desc = "Rename" }, opts) -- smart rename
+			-- vim.keymap.set("n", "gr", vim.lsp.buf.rename, { desc = "Rename" }, opts) -- smart rename
+			vim.keymap.set("n", "gr", ":IncRename ", { desc = "Rename" }, opts) -- smart rename
 			-- error lens
 			vim.fn.sign_define({
 				{
@@ -344,11 +347,18 @@ return {
 				},
 				{
 					name = "DiagnosticSignHint",
-					text = "",
+					text = "󰠠",
+					-- text = "󰠠",
 					texthl = "DiagnosticSignHint",
 					linehl = "HintLine",
 				},
 			})
 		end,
+	},
+	{
+		"smjonas/inc-rename.nvim",
+		event = { "BufReadPre", "BufNewFile" },
+		cmd = "IncRename",
+		config = true,
 	},
 }
