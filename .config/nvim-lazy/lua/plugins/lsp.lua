@@ -2,6 +2,7 @@ return {
 	-- Language server installer
 	{
 		"williamboman/mason.nvim",
+		event = { "BufReadPre", "BufNewFile" },
 		diagnostics = {
 			"williamboman/mason-lspconfig.nvim",
 			"WhoIsSethDaniel/mason-tool-installer.nvim",
@@ -57,6 +58,7 @@ return {
 	{
 		"neovim/nvim-lspconfig",
 		event = { "BufReadPre", "BufNewFile" },
+		lazy = false,
 		dependencies = {
 			"hrsh7th/cmp-nvim-lsp",
 			{ "antosha417/nvim-lsp-file-operations", config = true },
@@ -90,8 +92,8 @@ return {
 				-- 	opts.desc = "Show LSP type definitions"
 				-- 	keymap.set("n", "gt", "<cmd>Telescope lsp_type_definitions<CR>", opts) -- show lsp type definitions
 				--
-				-- 	opts.desc = "See available code actions"
-				-- 	keymap.set({ "n", "v" }, "<leader>ac", vim.lsp.buf.code_action, opts) -- see available code actions, in visual mode will apply to selection
+				opts.desc = "See available code actions"
+				keymap.set({ "n", "v" }, "<leader>ac", vim.lsp.buf.code_action, opts) -- see available code actions, in visual mode will apply to selection
 				--
 				-- 	opts.desc = "Smart rename"
 				-- 	keymap.set("n", "gr", vim.lsp.buf.rename, opts) -- smart rename
@@ -220,7 +222,11 @@ return {
 
 			conform.setup({
 				formatters_by_ft = {
-					javascript = { "prettierd", "prettier", "biome", "ast_grep" },
+					javascript = {
+						"prettierd",
+						"prettier",
+						"biome" --[[ , "ast_grep" ]],
+					},
 					typescript = { "prettierd", "prettier", "biome", "ast_grep" },
 					javascriptreact = { "prettierd", "prettier", "biome", "ast_grep" },
 					typescriptreact = { "prettierd", "prettier", "biome", "ast_grep" },
@@ -317,14 +323,14 @@ return {
 			vim.keymap.set("n", "[d", "<Cmd>Lspsaga diagnostic_jump_prev<CR>", opts)
 			vim.keymap.set("n", "gl", "<Cmd>Lspsaga show_line_diagnostics<CR>", opts)
 			vim.keymap.set("n", "K", "<Cmd>Lspsaga hover_doc<CR>", opts)
-			vim.keymap.set("n", "gd", "<Cmd>Lspsaga finder<CR>", opts)
+			vim.keymap.set({ "n", "v" }, "gd", "<Cmd>Lspsaga finder<CR>", opts)
 			vim.keymap.set("n", "gt", "<Cmd>Lspsaga goto_type_definition<CR>", opts)
 			-- vim.keymap.set('i', '<C-k>', '<Cmd>Lspsaga signature_help<CR>', opts)
 			vim.keymap.set("i", "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
 			vim.keymap.set("n", "gp", "<Cmd>Lspsaga peek_definition<CR>", opts)
 			-- vim.keymap.set("n", "gr", "<Cmd>Lspsaga rename<CR>", opts)
-			-- vim.keymap.set("n", "gr", vim.lsp.buf.rename, { desc = "Rename" }, opts) -- smart rename
-			vim.keymap.set("n", "gr", ":IncRename ", { desc = "Rename" }, opts) -- smart rename
+			vim.keymap.set("n", "gr", vim.lsp.buf.rename, { desc = "Rename" }, opts) -- smart rename
+			-- vim.keymap.set("n", "gr", ":IncRename ", { desc = "Rename" }, opts) -- smart rename
 			-- error lens
 			vim.fn.sign_define({
 				{

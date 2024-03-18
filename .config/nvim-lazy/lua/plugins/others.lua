@@ -17,4 +17,12 @@ return {
 			end, { desc = "Floating table functions" })
 		end,
 	},
+	{
+		"iafshinafshin/end-tag.nvim",
+		event = { "BufReadPre", "BufNewFile" },
+		lazy = false,
+		config = function()
+			require("end-tag").setup()
+		end,
+	},
 }

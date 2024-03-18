@@ -98,7 +98,3 @@ if vim.g.neovide then
 		end,
 	})
 end
-
-local simi = require("afshin.semicolom_inserter")
-
-simi.end_of_tag()
