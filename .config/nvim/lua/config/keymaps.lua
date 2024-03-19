@@ -3,31 +3,47 @@ local discipline = require("craftzdog.discipline")
 -- discipline.cowboy()
 local keymap = vim.keymap
 local opts = { noremap = true, silent = true }
+local Util = require("lazyvim.util")
+local map = Util.safe_keymap_set
 
 keymap.set("n", "<leader>uL", function()
-	require("lazyvim.util").toggle("relativenumber")
+  require("lazyvim.util").toggle("relativenumber")
 end, { desc = "Toggle Relative Line Numbers" })
 -- Do things without affecting the registers
 keymap.set("n", "x", '"_x')
 keymap.set("n", "<Leader>p", '"0p')
 keymap.set("n", "<Leader>P", '"0P')
 keymap.set("v", "<Leader>p", '"0p')
-keymap.set("n", "<Leader>c", '"_c')
-keymap.set("n", "<Leader>C", '"_C')
-keymap.set("v", "<Leader>c", '"_c')
-keymap.set("v", "<Leader>C", '"_C')
+-- keymap.set("n", "<Leader>c", '"_c')
+-- keymap.set("n", "<Leader>C", '"_C')
+--keymap.set("v", "<Leader>c", '"_c')
+--keymap.set("v", "<Leader>C", '"_C')
 keymap.set("n", "<Leader>d", '"_d')
 keymap.set("n", "<Leader>D", '"_D')
 keymap.set("v", "<Leader>d", '"_d')
 keymap.set("v", "<Leader>D", '"_D')
 
-keymap.set("o", "N", "'nN'[v:searchforward]", { expr = true, desc = "Prev search result" })
-keymap.set("n", "n", "'Nn'[v:searchforward].'zv'", { expr = true, desc = "Next search result" })
-keymap.set("x", "n", "'Nn'[v:searchforward]", { expr = true, desc = "Next search result" })
-keymap.set("o", "n", "'Nn'[v:searchforward]", { expr = true, desc = "Next search result" })
-keymap.set("n", "N", "'nN'[v:searchforward].'zv'", { expr = true, desc = "Prev search result" })
-keymap.set("x", "N", "'nN'[v:searchforward]", { expr = true, desc = "Prev search result" })
 keymap.set({ "n", "v" }, "<leader>y", [["+y]])
+function MyProj(a)
+  local path = {
+    "~/w/js",
+    "~/.ghq/github.com/iafshinafshin/end-tag.nvim",
+    "~/.ghq/github.com/iafshinafshin",
+    "~/.ghq/github.com/iafshinafshin/dotfiles/.config",
+  }
+  local optss = a or path
+  vim.ui.select(optss, { prompt = "Select Your Projects", type = "directory" }, function(selection)
+    vim.cmd("tabnew | e" .. selection .. " | Dashboard")
+  end)
+end
+keymap.set("n", "<Leader>ap", "lua MyProj()<Return>", opts)
+
+map("n", "n", "'Nn'[v:searchforward].'zv'", { expr = true, desc = "Next search result" })
+map("x", "n", "'Nn'[v:searchforward]", { expr = true, desc = "Next search result" })
+map("o", "n", "'Nn'[v:searchforward]", { expr = true, desc = "Next search result" })
+map("n", "N", "'nN'[v:searchforward].'zv'", { expr = true, desc = "Prev search result" })
+map("x", "N", "'nN'[v:searchforward]", { expr = true, desc = "Prev search result" })
+map("o", "N", "'nN'[v:searchforward]", { expr = true, desc = "Prev search result" })
 
 -- Increment/decreme
 keymap.set("n", "=", "<C-a>")
@@ -39,8 +55,6 @@ keymap.set("n", "<leader>as", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Lef
 
 -- Select all
 keymap.set("n", "<C-a>", "gg<S-v>G")
-
--- keymap.set("n", "i", "a", opts)
 
 -- Save with root permission (not working for now)
 vim.api.nvim_create_user_command("W", "w !sudo tee > /dev/null %", {})
@@ -56,11 +70,10 @@ keymap.set("n", "<C-m>", "<C-i>", opts)
 keymap.set("n", "te", ":tabedit<Return>")
 keymap.set("n", "<tab>", ":tabnext<Return>", opts)
 keymap.set("n", "<s-tab>", ":tabprev<Return>", opts)
-keymap.set("n", "<leader><tab>d", "<cmd>tabclose<cr>", { expr = true, desc = "Close Tab" })
 -- Split window
 keymap.set("n", "ss", ":split<Return>", opts)
 keymap.set("n", "sv", ":vsplit<Return>", opts)
-keymap.set("n", "sd", "<C-W>c", { desc = "Delete window", remap = true })
+keymap.set("n", "sd", "<C-W>c", { desc = "Delete window" })
 -- Move window
 keymap.set("n", "sh", "<C-w>h")
 keymap.set("n", "sk", "<C-w>k")
@@ -71,8 +84,8 @@ keymap.set("n", "<C-w><up>", "<C-w>+")
 keymap.set("n", "<C-w><down>", "<C-w>-")
 
 -- my config
-vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
-vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
+vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", opts)
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", opts)
 
 -- keymap.set("i", "<C-s>", "<C-p>", opts)
 -- keymap.set("i", "<C-j>", "<down>")
@@ -80,20 +93,19 @@ vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 
 -- Diagnostics
 keymap.set("n", "<C-j>", function()
-	vim.diagnostic.goto_next()
+  vim.diagnostic.goto_next()
 end, opts)
 
 -- hsl(41, 95, 59)
---
 -- hsl(200 30 64)
 -- rgb(27 160 189)
 
 keymap.set("n", "<leader>r", function()
-	require("craftzdog.hsl").replaceHexWithHSL()
+  require("craftzdog.hsl").replaceHexWithHSL()
 end)
 
 keymap.set("n", "<leader>i", function()
-	require("craftzdog.lsp").toggleInlayHints()
+  require("craftzdog.lsp").toggleInlayHints()
 end)
 
 -- default keymap in lazyvim

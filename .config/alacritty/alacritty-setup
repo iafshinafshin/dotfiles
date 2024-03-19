@@ -1,7 +1,7 @@
 #!/usr/bin/bash
 
 PS3='Select your option : '
-colorschemes=("Alacritty setup themes(Solarized dark(iterm2) | Solarized dark | Everforest)")
+colorschemes=("Alacritty copy themes(Solarized dark(iterm2) | Solarized dark | Everforest)")
 alacritty=~/.config/alacritty
 
 if [ ! -d "$alacritty" ]; then

@@ -6,10 +6,10 @@ keymap.set("n", "x", '"_x')
 keymap.set("n", "<Leader>p", '"0p')
 keymap.set("n", "<Leader>P", '"0P')
 keymap.set("v", "<Leader>p", '"0p')
--- keymap.set("n", "<Leader>c", '"_c')
--- keymap.set("n", "<Leader>C", '"_C')
--- keymap.set("v", "<Leader>c", '"_c')
--- keymap.set("v", "<Leader>C", '"_C')
+keymap.set("n", "<Leader>c", '"_c')
+keymap.set("n", "<Leader>C", '"_C')
+keymap.set("v", "<Leader>c", '"_c')
+keymap.set("v", "<Leader>C", '"_C')
 keymap.set("n", "<Leader>d", '"_d')
 keymap.set("n", "<Leader>D", '"_D')
 keymap.set("v", "<Leader>d", '"_d')
@@ -36,17 +36,19 @@ keymap.set("n", "<leader>as", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Lef
 -- Select all
 keymap.set("n", "<C-a>", "gg<S-v>G")
 
-keymap.set("n", "<leader>ad", "<CMD>Telescope neovim-project discover<CR>", opts)
-keymap.set("n", "<leader>ah", "<CMD>Telescope neovim-project history<CR>", opts)
+keymap.set("n", "<leader>ad", ":lua MyProj()<Return>", opts)
+keymap.set("n", "<leader>ah", "<CMD>Telescope neovim-project discover<CR>", opts)
+-- keymap.set("n", "<leader>ah", "<CMD>Telescope neovim-project history<CR>", opts)
 
 function MyProj()
-	vim.ui.select(
-		{ "~/w", "~/.ghq/github.com/iafshinafshin", "~/.ghq/github.com/iafshinafshin/dotfiles/.config" },
-		{ prompt = "Select Your Projects", type = "directory" },
-		function(selection)
-			vim.cmd("tabnew | e" .. selection .. " | Alpha")
-		end
-	)
+	vim.ui.select({
+		"~/w/js",
+		"~/.ghq/github.com/iafshinafshin/end-tag.nvim",
+		"~/.ghq/github.com/iafshinafshin",
+		"~/.ghq/github.com/iafshinafshin/dotfiles/.config",
+	}, { prompt = "Select Your Projects", type = "directory" }, function(selection)
+		vim.cmd("tabnew | e" .. selection .. " | Alpha")
+	end)
 end
 keymap.set("n", "<Esc>", ":nohl<Return>", opts)
 

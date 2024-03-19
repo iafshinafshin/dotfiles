@@ -86,4 +86,8 @@ return {
 			vim.cmd([[colorscheme solarized-osaka]])
 		end,
 	},
+	{
+		"rebelot/kanagawa.nvim",
+		priority = 1000,
+	},
 }
