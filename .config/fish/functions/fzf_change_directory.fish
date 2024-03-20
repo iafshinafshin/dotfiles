@@ -11,7 +11,7 @@ end
 
 function fzf_change_directory
     begin
-        echo $HOME/w/js
+        echo $HOME/.ghq/github.com/iafshinafshin/Development/javascript-course
         echo $HOME/.ghq/github.com/iafshinafshin/dotfiles/.config/nvim
         echo $HOME/.config
         find $(ghq root) -maxdepth 4 -type d -name .git | sed 's/\/\.git//'

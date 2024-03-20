@@ -24,19 +24,25 @@ keymap.set("v", "<Leader>d", '"_d')
 keymap.set("v", "<Leader>D", '"_D')
 
 keymap.set({ "n", "v" }, "<leader>y", [["+y]])
-function MyProj(a)
+function MyProj()
   local path = {
-    "~/w/js",
-    "~/.ghq/github.com/iafshinafshin/end-tag.nvim",
+    "~/.ghq/github.com/iafshinafshin/Development/javascript-course",
+    "~/.ghq/github.com/iafshinafshin/end-line.nvim",
     "~/.ghq/github.com/iafshinafshin",
     "~/.ghq/github.com/iafshinafshin/dotfiles/.config",
   }
-  local optss = a or path
-  vim.ui.select(optss, { prompt = "Select Your Projects", type = "directory" }, function(selection)
-    vim.cmd("tabnew | e" .. selection .. " | Dashboard")
+  vim.ui.select(path, {
+    prompt = "Select Your Project",
+    type = "directory",
+    format_item = function(item)
+      return "Choose :" .. item
+    end,
+  }, function(selection)
+    vim.cmd("tabnew | e " .. selection)
   end)
 end
-keymap.set("n", "<Leader>ap", "lua MyProj()<Return>", opts)
+-- vim.api.nvim_create_user_command("MyProj", "lua MyProj()", {})
+keymap.set("n", "<Leader>ac", ":lua MyProj()<Return>", opts)
 
 map("n", "n", "'Nn'[v:searchforward].'zv'", { expr = true, desc = "Next search result" })
 map("x", "n", "'Nn'[v:searchforward]", { expr = true, desc = "Next search result" })
@@ -50,7 +56,8 @@ keymap.set("n", "=", "<C-a>")
 keymap.set("n", "-", "<C-x>")
 
 -- Delete and backwards
-keymap.set("n", "dw", 'vb"_d')
+keymap.set("n", "dw", 'viw"_d')
+keymap.set("n", "dc", '"_ciw')
 keymap.set("n", "<leader>as", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
 -- Select all

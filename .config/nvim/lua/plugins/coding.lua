@@ -219,7 +219,9 @@ return {
     event = { "BufReadPre", "BufNewFile" },
     lazy = false,
     config = function()
-      require("end-tag").setup()
+      require("end-line").setup({
+        keymap = "<C-e>",
+      })
     end,
   },
 }
