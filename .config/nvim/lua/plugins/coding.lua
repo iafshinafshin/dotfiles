@@ -215,7 +215,7 @@ return {
     end,
   },
   {
-    "iafshinafshin/end-tag.nvim",
+    "iafshinafshin/end-line.nvim",
     event = { "BufReadPre", "BufNewFile" },
     lazy = false,
     config = function()
