@@ -1,10 +1,7 @@
-local discipline = require("craftzdog.discipline")
-
+-- local discipline = require("craftzdog.discipline")
 -- discipline.cowboy()
 local keymap = vim.keymap
 local opts = { noremap = true, silent = true }
-local Util = require("lazyvim.util")
-local map = Util.safe_keymap_set
 
 keymap.set("n", "<leader>uL", function()
   require("lazyvim.util").toggle("relativenumber")
@@ -44,12 +41,12 @@ end
 -- vim.api.nvim_create_user_command("MyProj", "lua MyProj()", {})
 keymap.set("n", "<Leader>ac", ":lua MyProj()<Return>", opts)
 
-map("n", "n", "'Nn'[v:searchforward].'zv'", { expr = true, desc = "Next search result" })
-map("x", "n", "'Nn'[v:searchforward]", { expr = true, desc = "Next search result" })
-map("o", "n", "'Nn'[v:searchforward]", { expr = true, desc = "Next search result" })
-map("n", "N", "'nN'[v:searchforward].'zv'", { expr = true, desc = "Prev search result" })
-map("x", "N", "'nN'[v:searchforward]", { expr = true, desc = "Prev search result" })
-map("o", "N", "'nN'[v:searchforward]", { expr = true, desc = "Prev search result" })
+keymap.set("n", "n", "'Nn'[v:searchforward].'zv'", { expr = true, desc = "Next search result" })
+keymap.set("x", "n", "'Nn'[v:searchforward]", { expr = true, desc = "Next search result" })
+keymap.set("o", "n", "'Nn'[v:searchforward]", { expr = true, desc = "Next search result" })
+keymap.set("n", "N", "'nN'[v:searchforward].'zv'", { expr = true, desc = "Prev search result" })
+keymap.set("x", "N", "'nN'[v:searchforward]", { expr = true, desc = "Prev search result" })
+keymap.set("o", "N", "'nN'[v:searchforward]", { expr = true, desc = "Prev search result" })
 
 -- Increment/decreme
 keymap.set("n", "=", "<C-a>")

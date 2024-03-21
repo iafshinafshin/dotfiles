@@ -79,14 +79,14 @@ return {
     end,
   },
 
-  {
-    "simrat39/symbols-outline.nvim",
-    keys = { { "<leader>cs", "<cmd>SymbolsOutline<cr>", desc = "Symbols Outline" } },
-    cmd = "SymbolsOutline",
-    opts = {
-      position = "down",
-    },
-  },
+  -- {
+  --   "simrat39/symbols-outline.nvim",
+  --   keys = { { "<leader>cs", "<cmd>SymbolsOutline<cr>", desc = "Symbols Outline" } },
+  --   cmd = "SymbolsOutline",
+  --   opts = {
+  --     position = "down",
+  --   },
+  -- },
 
   {
     "nvim-cmp",
@@ -112,7 +112,7 @@ return {
   },
   {
     "fedepujol/move.nvim",
-    lazy = true,
+    lazy = false,
     config = function()
       local opts = { noremap = true, silent = true }
       -- Normal-mode commands
@@ -143,29 +143,29 @@ return {
     "f-person/git-blame.nvim",
     lazy = false,
   },
-  {
-    "kevinhwang91/nvim-ufo",
-    lazy = false,
-    dependencies = "kevinhwang91/promise-async",
-    config = function()
-      require("ufo").setup({
-        provider_selector = function()
-          return { "lsp", "indent" }
-        end,
-      })
-      vim.o.foldcolumn = "1"
-      vim.o.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
-      vim.o.foldlevelstart = 99
-      vim.o.foldenable = true
-      vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
-
-      vim.keymap.set("n", "zR", require("ufo").openAllFolds)
-      vim.keymap.set("n", "zM", require("ufo").closeAllFolds)
-      vim.keymap.set("n", "zr", require("ufo").openFoldsExceptKinds)
-      vim.keymap.set("n", "zm", require("ufo").closeFoldsWith) -- closeAllFolds == closeFoldsWith(0)
-      vim.keymap.set("n", "zk", require("ufo").peekFoldedLinesUnderCursor)
-    end,
-  },
+  -- {
+  --   "kevinhwang91/nvim-ufo",
+  --   lazy = false,
+  --   dependencies = "kevinhwang91/promise-async",
+  --   config = function()
+  --     require("ufo").setup({
+  --       provider_selector = function()
+  --         return { "lsp", "indent" }
+  --       end,
+  --     })
+  --     vim.o.foldcolumn = "1"
+  --     vim.o.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
+  --     vim.o.foldlevelstart = 99
+  --     vim.o.foldenable = true
+  --     vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
+  --
+  --     vim.keymap.set("n", "zR", require("ufo").openAllFolds)
+  --     vim.keymap.set("n", "zM", require("ufo").closeAllFolds)
+  --     vim.keymap.set("n", "zr", require("ufo").openFoldsExceptKinds)
+  --     vim.keymap.set("n", "zm", require("ufo").closeFoldsWith) -- closeAllFolds == closeFoldsWith(0)
+  --     vim.keymap.set("n", "zk", require("ufo").peekFoldedLinesUnderCursor)
+  --   end,
+  -- },
   {
     "folke/todo-comments.nvim",
     dependencies = { "nvim-lua/plenary.nvim" },
@@ -212,16 +212,6 @@ return {
     event = "VeryLazy",
     config = function()
       require("nvim-surround").setup({})
-    end,
-  },
-  {
-    "iafshinafshin/end-line.nvim",
-    event = { "BufReadPre", "BufNewFile" },
-    lazy = false,
-    config = function()
-      require("end-line").setup({
-        keymap = "<C-e>",
-      })
     end,
   },
 }
