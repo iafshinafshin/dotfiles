@@ -1,0 +1,257 @@
+* {
+  /* border: none; */
+  /* border-radius: 10px; */
+  font-family: "JetBrainsMono Nerd Font";
+  font-weight: bold;
+  font-size: 16px;
+  /* min-height: 2px; */
+}
+window#waybar {
+  /* background: #003d52; */
+  /* backdrop-filter: blur(1px); */
+  /* background: rgba(0, 0, 0, 0); */
+  background: #282828;
+  /* background: rgba(21, 18, 27, 0); */
+  /* background-color: rgba(128, 0, 0, 0); */
+  opacity: 0.7;
+  color: #0078ef;
+  font-size: 16px;
+  margin: 0px;
+  padding: 0px;
+}
+
+tooltip {
+  /* background: #1e1e2e; */
+  border-width: 2px;
+  border-style: solid;
+  /* border-color: #11111b; */
+}
+
+#window,
+#clock,
+#pulseaudio,
+#network,
+#bluetooth {
+  /* background: #1e1e2e; */
+  opacity: 0.8;
+  padding: 0px 10px;
+  /* margin: 3px 0px; */
+  /* margin-top: 10px; */
+  /* border: 1px solid #181825; */
+}
+
+#workspaces {
+  /* background: #1e1e2e; */
+  /* margin-left: 10px; */
+  padding-right: 0px;
+  padding-left: 5px;
+}
+#window {
+  margin-left: 60px;
+  margin-right: 60px;
+}
+
+#clock {
+  color: #282828;
+  background-color: #b8bb26;
+}
+/* 🔈 */
+#network {
+  color: #282828;
+  background-color: #ffcf2b;
+  border-left: 0px;
+  border-right: 0px;
+}
+
+#bluetooth {
+  color: #89b4fa;
+  margin-right: 10px;
+}
+
+#pulseaudio {
+  color: #eadab1;
+  opacity: 0.8;
+  background-color: #98971a;
+  border-left: 0px;
+  border-right: 0px;
+}
+
+#pulseaudio.microphone {
+  color: #cba6f7;
+  /* background: #0080b5; */
+  border-left: 0px;
+  border-right: 0px;
+  margin-right: 10px;
+}
+
+#custom-system.memory {
+  /* background-color: #1e1e2e; */
+  color: #fab387;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  padding: 0px 3px;
+  /* margin-top: 9px; */
+}
+#custom-system {
+  /* background-color: #1e1e2e; */
+  color: #fab387;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  padding: 0px 3px;
+  /* margin-top: 9px; */
+}
+#custom-powermenu {
+  font-size: 26px;
+  color: #282828;
+  background-color: #eadab1;
+  opacity: 0.8;
+  padding: 0px 2px 0px 0px;
+  margin: 0px 2px 0px 0px;
+}
+#custom-setting {
+  color: #eadab1;
+  background-color: #282828;
+  opacity: 0.8;
+  font-size: 16px;
+}
+#language {
+  font-size: 20px;
+  font-weight: bold;
+  background: #fabd16;
+  opacity: 0.8;
+  color: #282828;
+}
+#memory {
+  color: #282828;
+  background-color: #689d6a;
+  opacity: 0.8;
+  font-size: 20px;
+}
+#cpu {
+  color: #282828;
+  background-color: #8ec07c;
+  opacity: 0.8;
+  font-size: 20px;
+}
+
+/*     */
+#custom-left-0 {
+  font-size: 26px;
+  color: #eadab1;
+  background-color: #fabd16;
+  opacity: 0.8;
+  margin: 0px;
+}
+#custom-left-1 {
+  font-size: 26px;
+  color: #fabd16;
+  background-color: #ffcf2b;
+  opacity: 0.8;
+  margin: 0px;
+}
+#custom-left-2 {
+  font-size: 26px;
+  color: #ffcf2b;
+  background-color: #689d6a;
+  opacity: 0.8;
+  margin: 0px;
+}
+#custom-left-3 {
+  font-size: 26px;
+  background-color: #8ec07c;
+  color: #689d6a;
+  opacity: 0.8;
+  margin: 0px;
+}
+#custom-left-4 {
+  font-size: 26px;
+  background-color: #282828;
+  color: #8ec07c;
+  opacity: 0.8;
+  margin: 0px;
+}
+#custom-left-5 {
+  font-size: 26px;
+  color: #282828;
+  background: #98971a;
+  opacity: 0.8;
+  margin: 0px;
+}
+#custom-left-6 {
+  font-size: 26px;
+  color: #98971a;
+  background-color: #b8bb26;
+  opacity: 0.8;
+  margin: 0px;
+}
+#custom-left-7 {
+  font-size: 26px;
+  color: #b8bb26;
+  opacity: 0.8;
+  margin: 0px;
+}
+
+#workspaces button {
+  /* padding: 5px; */
+  color: #282828;
+  background-color: #689d6a;
+  border-radius: 0;
+  padding-left: 8px;
+}
+
+#workspaces button.active {
+  color: #ffcf2b;
+  background-color: #689d6a;
+}
+
+#workspaces button.focused {
+  color: #a6adc8;
+  /* background: #eba0ac; */
+}
+
+#workspaces button.urgent {
+  color: #11111b;
+  /* background: #a6e3a1; */
+}
+
+#workspaces button:hover {
+  /* background: #11111b; */
+  color: #cdd6f4;
+}
+#workspaces {
+  margin-left: 0;
+  padding-left: 0;
+}
+#custom-right-0 {
+  font-size: 26px;
+  color: #689d6a;
+  /* opacity: 0.8; */
+  margin: 0px;
+}
+#custom-right-1 {
+  margin: 0;
+  font-size: 26px;
+  color: #689d6a;
+  opacity: 0.8;
+  padding: 0;
+  margin: 0;
+  margin-right: 50px;
+}
+
+#custom-left-8 {
+  font-size: 26px;
+  color: #689d6a;
+  opacity: 0.8;
+  margin: 0;
+  padding: 0;
+  margin-left: 50px;
+}
+
+#window {
+  background-color: #689d6a;
+  color: #eadab1;
+  padding: 0;
+  padding-right: 0;
+  margin: 0;
+  margin-right: 0;
+}
