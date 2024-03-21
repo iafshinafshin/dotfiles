@@ -32,6 +32,7 @@ alias grep='grep --color=auto '
 alias egrep='egrep --color=auto '
 alias fgrep='fgrep --color=auto '
 alias rmpl='sudo rm /var/lib/pacman/db.lck '
+alias nv-su='sudo -e nv '
 set -gx EDITOR nvim
 
 set -g FZF_PREVIEW_FILE_CMD "bat --style=numbers --color=always --line-range :500"

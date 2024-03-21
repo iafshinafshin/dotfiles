@@ -19,6 +19,14 @@ keymap.set("n", "<Leader>d", '"_d')
 keymap.set("n", "<Leader>D", '"_D')
 keymap.set("v", "<Leader>d", '"_d')
 keymap.set("v", "<Leader>D", '"_D')
+-- Delete and backwards
+keymap.set("n", "dw", 'viw"_d')
+keymap.set("n", "db", 'vb"_d')
+keymap.set("n", "cd", '"_ciw')
+keymap.set("n", "d%", '"_d$')
+keymap.set("n", "c%", '"_c$')
+keymap.set("n", "D", '"_D')
+keymap.set("n", "C", '"_C')
 
 keymap.set({ "n", "v" }, "<leader>y", [["+y]])
 function MyProj()
@@ -40,6 +48,7 @@ function MyProj()
 end
 -- vim.api.nvim_create_user_command("MyProj", "lua MyProj()", {})
 keymap.set("n", "<Leader>ac", ":lua MyProj()<Return>", opts)
+keymap.set("i", "<C-f>", "<C-o>$")
 
 keymap.set("n", "n", "'Nn'[v:searchforward].'zv'", { expr = true, desc = "Next search result" })
 keymap.set("x", "n", "'Nn'[v:searchforward]", { expr = true, desc = "Next search result" })
@@ -52,15 +61,18 @@ keymap.set("o", "N", "'nN'[v:searchforward]", { expr = true, desc = "Prev search
 keymap.set("n", "=", "<C-a>")
 keymap.set("n", "-", "<C-x>")
 
--- Delete and backwards
-keymap.set("n", "dw", 'viw"_d')
-keymap.set("n", "dc", '"_ciw')
-keymap.set("n", "<leader>as", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+keymap.set(
+  "n",
+  "<leader>cR",
+  [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],
+  { desc = "Rename with command line" }
+)
 
 -- Select all
 keymap.set("n", "<C-a>", "gg<S-v>G")
 
 -- Save with root permission (not working for now)
+-- vim.api.nvim_create_user_command("viw", "", {'bang': n:true})
 vim.api.nvim_create_user_command("W", "w !sudo tee > /dev/null %", {})
 
 -- Disable continuations
