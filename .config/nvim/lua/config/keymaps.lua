@@ -11,44 +11,49 @@ keymap.set("n", "x", '"_x')
 keymap.set("n", "<Leader>p", '"0p')
 keymap.set("n", "<Leader>P", '"0P')
 keymap.set("v", "<Leader>p", '"0p')
--- keymap.set("n", "<Leader>c", '"_c')
--- keymap.set("n", "<Leader>C", '"_C')
---keymap.set("v", "<Leader>c", '"_c')
---keymap.set("v", "<Leader>C", '"_C')
+keymap.set("n", "<Leader>c", '"_c')
+keymap.set("n", "<Leader>C", '"_C')
+keymap.set("v", "<Leader>c", '"_c')
+keymap.set("v", "<Leader>C", '"_C')
 keymap.set("n", "<Leader>d", '"_d')
 keymap.set("n", "<Leader>D", '"_D')
 keymap.set("v", "<Leader>d", '"_d')
 keymap.set("v", "<Leader>D", '"_D')
--- Delete and backwards
-keymap.set("n", "dw", 'viw"_d')
 keymap.set("n", "db", 'vb"_d')
+keymap.set("n", "dw", 'viw"_d')
+-- Delete and backwards
 keymap.set("n", "cd", '"_ciw')
-keymap.set("n", "d%", '"_d$')
-keymap.set("n", "c%", '"_c$')
-keymap.set("n", "D", '"_D')
-keymap.set("n", "C", '"_C')
+keymap.set("n", "<Leader>d$", '"_d$')
+keymap.set("n", "<Leader>c$", '"_c$')
 
 keymap.set({ "n", "v" }, "<leader>y", [["+y]])
 function MyProj()
   local path = {
     "~/.ghq/github.com/iafshinafshin/Development/javascript-course",
-    "~/.ghq/github.com/iafshinafshin/end-line.nvim",
+    "~/.ghq/github.com/iafshinafshin/iafshin.github.io",
     "~/.ghq/github.com/iafshinafshin",
+    "~/.ghq/github.com/iafshinafshin/dotfiles/.config/nvim",
     "~/.ghq/github.com/iafshinafshin/dotfiles/.config",
+    "~/.config",
   }
   vim.ui.select(path, {
     prompt = "Select Your Project",
     type = "directory",
     format_item = function(item)
-      return "Choose :" .. item
+      return "Choose : " .. item
     end,
   }, function(selection)
     vim.cmd("tabnew | e " .. selection)
   end)
 end
 -- vim.api.nvim_create_user_command("MyProj", "lua MyProj()", {})
+keymap.set("i", "<C-/>", "<Esc>gcci")
 keymap.set("n", "<Leader>ac", ":lua MyProj()<Return>", opts)
 keymap.set("i", "<C-f>", "<C-o>$")
+keymap.set("n", "<A-k>", "<S-v>:m '<-2<CR>gv=gv<Esc>", opts)
+keymap.set("n", "<A-j>", "<S-v>:m '>+1<CR>gv=gv<Esc>", opts)
+keymap.set("v", "<A-k>", ":m '<-2<CR>gv=gv", opts)
+keymap.set("v", "<A-j>", ":m '>+1<CR>gv=gv", opts)
 
 keymap.set("n", "n", "'Nn'[v:searchforward].'zv'", { expr = true, desc = "Next search result" })
 keymap.set("x", "n", "'Nn'[v:searchforward]", { expr = true, desc = "Next search result" })
@@ -100,8 +105,6 @@ keymap.set("n", "<C-w><up>", "<C-w>+")
 keymap.set("n", "<C-w><down>", "<C-w>-")
 
 -- my config
-vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", opts)
-vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", opts)
 
 -- keymap.set("i", "<C-s>", "<C-p>", opts)
 -- keymap.set("i", "<C-j>", "<down>")
@@ -114,11 +117,12 @@ end, opts)
 
 -- hsl(41, 95, 59)
 -- hsl(200 30 64)
--- rgb(27 160 189)
+-- rgb(27, 160, 189)
+-- hsl(36, 55, 55)
 
 keymap.set("n", "<leader>r", function()
   require("craftzdog.hsl").replaceHexWithHSL()
-end)
+end, { desc = "Replace hex with HSL" })
 
 keymap.set("n", "<leader>i", function()
   require("craftzdog.lsp").toggleInlayHints()

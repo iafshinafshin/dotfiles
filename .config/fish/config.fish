@@ -15,13 +15,12 @@ alias l="exa --icons "
 alias nv="nvim "
 alias cp="cp -rf "
 alias rm="rm -rf "
-# alias img="feh --fullscreen"
 alias img="feh -F "
 alias tree="ll --tree --level=2"
 alias g="git"
 alias lg="lazygit"
 alias thus="cd /run/media/afshin "
-alias ughq='cd ~/.ghq ; ghq get -u ./*/*/* & cd - ; echo "Update repositores successful"'
+alias ughq='cd ~/.ghq ; ghq get -u ./*/*/* & cd - ; clear ; echo "Update repositores successful"'
 alias ide="~/.config/fish/ide "
 alias ..='cd ..'
 alias ...='cd ../..'

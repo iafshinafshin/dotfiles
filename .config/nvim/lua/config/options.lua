@@ -48,15 +48,30 @@ if vim.fn.has("nvim-0.8") == 1 then
 end
 
 if vim.g.neovide then
-  vim.o.guifont = "JetbrainsMono Nerd Font"
+  vim.o.guifont = "Lilex Nerd Font Mono:h12:a"
+  vim.g.neovide_scale_factor = 1.5
   -- vim.g.neovide_scale_factor = 1.1
   vim.g.neovide_transparency = 0.8
   -- vim.g.neovide_transparency_point = 0.8
-  local bg_color = "#00141a"
-  require("solarized-osaka").setup({
-    on_colors = function(colors)
-      colors.bg = bg_color
-    end,
-  })
-  vim.cmd([[colorscheme tokyonight]])
+  -- local bg_color = "#00141a"
+  -- require("solarized-osaka").setup({
+  --   on_colors = function(colors)
+  --     colors.bg = bg_color
+  --   end,
+  -- })
+  local change_scale_factor = function(delta)
+    vim.g.neovide_scale_factor = vim.g.neovide_scale_factor * delta
+  end
+  vim.keymap.set("n", "<C-=>", function()
+    change_scale_factor(1.25)
+  end)
+  vim.keymap.set("n", "<C-->", function()
+    change_scale_factor(1 / 1.25)
+  end)
+
+  vim.keymap.set("n", "<C-s>", ":w<CR>") -- Save
+  vim.keymap.set({ "v", "n" }, "<C-c>", "y") -- Copy
+  -- Allow clipboard copy paste in neovim
+  vim.api.nvim_set_keymap({ "i", "c" }, "<C-S-v>", "<C-r>+")
+  vim.api.nvim_set_keymap({ "n", "v" }, "<C-S-v>", "p")
 end

@@ -245,6 +245,7 @@ return {
     priority = 100,
     opts = {
       projects = { -- define project roots
+        "~/.ghq/github.com/iafshinafshin/Development/javascript-course/",
         "~/.ghq/github.com/iafshinafshin/*",
         "~/.ghq/github.com/iafshinafshin/dotfiles/.config/*",
       },
@@ -306,8 +307,7 @@ return {
   },
   {
     "nvim-neo-tree/neo-tree.nvim",
-    branch = "v3.x",
-    cmd = "Neotree",
+    lazy = "VeryLazy",
     opts = {
       modified = {
         symbol = "",
