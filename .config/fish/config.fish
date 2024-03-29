@@ -32,6 +32,7 @@ alias egrep='egrep --color=auto '
 alias fgrep='fgrep --color=auto '
 alias rmpl='sudo rm /var/lib/pacman/db.lck '
 alias nv-su='sudo -e nv '
+alias curl-tor='curl --socks5-hostname localhost:9050 '
 set -gx EDITOR nvim
 
 set -g FZF_PREVIEW_FILE_CMD "bat --style=numbers --color=always --line-range :500"

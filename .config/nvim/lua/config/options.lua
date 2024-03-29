@@ -32,6 +32,7 @@ vim.opt.splitbelow = true -- Put new windows below current
 vim.opt.splitright = true -- Put new windows right of current
 vim.opt.splitkeep = "cursor"
 -- vim.opt.mouse = ""
+vim.g.lazygit_theme = true
 
 -- Undercurl
 vim.cmd([[let &t_Cs = "\e[4:3m"]])
@@ -48,7 +49,10 @@ if vim.fn.has("nvim-0.8") == 1 then
 end
 
 if vim.g.neovide then
-  vim.o.guifont = "Lilex Nerd Font Mono:h12:a"
+  vim.o.guifont = "PlemolJP35 Console NF"
+  -- vim.o.guifont = "JetbrainsMono Nerd Font:h12:a"
+  -- vim.o.guifont = "Hack Nerd Font:h12:a"
+  -- vim.o.guifont = "Lilex Nerd Font Mono:h12:a"
   vim.g.neovide_scale_factor = 1.5
   -- vim.g.neovide_scale_factor = 1.1
   vim.g.neovide_transparency = 0.8
@@ -63,15 +67,15 @@ if vim.g.neovide then
     vim.g.neovide_scale_factor = vim.g.neovide_scale_factor * delta
   end
   vim.keymap.set("n", "<C-=>", function()
-    change_scale_factor(1.25)
+    change_scale_factor(1.2)
   end)
   vim.keymap.set("n", "<C-->", function()
     change_scale_factor(1 / 1.25)
   end)
-
-  vim.keymap.set("n", "<C-s>", ":w<CR>") -- Save
-  vim.keymap.set({ "v", "n" }, "<C-c>", "y") -- Copy
-  -- Allow clipboard copy paste in neovim
-  vim.api.nvim_set_keymap({ "i", "c" }, "<C-S-v>", "<C-r>+")
-  vim.api.nvim_set_keymap({ "n", "v" }, "<C-S-v>", "p")
+  -- vim.keymap.set("n", "<C-=>", function()
+  --   change_scale_factor(1.25)
+  -- end)
+  -- vim.keymap.set("n", "<C-->", function()
+  --   change_scale_factor(1 / 1.25)
+  -- end)
 end

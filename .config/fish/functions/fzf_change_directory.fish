@@ -12,7 +12,7 @@ end
 function fzf_change_directory
     begin
         echo $HOME/.ghq/github.com/iafshinafshin/Development/javascript-course
-        echo $HOME/.ghq/github.com/iafshinafshin/dotfiles/.config/nvim
+        echo $HOME/l/Webprog.io
         echo $HOME/.config
         find $(ghq root) -maxdepth 4 -type d -name .git | sed 's/\/\.git//'
         ls -ad */ | perl -pe "s#^#$PWD/#" | grep -v \.git
