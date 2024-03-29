@@ -1,10 +1,10 @@
 #!/usr/bin/bash
 
-PS3='Select your system for fish configs : '
-colorschemes=("Ubuntu  >= 20" "Ferdora 󰣛" "Arch 󰣇 ( 😎 BTW 😎 )" "Debian " "Mac Os (🍺 🍻Home brew🍻 🍺)")
+PS3='Select Your System For Fish Shell Configs : '
+options=("Ubuntu  >= 20" "Ferdora 󰣛" "Arch 󰣇 ( 😎 BTW 😎 )" "Debian " "Mac Os (🍺 🍻Home brew🍻 🍺)")
 fish_dir=~/.config/fish
 
-select option in "${colorschemes[@]}"; do
+select option in "${options[@]}"; do
 	case $option in
 	"Ubuntu  >= 20")
 		if [ ! -d "$fish_dir" ]; then
@@ -14,6 +14,9 @@ select option in "${colorschemes[@]}"; do
 			cp -rf ./.config/fish/config.fish
 			cp -rf $fish_dir/
 		fi
+		echo "Fish Shell Configs successful"
+		clear
+		./setup.sh
 		exit
 		;;
 	"Ferdora 󰣛")
@@ -24,6 +27,8 @@ select option in "${colorschemes[@]}"; do
 			cp -rf ./.config/fish/config.fish
 			cp -rf $fish_dir/
 		fi
+		clear
+		./setup.sh
 		exit
 		;;
 	"Arch 󰣇 ( 😎 BTW 😎 )")
@@ -34,6 +39,8 @@ select option in "${colorschemes[@]}"; do
 			cp -rf ./.config/fish/config.fish
 			cp -rf $fish_dir/
 		fi
+		clear
+		./setup.sh
 		exit
 		;;
 	"Debian ")
@@ -44,6 +51,9 @@ select option in "${colorschemes[@]}"; do
 			cp -rf ./.config/fish/config.fish
 			cp -rf $fish_dir/
 		fi
+		echo "Fish Shell Configs successful"
+		clear
+		./setup.sh
 		exit
 		;;
 	"Mac Os (🍺 🍻Home brew🍻 🍺)")
@@ -53,6 +63,9 @@ select option in "${colorschemes[@]}"; do
 			cp -rf ./.config/fish/config.fish
 			cp -rf $fish_dir/
 		fi
+		echo "Fish Shell Configs successful"
+		clear
+		./setup.sh
 		exit
 		;;
 	*) echo "invalid option $REPLY" ;;
