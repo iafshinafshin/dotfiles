@@ -33,6 +33,8 @@ alias fgrep='fgrep --color=auto '
 alias rmpl='sudo rm /var/lib/pacman/db.lck '
 alias nv-su='sudo -e nv '
 alias curl-tor='curl --socks5-hostname localhost:9050 '
+alias myip='wget -qO - https://api.ipify.org; echo'
+alias mytorip='torsocks wget -qO - https://api.ipify.org; echo'
 set -gx EDITOR nvim
 
 set -g FZF_PREVIEW_FILE_CMD "bat --style=numbers --color=always --line-range :500"
