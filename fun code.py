@@ -5,7 +5,8 @@ from time import sleep
 
 def sp():
     sleep(0.8)
-
+def ls():
+    time.date(strings="sl"
 
 x = ""
 while "exit" not in x:

@@ -54,6 +54,7 @@ keymap.set("n", "<A-k>", "<S-v>:m '<-2<CR>gv=gv<Esc>", opts)
 keymap.set("n", "<A-j>", "<S-v>:m '>+1<CR>gv=gv<Esc>", opts)
 keymap.set("v", "<A-k>", ":m '<-2<CR>gv=gv", opts)
 keymap.set("v", "<A-j>", ":m '>+1<CR>gv=gv", opts)
+keymap.set("n", "Y", "y$")
 
 keymap.set("n", "n", "'Nn'[v:searchforward].'zv'", { expr = true, desc = "Next search result" })
 keymap.set("x", "n", "'Nn'[v:searchforward]", { expr = true, desc = "Next search result" })

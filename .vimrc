@@ -1,11 +1,18 @@
 set nocompatible              " be iMproved, required
+set termguicolors     " enable true colors support
 filetype off                  " required
 let mapleader = " " 
-
+set encoding=UTF-8
+set cursorline
+if version >= 703
+    set undodir=~/.vim/backup
+    set undofile
+    set undoreload=10000
+endif
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-Plugin 'VundleVim/Vundle.vim'
+Plugin 'undleVim/Vundle.vim'
 Plugin 'dylanaraps/wal.vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
@@ -16,28 +23,31 @@ Plugin 'tpope/vim-surround' " Surrounding ysw)
 Plugin 'preservim/nerdtree' " NerdTree
 Plugin 'tpope/vim-commentary' " For Commenting gcc & gc
 Plugin 'ap/vim-css-color' " CSS Color Preview
-Plugin 'rafi/awesome-vim-colorschemes' " Retro Scheme
+" Plugin 'rafi/awesome-vim-colorschemes' " Retro Scheme
 " Plugin 'neoclide/coc.nvim'  " Auto Completion
 Plugin 'ryanoasis/vim-devicons' " Developer Icons
 Plugin 'tc50cal/vim-terminal' " Vim Terminal
 Plugin 'preservim/tagbar' " Tagbar for code navigation
 Plugin 'terryma/vim-multiple-cursors' " CTRL + N for multiple cursors
+Plugin 'Yggdroot/indentLine'
+Plugin 'ayu-theme/ayu-vim'
 call vundle#end()
 "au BufNewFile,BufRead *.lua, *.json, *.jsonc
 "  \imap <C-f> <C-o>$,
-set encoding=UTF-8
+let g:indentLine_char = ' ▏'
+let g:indentLine_enabled = 1
 set clipboard=unnamed
 
+nnoremap Y y$
+nnoremap n nzz
+nnoremap N Nzz
 nnoremap <silent><Leader>e :NERDTreeToggle<CR>
 " nnoremap <C-l> :call CocActionAsync('jumpDefinition')<CR>
 nnoremap <Leader>r :%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>
-
 set completeopt-=preview " For No Previews
-let g:tagbar_ctags_bin
 
-
-" let g:NERDTreeDirArrowExpandable="+"
-" let g:NERDTreeDirArrowCollapsible="~"
+let g:NERDTreeDirArrowExpandable=""
+let g:NERDTreeDirArrowCollapsible=""
 
 inoremap <silent><C-f> <C-o>$
 inoremap <Silent>( ()<Esc>i
@@ -47,9 +57,23 @@ inoremap <silent>< <><Esc>i
 inoremap <silent>" ""<Esc>i
 inoremap <silent>' ''<Esc>i
 nnoremap <silent>sf :Ex<Return>
+imap <silent><C-k> <Plug>(YCMToggleSignatureHelp)
 
-colorscheme wal
+" nnoremap <silent><A-k> V:m '<-2<CR>gv=gv<Esc>
+" nnoremap <silent><A-j> V:m  >+1<CR>gv=gv<Esc>
+vnoremap <silent>K :m '<-2<CR>gv=gv
+vnoremap <silent>J :m '>+1<CR>gv=gv
+inoremap <silent><C-/>  <Esc>gcci
+highlight YcmErrorLine guibg=#3f0000
 
+
+
+/* colorscheme solarized8 " my favorite colorschemes: space-vim-dark, sonokai, solarized8, ayu wal */
+" let ayucolor="light"  " for light version of theme
+let ayucolor="mirage" " for mirage version of theme
+" let ayucolor="dark"   " for dark version of theme
+colorscheme ayu
+" let g:airline_theme='simple'
 let g:airline#extensions#tabline#enabled = 1
 vmap <silent><Leader>y !wl-copy<Return>u
 nmap <silent><Leader>yy <S-v>!wl-copy<Return>u
@@ -96,7 +120,7 @@ nmap <silent>ss :split<Return><C-w>w
 nmap <silent>sv :vsplit<Return><C-w>w
 " Move window
 nmap <Space> <C-w>w
-nnoremap <silent><Esc> :nohlsearch<Return>
+map <silent><Esc> :nohlsearch<Return>
 map s<left> <C-w>h
 map s<up> <C-w>k
 map s<down> <C-w>j
@@ -155,4 +179,8 @@ let g:airline_right_sep=''
 let g:airline_right_alt_sep = ''
 let g:airline_symbols.branch=''
 let g:airline_symbols.readonly=''
-let g:airline_symbols.linenr=''
+let g:airline_symbols.linenr='  '
+let g:airline#extensions#tabline#left_sep = ''
+let g:airline#extensions#tabline#left_alt_sep =''
+let g:airline#extensions#tabline#right_sep = ''
+let g:airline#extensions#tabline#right_alt_sep = ''
