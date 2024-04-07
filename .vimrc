@@ -34,10 +34,11 @@ Plugin 'ayu-theme/ayu-vim'
 call vundle#end()
 "au BufNewFile,BufRead *.lua, *.json, *.jsonc
 "  \imap <C-f> <C-o>$,
-let g:indentLine_char = ' ▏'
+let g:indentLine_char = '▏'
 let g:indentLine_enabled = 1
 set clipboard=unnamed
 
+nmap <leader>k <plug>(YCMHover)
 nnoremap Y y$
 nnoremap n nzz
 nnoremap N Nzz
@@ -57,6 +58,8 @@ inoremap <silent>< <><Esc>i
 inoremap <silent>" ""<Esc>i
 inoremap <silent>' ''<Esc>i
 nnoremap <silent>sf :Ex<Return>
+nnoremap <C-j> :call CocActionAsync('jumpDefinition')<CR>
+let g:ycm_warning_symbol = '▏'
 imap <silent><C-k> <Plug>(YCMToggleSignatureHelp)
 
 " nnoremap <silent><A-k> V:m '<-2<CR>gv=gv<Esc>
@@ -184,3 +187,15 @@ let g:airline#extensions#tabline#left_sep = ''
 let g:airline#extensions#tabline#left_alt_sep =''
 let g:airline#extensions#tabline#right_sep = ''
 let g:airline#extensions#tabline#right_alt_sep = ''
+augroup MyYCMCustom
+  autocmd!
+  autocmd FileType py let b:ycm_hover = {
+    \ 'command': 'GetDoc',
+    \ 'syntax': &filetype
+    \ 'popup_params': {
+    \     'maxwidth': 80,
+    \     'border': [],
+    \     'borderchars': ['─', '│', '─', '│', '┌', '┐', '┘', '└'],
+    \   },
+    \ }
+augroup END
