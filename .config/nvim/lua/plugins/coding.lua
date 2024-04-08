@@ -110,10 +110,10 @@ return {
       })
     end,
   },
-  {
-    "f-person/git-blame.nvim",
-    lazy = false,
-  },
+  -- {
+  --   "f-person/git-blame.nvim",
+  --   lazy = false,
+  -- },
   -- {
   --   "kevinhwang91/nvim-ufo",
   --   lazy = false,
