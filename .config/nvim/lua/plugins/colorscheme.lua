@@ -114,4 +114,9 @@ return {
     "Shatur/neovim-ayu",
     lazy = false,
   },
+  {
+    "rebelot/kanagawa.nvim",
+    lazy = false,
+    priority = 1000,
+  },
 }
