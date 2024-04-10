@@ -1,6 +1,6 @@
 # Dotfiles
 
-Hello, it's my dot files and if you install its you can use it
+Hello, it's my dotfiles and if you install it you can use it
 
 # How to install neovim
 
