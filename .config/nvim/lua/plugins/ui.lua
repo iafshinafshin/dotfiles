@@ -109,10 +109,10 @@ return {
     opts = {
       options = {
         -- globalstatus = false,
-        theme = "solarized_dark",
+        -- theme = "solarized_dark",
         -- theme = "rose-pine",
         -- theme = "tokyonight",
-        -- theme = "nightfly",
+        theme = "nightfly",
         -- theme = "everforest",
         -- theme = "gruvbox",
       },
@@ -153,6 +153,8 @@ return {
       local helpers = require("incline.helpers")
       local devicons = require("nvim-web-devicons")
       local tokyo_color = require("tokyonight.colors").setup({ transform = true })
+      local gruvbox_color = require("gruvbox").palette
+      local solarized_osaka = require("solarized-osaka.colors").setup()
       require("incline").setup({
         window = {
           padding = 0,
@@ -170,8 +172,12 @@ return {
             " ",
             { filename, gui = modified and "bold,italic" or "bold" },
             " ",
-            guibg = tokyo_color.fg_gutter,
-            guifg = tokyo_color.blue,
+            guibg = solarized_osaka.base03,
+            guifg = solarized_osaka.hint,
+            -- guibg = gruvbox_color.neutral_aqua,
+            -- guifg = gruvbox_color.dark1,
+            -- guibg = tokyo_color.fg_gutter,
+            -- guifg = tokyo_color.blue,
           }
         end,
       })

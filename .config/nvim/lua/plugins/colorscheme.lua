@@ -64,6 +64,9 @@ return {
     opts = {
       colorscheme = "nightfly",
     },
+    config = function()
+      vim.cmd([[colorscheme nightfly]])
+    end,
   },
   {
     "joshdick/onedark.vim",
