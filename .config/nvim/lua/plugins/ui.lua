@@ -117,6 +117,9 @@ return {
         -- theme = "gruvbox",
       },
     },
+    -- config = function()
+    --
+    -- end
   },
 
   -- filename

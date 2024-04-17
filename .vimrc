@@ -31,6 +31,7 @@ Plugin 'preservim/tagbar' " Tagbar for code navigation
 Plugin 'terryma/vim-multiple-cursors' " CTRL + N for multiple cursors
 Plugin 'Yggdroot/indentLine'
 Plugin 'ayu-theme/ayu-vim'
+Plugin 'bluz71/vim-nightfly-colors', { 'as': 'nightfly' }
 call vundle#end()
 "au BufNewFile,BufRead *.lua, *.json, *.jsonc
 "  \imap <C-f> <C-o>$,
@@ -73,9 +74,10 @@ highlight YcmErrorLine guibg=#3f0000
 
 /* colorscheme solarized8 " my favorite colorschemes: space-vim-dark, sonokai, solarized8, ayu wal */
 " let ayucolor="light"  " for light version of theme
-let ayucolor="mirage" " for mirage version of theme
+" let ayucolor="mirage" " for mirage version of theme
 " let ayucolor="dark"   " for dark version of theme
-colorscheme ayu
+" colorscheme ayu
+colorscheme nightfly
 " let g:airline_theme='simple'
 let g:airline#extensions#tabline#enabled = 1
 vmap <silent><Leader>y !wl-copy<Return>u
