@@ -10,8 +10,8 @@ set -g theme_hide_hostname no
 set -g theme_hostname always
 
 alias l="eza --icons "
-alias ld="l "
-alias la="ld -a "
+alias ll="l -lrh "
+alias la="ll -a "
 alias nv="nvim "
 alias cp="cp -rf "
 alias rm="rm -rf "
@@ -29,11 +29,12 @@ alias .5='cd ../../../../..'
 alias grep='grep --color=auto '
 alias egrep='egrep --color=auto '
 alias fgrep='fgrep --color=auto '
-alias rmpl='sudo rm /var/lib/pacman/db.lck '
+# alias rmpl='sudo rm /var/lib/pacman/db.lck '
 alias nv-su='sudo -e nv '
+alias mpl='mplayer -fs '
 alias curl-tor='curl --socks5-hostname localhost:9050 '
 alias myip='wget -qO - https://api.ipify.org; echo'
-alias warprox='~/warp-plus_linux-amd64/warp-plus'
+alias warprox='cd ~/warp-plus_linux-amd64 && ./warp-plus'
 set -gx EDITOR nvim
 
 set -g FZF_PREVIEW_FILE_CMD "bat --style=numbers --color=always --line-range :500"
