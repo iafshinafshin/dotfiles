@@ -4,7 +4,7 @@ local keymap = vim.keymap
 local opts = { noremap = true, silent = true }
 
 keymap.set("n", "<leader>uL", function()
-  require("lazyvim.util").toggle("relativenumber")
+	require("lazyvim.util").toggle("relativenumber")
 end, { desc = "Toggle Relative Line Numbers" })
 -- Do things without affecting the registers
 keymap.set("n", "x", '"_x')
@@ -28,33 +28,54 @@ keymap.set("n", "<Leader>c$", '"_c$')
 
 keymap.set({ "n", "v" }, "<leader>y", [["+y]])
 function MyProj()
-  local path = {
-    "~/.ghq/github.com/iafshinafshin/Development/javascript-course",
-    "~/.ghq/github.com/iafshinafshin/iafshin.github.io",
-    "~/.ghq/github.com/iafshinafshin",
-    "~/.ghq/github.com/iafshinafshin/dotfiles/.config/nvim",
-    "~/.ghq/github.com/iafshinafshin/dotfiles/.config",
-    "~/.config",
-  }
-  vim.ui.select(path, {
-    prompt = "Select Your Project",
-    type = "directory",
-    format_item = function(item)
-      return "Choose : " .. item
-    end,
-  }, function(selection)
-    vim.cmd("tabnew | e " .. selection)
-  end)
+	local path = {
+		"~/.ghq/github.com/iafshinafshin/Development/javascript-course",
+		"~/.ghq/github.com/iafshinafshin/iafshin.github.io",
+		"~/.ghq/github.com/iafshinafshin",
+		"~/.ghq/github.com/iafshinafshin/dotfiles/.config/nvim",
+		"~/.ghq/github.com/iafshinafshin/dotfiles/.config",
+		"~/.config",
+	}
+	vim.ui.select(path, {
+		prompt = "Select Your Project",
+		type = "directory",
+		format_item = function(item)
+			return "Choose : " .. item
+		end,
+	}, function(selection)
+		vim.cmd("tabnew | e " .. selection)
+	end)
 end
 -- vim.api.nvim_create_user_command("MyProj", "lua MyProj()", {})
 keymap.set("i", "<C-/>", "<Esc>gcci")
-keymap.set("n", "<Leader>ac", ":lua MyProj()<Return>", opts)
+keymap.set("n", "<Leader>cap", ":lua MyProj()<Return>", opts)
 keymap.set("i", "<C-f>", "<C-o>$")
 keymap.set("n", "<A-k>", "<S-v>:m '<-2<CR>gv=gv<Esc>", opts)
 keymap.set("n", "<A-j>", "<S-v>:m '>+1<CR>gv=gv<Esc>", opts)
 keymap.set("v", "<A-k>", ":m '<-2<CR>gv=gv", opts)
 keymap.set("v", "<A-j>", ":m '>+1<CR>gv=gv", opts)
+
 keymap.set("n", "Y", "y$")
+keymap.set("n", 'y"', 'yi"')
+keymap.set("n", "y'", "yi'")
+keymap.set("n", "y{", "yi{")
+keymap.set("n", "y[", "yi[")
+keymap.set("n", "y<", "yi<")
+keymap.set("n", "y(", "yi(")
+
+keymap.set("n", 'c"', 'ci"')
+keymap.set("n", "c'", "ci'")
+keymap.set("n", "c{", "ci{")
+keymap.set("n", "c[", "ci[")
+keymap.set("n", "c<", "ci<")
+keymap.set("n", "c(", "ci(")
+
+keymap.set("n", 'd"', 'di"')
+keymap.set("n", "d'", "di'")
+keymap.set("n", "d{", "di{")
+keymap.set("n", "d[", "di[")
+keymap.set("n", "d<", "di<")
+keymap.set("n", "d(", "di(")
 
 keymap.set("n", "n", "'Nn'[v:searchforward].'zv'", { expr = true, desc = "Next search result" })
 keymap.set("x", "n", "'Nn'[v:searchforward]", { expr = true, desc = "Next search result" })
@@ -68,10 +89,10 @@ keymap.set("n", "=", "<C-a>")
 keymap.set("n", "-", "<C-x>")
 
 keymap.set(
-  "n",
-  "<leader>cR",
-  [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],
-  { desc = "Rename with command line" }
+	"n",
+	"<leader>cR",
+	[[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],
+	{ desc = "Rename With Command Line" }
 )
 
 -- Select all
@@ -113,7 +134,7 @@ keymap.set("n", "<C-w><down>", "<C-w>-")
 
 -- Diagnostics
 keymap.set("n", "<C-j>", function()
-  vim.diagnostic.goto_next()
+	vim.diagnostic.goto_next()
 end, opts)
 
 -- hsl(41, 95, 59)
@@ -122,11 +143,11 @@ end, opts)
 -- hsl(36, 55, 55)
 
 keymap.set("n", "<leader>r", function()
-  require("craftzdog.hsl").replaceHexWithHSL()
+	require("craftzdog.hsl").replaceHexWithHSL()
 end, { desc = "Replace hex with HSL" })
 
 keymap.set("n", "<leader>i", function()
-  require("craftzdog.lsp").toggleInlayHints()
+	require("craftzdog.lsp").toggleInlayHints()
 end)
 
 -- default keymap in lazyvim
