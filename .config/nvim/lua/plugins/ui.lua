@@ -109,17 +109,74 @@ return {
     opts = {
       options = {
         -- globalstatus = false,
-        -- theme = "solarized_dark",
+        theme = "solarized_dark",
         -- theme = "rose-pine",
         -- theme = "tokyonight",
-        theme = "nightfly",
+        -- theme = "nightfly",
         -- theme = "everforest",
         -- theme = "gruvbox",
       },
     },
-    -- config = function()
+    -- opts = function()
+    --   local lualine_nightfly = require("lualine.themes.nightfly")
     --
-    -- end
+    --   -- new colors for theme
+    --   local new_colors = {
+    --     blue = "#65D1FF",
+    --     green = "#3EFFDC",
+    --     black = "#000000",
+    --     red = "#fc514e",
+    --     malibu = "#87bcff",
+    --     bg_col = "#092236",
+    --     color1 = "#82aaff",
+    --     color2 = "#21c7a8",
+    --     color3 = "#ae81ff",
+    --     color4 = "#f3b25e",
+    --     color5 = "#ff5874",
+    --     color6 = "#092236",
+    --     color7 = "#a1aab8",
+    --     color8 = "#c3ccdc",
+    --     orange = "#f78c6c",
+    --   }
+    --
+    --   -- change nightlfy theme colors
+    --   lualine_nightfly.normal = {
+    --     a = { fg = new_colors.color6, bg = new_colors.malibu, gui = "bold" },
+    --     b = { fg = new_colors.malibu, bg = new_colors.bg_col },
+    --     c = { fg = new_colors.malibu, bg = new_colors.bg_col },
+    --   }
+    --   lualine_nightfly.insert = {
+    --     a = { fg = new_colors.color6, bg = new_colors.green },
+    --     b = { fg = new_colors.green, bg = new_colors.bg_col },
+    --     -- c = { fg = new_colors.green, bg = new_colors.bg_col },
+    --   }
+    --   lualine_nightfly.visual = {
+    --     a = { fg = new_colors.color6, bg = new_colors.color3 },
+    --     b = { fg = new_colors.color3, bg = new_colors.bg_col },
+    --     -- c = { fg = new_colors.color3, bg = new_colors.bg_col },
+    --   }
+    --   lualine_nightfly.command = {
+    --     a = { fg = new_colors.color6, bg = new_colors.color4 },
+    --     b = { fg = new_colors.color4, bg = new_colors.bg_col },
+    --     -- c = { fg = new_colors.color4, bg = new_colors.bg_col },
+    --   }
+    --   lualine_nightfly.replace = {
+    --     a = { fg = new_colors.color6, bg = new_colors.color5 },
+    --     b = { fg = new_colors.color5, bg = new_colors.bg_col },
+    --     -- c = { fg = new_colors.malibu, bg = new_colors.bg_col },
+    --   }
+    --   lualine_nightfly.inactive = {
+    --     a = { fg = new_colors.color7, bg = new_colors.bg_col },
+    --     b = { fg = new_colors.color7, bg = new_colors.bg_col },
+    --     -- c = { fg = new_colors.color7, bg = new_colors.bg_col },
+    --   }
+    --   return {
+    --     options = {
+    --       globalstatus = true,
+    --       theme = lualine_nightfly,
+    --     },
+    --   }
+    -- end,
   },
 
   -- filename
@@ -130,12 +187,12 @@ return {
     priority = 1200,
     config = function()
       -- {{{
-      -- local colors = require("solarized-osaka.colors").setup()
+      -- local  = require("solarized-osaka.").setup()
       -- require("incline").setup({
       --   highlight = {
       --     groups = {
-      --       InclineNormal = { guibg = colors.magenta500, guifg = colors.base04 },
-      --       InclineNormalNC = { guifg = colors.violet500, guibg = colors.base03 },
+      --       InclineNormal = { guibg = .magenta500, guifg = .base04 },
+      --       InclineNormalNC = { guifg = .violet500, guibg = .base03 },
       --     },
       --   },
       --   window = { margin = { vertical = 0, horizontal = 1 } },
@@ -155,13 +212,16 @@ return {
       --- }}}
       local helpers = require("incline.helpers")
       local devicons = require("nvim-web-devicons")
-      local tokyo_color = require("tokyonight.colors").setup({ transform = true })
+      local tokyo_color = require("tokyonight.").setup({ transform = true })
       local gruvbox_color = require("gruvbox").palette
-      local solarized_osaka = require("solarized-osaka.colors").setup()
+      local solarized_osaka_color = require("solarized-osaka.").setup()
       require("incline").setup({
         window = {
           padding = 0,
           margin = { horizontal = 0 },
+        },
+        hide = {
+          cursorline = true,
         },
         render = function(props)
           local filename = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(props.buf), ":t")
@@ -175,12 +235,14 @@ return {
             " ",
             { filename, gui = modified and "bold,italic" or "bold" },
             " ",
-            guibg = solarized_osaka.base03,
-            guifg = solarized_osaka.hint,
-            -- guibg = gruvbox_color.neutral_aqua,
-            -- guifg = gruvbox_color.dark1,
-            -- guibg = tokyo_color.fg_gutter,
-            -- guifg = tokyo_color.blue,
+            guibg = "#38507a", -- for nightfly scheme
+            guifg = "#21c7a8", -- for nightfly scheme
+            -- guibg = solarized_osaka_color.base03, -- for solarized scheme
+            -- guifg = solarized_osaka_color.hint, -- for solarized scheme
+            -- guibg = gruvbox_color.neutral_aqua, -- for gruvbox scheme
+            -- guifg = gruvbox_color.dark1, -- for gruvbox scheme
+            -- guibg = tokyo_color.fg_gutter, -- for tokyonight scheme
+            -- guifg = tokyo_color.blue, -- for tokyonight scheme
           }
         end,
       })
