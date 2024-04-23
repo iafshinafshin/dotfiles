@@ -1,6 +1,0 @@
-#!/bin/bash
-
-b=$(grep -r -l '.bak$' ./*/*)
-
-echo $b
-# chmod +x $b
