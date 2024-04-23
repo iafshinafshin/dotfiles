@@ -1,5 +1,5 @@
--- local discipline = require("craftzdog.discipline")
--- discipline.cowboy()
+local discipline = require("craftzdog.discipline")
+discipline.cowboy()
 local keymap = vim.keymap
 local opts = { noremap = true, silent = true }
 
@@ -49,7 +49,7 @@ end
 -- vim.api.nvim_create_user_command("MyProj", "lua MyProj()", {})
 keymap.set("i", "<C-/>", "<Esc>gcci")
 keymap.set("n", "<Leader>cap", ":lua MyProj()<Return>", opts)
-keymap.set("i", "<C-f>", "<C-o>$")
+-- keymap.set("i", "<C-f>", "<C-o>$")
 keymap.set("n", "<A-k>", "<S-v>:m '<-2<CR>gv=gv<Esc>", opts)
 keymap.set("n", "<A-j>", "<S-v>:m '>+1<CR>gv=gv<Esc>", opts)
 keymap.set("v", "<A-k>", ":m '<-2<CR>gv=gv", opts)
@@ -76,6 +76,13 @@ keymap.set("n", "d{", "di{")
 keymap.set("n", "d[", "di[")
 keymap.set("n", "d<", "di<")
 keymap.set("n", "d(", "di(")
+
+keymap.set("n", 'v"', 'vi"')
+keymap.set("n", "v'", "vi'")
+keymap.set("n", "v{", "vi{")
+keymap.set("n", "v[", "vi[")
+keymap.set("n", "v<", "vi<")
+keymap.set("n", "v(", "vi(")
 
 keymap.set("n", "n", "'Nn'[v:searchforward].'zv'", { expr = true, desc = "Next search result" })
 keymap.set("x", "n", "'Nn'[v:searchforward]", { expr = true, desc = "Next search result" })

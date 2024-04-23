@@ -255,40 +255,89 @@ return {
 		branch = "harpoon2",
 		lazy = false,
 		dependencies = { "nvim-lua/plenary.nvim" },
+		keys = {
+			{
+				"<C-e>",
+				function()
+					local harpoon = require("harpoon")
+					harpoon:list():prev()
+				end,
+				desc = "Harpoon: Going To Number 4 Window",
+			},
+			-- {
+			-- 	"<C-n>",
+			-- 	function()
+			-- 		local harpoon = require("harpoon")
+			-- 		harpoon:list():next()
+			-- 	end,
+			-- 	desc = "Harpoon: Going To Number 4 Window",
+			-- },
+		},
 		config = function()
 			local harpoon = require("harpoon")
-
-			-- REQUIRED
+			local wk = require("which-key")
 			harpoon:setup()
-			-- REQUIRED
 
 			vim.keymap.set("n", "fa", function()
 				harpoon:list():add()
-			end, { desc = "Harpoon: Add To List" })
+			end)
 			vim.keymap.set("n", "fl", function()
 				harpoon.ui:toggle_quick_menu(harpoon:list())
-			end, { desc = "Harpoon: List Of Windows" })
+			end)
 
 			vim.keymap.set("n", "fe", function()
 				harpoon:list():select(1)
-			end, { desc = "Harpoon: Going To Number 1 Window" })
+			end)
 			vim.keymap.set("n", "fi", function()
 				harpoon:list():select(2)
-			end, { desc = "Harpoon: Going To Number 2 Window" })
-			vim.keymap.set("n", "fo", function()
+			end)
+			vim.keymap.set("n", "fg", function()
 				harpoon:list():select(3)
-			end, { desc = "Harpoon: Going To Number 3 Window" })
+			end)
 			vim.keymap.set("n", "fh", function()
 				harpoon:list():select(4)
-			end, { desc = "Harpoon: Going To Number 4 Window" })
-
-			-- Toggle previous & next buffers stored within Harpoon list
-			vim.keymap.set("n", "<C-e>", function()
-				harpoon:list():prev()
 			end)
-			vim.keymap.set("n", "<C-n>", function()
-				harpoon:list():next()
-			end)
+			wk.register({
+				f = {
+					name = "Harpoon",
+					a = {
+						function()
+							harpoon:list():add()
+						end,
+						"Add To List",
+					}, -- create a binding with label
+					l = {
+						function()
+							harpoon.ui:toggle_quick_menu(require("harpoon"):list())
+						end,
+						"List Of Windows",
+					}, -- additional options for creating the keymap
+					e = {
+						function()
+							harpoon:list():select(1)
+						end,
+						"Going To Number 1 Window",
+					}, -- just a label. don't create any mapping
+					i = {
+						function()
+							harpoon:list():select(2)
+						end,
+						"Going To Number 2 Window",
+					}, -- same as above
+					g = {
+						function()
+							harpoon:list():select(3)
+						end,
+						"Going To Number 3 Window",
+					}, -- same as above
+					h = {
+						function()
+							harpoon:list():select(4)
+						end,
+						"Going To Number 4 Window",
+					}, -- same as above
+				},
+			})
 		end,
 	},
 }

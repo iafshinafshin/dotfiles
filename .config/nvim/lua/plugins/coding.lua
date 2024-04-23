@@ -185,8 +185,8 @@ return {
 			require("nvim-surround").setup({})
 		end,
 	},
-	-- {
-	-- 	"mg979/vim-visual-multi",
-	-- 	lazy = false,
-	-- },
+	{
+		"mg979/vim-visual-multi",
+		lazy = false,
+	},
 }
