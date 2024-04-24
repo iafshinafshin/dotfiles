@@ -166,7 +166,7 @@ return {
 			})
 			keymap.set("n", "<leader>j", require("treesj").toggle)
 			keymap.set("n", "<leader>J", function()
-				require("treesj").toggle({ split = { recursive = true } })
+				require("treesj").toggle({ split = { recursive = false } })
 			end)
 		end,
 	},
@@ -188,5 +188,19 @@ return {
 	{
 		"mg979/vim-visual-multi",
 		lazy = false,
+	},
+	{
+		"Diogo-ss/five-server.nvim",
+		cmd = { "FiveServer" },
+		build = function()
+			require("fs.utils.install")()
+		end,
+		opts = {
+			notify = true,
+			-- add other options
+		},
+		config = function(_, opts)
+			require("fs").setup(opts)
+		end,
 	},
 }

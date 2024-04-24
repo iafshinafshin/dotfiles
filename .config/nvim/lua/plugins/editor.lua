@@ -304,37 +304,37 @@ return {
 						function()
 							harpoon:list():add()
 						end,
-						"Add To List",
+						"Harpoon: Add To List",
 					}, -- create a binding with label
 					l = {
 						function()
 							harpoon.ui:toggle_quick_menu(require("harpoon"):list())
 						end,
-						"List Of Windows",
+						"Harpoon: List Of Windows",
 					}, -- additional options for creating the keymap
 					e = {
 						function()
 							harpoon:list():select(1)
 						end,
-						"Going To Number 1 Window",
+						"Harpoon: Going To Number 1 Window",
 					}, -- just a label. don't create any mapping
 					i = {
 						function()
 							harpoon:list():select(2)
 						end,
-						"Going To Number 2 Window",
+						"Harpoon: Going To Number 2 Window",
 					}, -- same as above
 					g = {
 						function()
 							harpoon:list():select(3)
 						end,
-						"Going To Number 3 Window",
+						"Harpoon: Going To Number 3 Window",
 					}, -- same as above
 					h = {
 						function()
 							harpoon:list():select(4)
 						end,
-						"Going To Number 4 Window",
+						"Harpoon: Going To Number 4 Window",
 					}, -- same as above
 				},
 			})

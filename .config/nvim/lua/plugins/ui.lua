@@ -187,12 +187,12 @@ return {
 		priority = 1200,
 		config = function()
 			-- {{{
-			-- local  = require("solarized-osaka.").setup()
+			-- local solarized_color = require("solarized-osaka.").setup()
 			-- require("incline").setup({
 			--   highlight = {
 			--     groups = {
-			--       InclineNormal = { guibg = .magenta500, guifg = .base04 },
-			--       InclineNormalNC = { guifg = .violet500, guibg = .base03 },
+			--       InclineNormal = { guibg = solarized_color.magenta500, guifg = solarized_color.base04 },
+			--       InclineNormalNC = { guifg = solarized_color.violet500, guibg = solarized_color.base03 },
 			--     },
 			--   },
 			--   window = { margin = { vertical = 0, horizontal = 1 } },

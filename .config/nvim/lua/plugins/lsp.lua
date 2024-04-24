@@ -21,7 +21,7 @@ return {
 				"css-lsp",
 				"cssmodules-language-server",
 				"html-lsp",
-				"ast_grep",
+				"ast-grep",
 				"beautysh",
 				"emmet-language-server",
 				"easy-coding-standard",
@@ -34,19 +34,6 @@ return {
 				"taplo",
 				"easy-coding-standard",
 				"intelephense",
-			})
-		end,
-
-		config = function()
-			local mason = require("mason")
-			mason.setup({
-				ui = {
-					icons = {
-						package_installed = "✓",
-						package_pending = "➜",
-						package_uninstalled = "✗",
-					},
-				},
 			})
 		end,
 	},
