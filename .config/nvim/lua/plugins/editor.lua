@@ -264,14 +264,14 @@ return {
 				end,
 				desc = "Harpoon: Going To Number 4 Window",
 			},
-			-- {
-			-- 	"<C-n>",
-			-- 	function()
-			-- 		local harpoon = require("harpoon")
-			-- 		harpoon:list():next()
-			-- 	end,
-			-- 	desc = "Harpoon: Going To Number 4 Window",
-			-- },
+			{
+				"<C-p>",
+				function()
+					local harpoon = require("harpoon")
+					harpoon:list():next()
+				end,
+				desc = "Harpoon: Going To Number 4 Window",
+			},
 		},
 		config = function()
 			local harpoon = require("harpoon")

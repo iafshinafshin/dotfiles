@@ -114,7 +114,7 @@ keymap.set("n", "<Leader>o", "o<Esc>^Da", opts)
 keymap.set("n", "<Leader>O", "O<Esc>^Da", opts)
 
 -- Jumplist
-keymap.set("n", "<C-m>", "<C-i>", opts)
+keymap.set("n", "<C-m>", "<C-i>")
 
 -- New tab
 keymap.set("n", "te", ":tabedit<Return>")
@@ -129,7 +129,9 @@ keymap.set("n", "sh", "<C-w>h")
 keymap.set("n", "sk", "<C-w>k")
 keymap.set("n", "sj", "<C-w>j")
 keymap.set("n", "sl", "<C-w>l")
--- Resize window keymap.set("n", "<C-w><left>", "<C-w><") keymap.set("n", "<C-w><right>", "<C-w>>")
+-- Resize window
+keymap.set("n", "<C-w><left>", "<C-w><")
+keymap.set("n", "<C-w><right>", "<C-w>>")
 keymap.set("n", "<C-w><up>", "<C-w>+")
 keymap.set("n", "<C-w><down>", "<C-w>-")
 
