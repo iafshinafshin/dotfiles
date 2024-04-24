@@ -5,19 +5,23 @@ options=("Neovim Editor" "Fish Shell" "Zsh Shell" "Alacritty" "Exit")
 select option in "${options[@]}"; do
 	case $option in
 	"Neovim Editor")
-		./nvim.sh
+		clear
+		./exec-file/nvim.sh
 		exit
 		;;
 	"Fish Shell")
-		./fish.sh
+		clear
+		./exec-file/fish.sh
 		exit
 		;;
 	"Zsh Shell")
-		./zsh.sh
+		clear
+		./exec-file/zsh.sh
 		exit
 		;;
 	"Alacritty")
-		./alacritty.sh
+		clear
+		./exec-file/alacritty.sh
 		exit
 		;;
 	"Exit")
