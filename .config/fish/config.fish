@@ -35,7 +35,6 @@ alias mpl='mplayer -fs '
 alias curl-tor='curl --socks5-hostname localhost:9050 '
 alias myip='wget -qO - https://api.ipify.org; echo'
 alias warprox='cd ~/warp-plus_linux-amd64 && ./warp-plus'
-alias cz='cz commit -a'
 set -gx EDITOR nvim
 set -gx NVIM_CONF ~/.config/nvim/lua/
 set -gx DEV ~/.ghq/github.com/iafshinafshin/Development/
