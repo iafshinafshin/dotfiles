@@ -300,12 +300,6 @@ return {
 			wk.register({
 				f = {
 					name = "Harpoon",
-					a = {
-						function()
-							harpoon:list():add()
-						end,
-						"Harpoon: Add To List",
-					}, -- create a binding with label
 					l = {
 						function()
 							harpoon.ui:toggle_quick_menu(require("harpoon"):list())
@@ -336,6 +330,12 @@ return {
 						end,
 						"Harpoon: Going To Number 4 Window",
 					}, -- same as above
+					a = {
+						function()
+							harpoon:list():add()
+						end,
+						"Harpoon: Add To List",
+					}, -- create a binding with label
 				},
 			})
 		end,

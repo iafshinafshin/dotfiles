@@ -154,23 +154,6 @@ return {
 		end,
 	},
 	{
-		"Wansmer/treesj",
-		lazy = false,
-		dependencies = { "nvim-treesitter/nvim-treesitter" },
-		config = function()
-			local keymap = vim.keymap
-			local tsj = require("treesj")
-
-			tsj.setup({
-				use_default_keymaps = false,
-			})
-			keymap.set("n", "<leader>j", require("treesj").toggle)
-			keymap.set("n", "<leader>J", function()
-				require("treesj").toggle({ split = { recursive = false } })
-			end)
-		end,
-	},
-	{
 		"mbbill/undotree",
 		lazy = false,
 		config = function()
@@ -185,10 +168,7 @@ return {
 			require("nvim-surround").setup({})
 		end,
 	},
-	{
-		"mg979/vim-visual-multi",
-		lazy = false,
-	},
+	{ "mg979/vim-visual-multi", lazy = false },
 	{
 		"Diogo-ss/five-server.nvim",
 		cmd = { "FiveServer" },

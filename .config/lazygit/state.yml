@@ -1,0 +1,7 @@
+lastupdatecheck: 0
+recentrepos:
+  - /home/afshin/.ghq/github.com/iafshinafshin/iafshinafshin.github.io
+  - /home/afshin/.ghq/github.com/craftzdog/dotfiles-public
+startuppopupversion: 5
+customcommandshistory:
+  - git cz -a
