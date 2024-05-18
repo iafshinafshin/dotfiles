@@ -69,14 +69,6 @@ return {
 		end,
 	},
 	{
-		"joshdick/onedark.vim",
-		lazy = true,
-		priority = 1000,
-		opts = {
-			colorscheme = "onedark",
-		},
-	},
-	{
 		"ellisonleao/gruvbox.nvim",
 		lazy = true,
 		priority = 1000,
@@ -113,13 +105,20 @@ return {
 			})
 		end,
 	},
+	-- Ayu theme
 	{
 		"Shatur/neovim-ayu",
 		lazy = false,
 	},
+	-- Kanagawa theme
 	{
 		"rebelot/kanagawa.nvim",
 		lazy = false,
 		priority = 1000,
 	},
+	-- Load github nvim theme
+	{ "projekt0n/github-nvim-theme", lazy = true, priority = 1000 },
+
+	-- Load onedarkpro nvim theme
+	{ "olimorris/onedarkpro.nvim", lazy = true, priority = 1000 },
 }

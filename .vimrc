@@ -17,7 +17,7 @@ Plugin 'dylanaraps/wal.vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'lilydjwg/colorizer'
-Plugin 'Exafunction/codeium.vim'
+" Plugin 'Exafunction/codeium.vim'
 Plugin 'ycm-core/YouCompleteMe'
 Plugin 'tpope/vim-surround' " Surrounding ysw)
 Plugin 'preservim/nerdtree' " NerdTree
@@ -52,7 +52,7 @@ let g:NERDTreeDirArrowExpandable=""
 let g:NERDTreeDirArrowCollapsible=""
 
 inoremap <silent><C-f> <C-o>$
-inoremap <Silent>( ()<Esc>i
+inoremap <silent>( ()<Esc>i
 inoremap <silent>{ {}<Esc>i
 inoremap <silent>[ []<Esc>i
 inoremap <silent>< <><Esc>i
