@@ -6,6 +6,15 @@
 	excludesfile = ~/.gitignore
 	editor = nvim
 	ignorecase = false
+  pager = delta
+[push]
+  default = simple
+[interactive]
+  diffFilter = delta --color-only
+[delta]
+  navigate = true
+[merge]
+  conflictstyle = diff3
 [push]
   default = simple
 [color]
