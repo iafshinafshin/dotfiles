@@ -48,7 +48,7 @@ function MyProj()
 end
 -- vim.api.nvim_create_user_command("MyProj", "lua MyProj()", {})
 keymap.set("i", "<C-/>", "<Esc>gcci")
-keymap.set("n", "<Leader>cap", ":lua MyProj()<Return>", opts)
+keymap.set("n", "<Leader>ap", ":lua MyProj()<Return>", opts)
 -- keymap.set("i", "<C-f>", "<C-o>$")
 keymap.set("n", "<A-k>", "<S-v>:m '<-2<CR>gv=gv<Esc>", opts)
 keymap.set("n", "<A-j>", "<S-v>:m '>+1<CR>gv=gv<Esc>", opts)
@@ -97,7 +97,7 @@ keymap.set("n", "-", "<C-x>")
 
 keymap.set(
 	"n",
-	"<leader>cR",
+	"<leader>aR",
 	[[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],
 	{ desc = "Rename With Command Line" }
 )

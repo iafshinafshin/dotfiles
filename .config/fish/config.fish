@@ -34,12 +34,14 @@ alias nv-su='sudo -e nv '
 alias mpl='mplayer -fs '
 alias curl-tor='curl --socks5-hostname localhost:9050 '
 alias myip='wget -qO - https://api.ipify.org; echo'
+alias mytorip='torsocks wget -qO - https://api.ipify.org; echo'
+alias mywarpip='proxychains wget -qO - https://api.ipify.org; echo'
 alias warprox='cd ~/warp-plus_linux-amd64 && ./warp-plus'
 alias tpw='tmux new -s Proxy ; tmux new -s "Dailly Work"'
 set -gx EDITOR nvim
 set -gx MY_PROJECT ~/.ghq/github.com/iafshinafshin/seevideo/
 set -gx NVIM_CONF ~/.ghq/github.com/iafshinafshin/dotfiles/.config/nvim/lua/
-set -gx DEV ~/.ghq/github.com/iafshinafshin/Development/
+set -gx DEV ~/Development/
 set -gx DOT_CONF ~/.ghq/github.com/iafshinafshin/dotfiles/
 
 set -g FZF_PREVIEW_FILE_CMD "bat --style=numbers --color=always --line-range :500"
