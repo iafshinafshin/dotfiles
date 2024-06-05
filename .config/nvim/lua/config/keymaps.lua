@@ -8,29 +8,26 @@ keymap.set("n", "<leader>uL", function()
 end, { desc = "Toggle Relative Line Numbers" })
 -- Do things without affecting the registers
 keymap.set("n", "x", '"_x')
-keymap.set("n", "<Leader>p", '"0p')
-keymap.set("n", "<Leader>P", '"0P')
-keymap.set("v", "<Leader>p", '"0p')
-keymap.set("n", "<Leader>c", '"_c')
-keymap.set("n", "<Leader>C", '"_C')
-keymap.set("v", "<Leader>c", '"_c')
-keymap.set("v", "<Leader>C", '"_C')
-keymap.set("n", "<Leader>d", '"_d')
-keymap.set("n", "<Leader>D", '"_D')
-keymap.set("v", "<Leader>d", '"_d')
-keymap.set("v", "<Leader>D", '"_D')
+keymap.set("n", "<Leader>ap", '"0p')
+keymap.set("n", "<Leader>aP", '"0P')
+keymap.set("v", "<Leader>ap", '"0p')
+keymap.set("n", "<Leader>ac", '"_c')
+keymap.set("n", "<Leader>aC", '"_C')
+keymap.set("v", "<Leader>ac", '"_c')
+keymap.set("v", "<Leader>aC", '"_C')
+keymap.set("n", "<Leader>ad", '"_d')
+keymap.set("n", "<Leader>aD", '"_D')
+keymap.set("v", "<Leader>ad", '"_d')
+keymap.set("v", "<Leader>aD", '"_D')
 keymap.set("n", "db", 'vb"_d')
 keymap.set("n", "dw", 'viw"_d')
--- Delete and backwards
 keymap.set("n", "cd", '"_ciw')
-keymap.set("n", "<Leader>d$", '"_d$')
-keymap.set("n", "<Leader>c$", '"_c$')
+-- Delete and backwards
 
 keymap.set({ "n", "v" }, "<leader>y", [["+y]])
 function MyProj()
 	local path = {
-		"~/.ghq/github.com/iafshinafshin/Development/javascript-course",
-		"~/.ghq/github.com/iafshinafshin/iafshin.github.io",
+		"~/Development",
 		"~/.ghq/github.com/iafshinafshin",
 		"~/.ghq/github.com/iafshinafshin/dotfiles/.config/nvim",
 		"~/.ghq/github.com/iafshinafshin/dotfiles/.config",
@@ -47,7 +44,6 @@ function MyProj()
 	end)
 end
 -- vim.api.nvim_create_user_command("MyProj", "lua MyProj()", {})
-keymap.set("i", "<C-/>", "<Esc>gcci")
 keymap.set("n", "<Leader>ap", ":lua MyProj()<Return>", opts)
 -- keymap.set("i", "<C-f>", "<C-o>$")
 keymap.set("n", "<A-k>", "<S-v>:m '<-2<CR>gv=gv<Esc>", opts)
@@ -107,7 +103,8 @@ keymap.set("n", "<C-a>", "gg<S-v>G")
 
 -- Save with root permission (not working for now)
 -- vim.api.nvim_create_user_command("viw", "", {'bang': n:true})
-vim.api.nvim_create_user_command("W", "w !sudo tee > /dev/null %", {})
+-- vim.api.nvim_create_user_command("W", "w !sudo tee > /dev/null %", {})
+vim.api.nvim_create_user_command("W", "w", {})
 
 -- Disable continuations
 keymap.set("n", "<Leader>o", "o<Esc>^Da", opts)

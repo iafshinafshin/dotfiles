@@ -11,8 +11,9 @@ end
 
 function fzf_change_directory
     begin
-        echo ~/.ghq/github.com/iafshinafshin/seevideo
-        echo ~/.ghq/github.com/iafshinafshin/Development
+        # echo ~/.ghq/github.com/iafshinafshin/seevideo
+        # echo ~/.ghq/github.com/iafshinafshin/Development
+        echo ~/Development
         echo ~/.ghq/github.com/iafshinafshin/dotfiles
         echo $HOME/.config
         echo $(echo $DEV)javascript-course

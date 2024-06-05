@@ -71,10 +71,27 @@ return {
 				";f",
 				function()
 					local builtin = require("telescope.builtin")
+					local telescope = require("telescope")
+					telescope.setup({
+						defaults = {
+							file_ignore_pattern = {
+								"node_modules",
+								"*.png$",
+								"*.jpng$",
+								"*.jpg$",
+								"*.gif$",
+								"*.webp$",
+								"*.mp4$",
+								"*.mp3$",
+								"*.mkv$",
+							},
+						},
+					})
 					builtin.find_files({
 						no_ignore = false,
 						hidden = true,
 					})
+					-- local ignore_file = require("telescope.defaults.file_ignore_patterns")
 				end,
 				desc = "Lists files in your current working directory, respects .gitignore",
 			},
