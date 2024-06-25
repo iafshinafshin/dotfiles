@@ -108,7 +108,7 @@ return {
 		event = "VeryLazy",
 		opts = {
 			options = {
-				-- globalstatus = false,
+				globalstatus = true,
 				theme = "solarized_dark",
 				-- theme = "rose-pine",
 				-- theme = "tokyonight",
@@ -259,6 +259,21 @@ return {
 				lspsaga = false,
 				kitty = { enabled = false, font = "+2" },
 			},
+			on_open = function(win)
+				local view = require("zen-mode.view")
+				local layout = view.layout(view.opts)
+				vim.api.nvim_win_set_config(win, {
+					width = layout.width,
+					height = layout.height - 1,
+				})
+				vim.api.nvim_win_set_config(view.bg_win, {
+					width = vim.o.columns,
+					height = view.height() - 1,
+					row = 1,
+					col = layout.col,
+					relative = "editor",
+				})
+			end,
 		},
 		keys = { { "<leader>z", "<cmd>ZenMode<cr>", desc = "Zen Mode" } },
 	},

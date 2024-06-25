@@ -13,10 +13,10 @@ function fzf_change_directory
     begin
         # echo ~/.ghq/github.com/iafshinafshin/seevideo
         # echo ~/.ghq/github.com/iafshinafshin/Development
-        echo ~/Development
+        echo ~/Development/JavaScript
         echo ~/.ghq/github.com/iafshinafshin/dotfiles
+        echo ~/Development
         echo $HOME/.config
-        echo $(echo $DEV)javascript-course
         find $(ghq root) -maxdepth 4 -type d -name .git | sed 's/\/\.git//'
         ls -ad */ | perl -pe "s#^#$PWD/#" | grep -v \.git
         # ls -ad $HOME/Developments/*/* |grep -v \.git

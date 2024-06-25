@@ -22,6 +22,7 @@ keymap.set("v", "<Leader>aD", '"_D')
 keymap.set("n", "db", 'vb"_d')
 keymap.set("n", "dw", 'viw"_d')
 keymap.set("n", "cd", '"_ciw')
+keymap.set("i", "<C-a>", "<Esc>A")
 -- Delete and backwards
 
 keymap.set({ "n", "v" }, "<leader>y", [["+y]])
@@ -99,13 +100,15 @@ keymap.set(
 )
 
 -- Select all
-keymap.set("n", "<C-a>", "gg<S-v>G")
+keymap.set("n", "<C-S-a>", "gg<S-v>G")
 
 -- Save with root permission (not working for now)
 -- vim.api.nvim_create_user_command("viw", "", {'bang': n:true})
 -- vim.api.nvim_create_user_command("W", "w !sudo tee > /dev/null %", {})
 vim.api.nvim_create_user_command("W", "w", {})
-
+keymap.set("n", "<Leader>at", function()
+	require("time-tracker").time_info()
+end, opts)
 -- Disable continuations
 keymap.set("n", "<Leader>o", "o<Esc>^Da", opts)
 keymap.set("n", "<Leader>O", "O<Esc>^Da", opts)
@@ -127,16 +130,10 @@ keymap.set("n", "sk", "<C-w>k")
 keymap.set("n", "sj", "<C-w>j")
 keymap.set("n", "sl", "<C-w>l")
 -- Resize window
-keymap.set("n", "<C-w><left>", "<C-w><")
-keymap.set("n", "<C-w><right>", "<C-w>>")
-keymap.set("n", "<C-w><up>", "<C-w>+")
-keymap.set("n", "<C-w><down>", "<C-w>-")
-
--- my config
-
--- keymap.set("i", "<C-s>", "<C-p>", opts)
--- keymap.set("i", "<C-j>", "<down>")
--- keymap.set("i", "<C-l>", "<up>")
+keymap.set("n", "<C-w><right>", "<C-w><")
+keymap.set("n", "<C-w><left>", "<C-w>>")
+keymap.set("n", "<C-w><down>", "<C-w>+")
+keymap.set("n", "<C-w><up>", "<C-w>-")
 
 -- Diagnostics
 keymap.set("n", "<C-j>", function()

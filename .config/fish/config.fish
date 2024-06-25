@@ -10,6 +10,7 @@ set -g theme_hide_hostname no
 set -g theme_hostname always
 
 alias l="eza --icons "
+alias c='clear'
 alias ll="l -lrh "
 alias la="ll -a "
 alias nv="nvim "
@@ -20,6 +21,7 @@ alias g="git"
 alias lg="lazygit"
 alias thus="cd /run/user/1000/gvfs/"
 alias ughq='cd ~/.ghq ; ghq get -u ./*/*/* & cd - ; clear ; echo "Update repositores successful"'
+alias n='nvm use v20.14.0'
 alias ide="~/.config/fish/ide "
 alias ..='cd ..'
 alias ...='cd ../..'
@@ -33,6 +35,7 @@ alias fgrep='fgrep --color=auto '
 alias nv-su='sudo -e nv '
 alias mpl='mplayer -fs '
 alias curl-tor='curl --socks5-hostname localhost:9050 '
+alias curl-warp='curl --socks5-hostname localhost:8086 '
 alias myip='wget -qO - https://api.ipify.org; echo'
 alias mytorip='torsocks wget -qO - https://api.ipify.org; echo'
 alias mywarpip='proxychains wget -qO - https://api.ipify.org; echo'

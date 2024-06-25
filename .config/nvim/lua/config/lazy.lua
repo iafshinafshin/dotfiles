@@ -42,7 +42,6 @@ require("lazy").setup({
 		{ import = "lazyvim.plugins.extras.lang.json" },
 		{ import = "lazyvim.plugins.extras.lang.markdown" },
 		{ import = "lazyvim.plugins.extras.lang.rust" },
-		{ import = "lazyvim.plugins.extras.lang.python-semshi" },
 		{ import = "lazyvim.plugins.extras.lang.tailwind" },
 		-- { import = "lazyvim.plugins.extras.dap.core" },
 		{ import = "lazyvim.plugins.extras.vscode" },
@@ -54,6 +53,7 @@ require("lazy").setup({
 		{ import = "lazyvim.plugins.extras.editor.outline" },
 		-- { import = "lazyvim.plugins.extras.coding.yanky" },
 		{ import = "lazyvim.plugins.extras.util.dot" },
+		{ import = "lazyvim.plugins.extras.editor.inc-rename" },
 		{ import = "lazyvim.plugins.extras.util.startuptime" },
 		-- { import = "lazyvim.plugins.extras.editor.mini-files" },
 		--

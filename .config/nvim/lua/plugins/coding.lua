@@ -15,12 +15,6 @@ return {
 	},
 
 	-- Incremental rename
-	{
-		"smjonas/inc-rename.nvim",
-		cmd = "IncRename",
-		config = true,
-	},
-
 	-- Refactoring tool
 	{
 		"ThePrimeagen/refactoring.nvim",
@@ -181,6 +175,16 @@ return {
 		},
 		config = function(_, opts)
 			require("fs").setup(opts)
+		end,
+	},
+	{
+		"jmatth11/time-tracker.nvim",
+		dependencies = "nvim-lua/plenary.nvim",
+		lazy = false,
+		config = function()
+			require("time-tracker").setup()
+			-- set inactivity to 5 seconds after no key presses
+			require("time-tracker").setup({ timer_delay = 1000 * 5 })
 		end,
 	},
 }

@@ -1,7 +1,15 @@
 lastupdatecheck: 0
 recentrepos:
-  - /home/afshin/.ghq/github.com/iafshinafshin/iafshinafshin.github.io
-  - /home/afshin/.ghq/github.com/craftzdog/dotfiles-public
+    - /home/afshin/.ghq/github.com/iafshinafshin/JavaScript
+    - /home/afshin/.ghq/github.com/craftzdog/dotfiles-public
 startuppopupversion: 5
+lastversion: 0.42.0
 customcommandshistory:
-  - git cz -a
+    - git cz -a
+hidecommandlog: false
+ignorewhitespaceindiffview: false
+diffcontextsize: 3
+localbranchsortorder: recency
+remotebranchsortorder: alphabetical
+gitlogorder: topo-order
+gitlogshowgraph: always
