@@ -34,7 +34,7 @@ vim.opt.splitkeep = "cursor"
 vim.g.autoformat = true -- globally
 vim.b.autoformat = true -- buffer-local
 vim.opt.mouse = ""
-vim.g.lazygit_theme = true
+vim.g.lazygit_config = true
 vim.g.lazyvim_python_lsp = "basedpyright"
 -- Undercurl
 vim.cmd([[let &t_Cs = "\e[4:3m"]])

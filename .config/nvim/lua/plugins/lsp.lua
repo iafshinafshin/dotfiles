@@ -158,46 +158,46 @@ return {
 			setup = {},
 		},
 	},
-	-- {
-	-- 	"nvimdev/lspsaga.nvim",
-	-- 	lazy = false,
-	-- 	priority = 1000,
-	-- 	config = function()
-	-- 		require("lspsaga").setup({
-	--
-	-- 			outline = {
-	-- 				enable = true,
-	-- 				layout = "float",
-	-- 			},
-	-- 			lightbulb = {
-	-- 				enable = false,
-	-- 			},
-	-- 			ui = {
-	-- 				border = "rounded",
-	-- 			},
-	-- 			symbol_in_winbar = {
-	-- 				enable = true,
-	-- 				separator = "  ",
-	-- 				show_file = true,
-	-- 				folder_level = 0,
-	-- 				color_mode = true,
-	-- 			},
-	-- 		})
-	--
-	-- 		vim.keymap.set(
-	-- 			"n",
-	-- 			"ct",
-	-- 			":Lspsaga outline<Return>",
-	-- 			{ noremap = true, silent = true },
-	-- 			{ desc = "Outline if code" }
-	-- 		)
-	-- 		vim.keymap.set(
-	-- 			"n",
-	-- 			"cD",
-	-- 			"<Cmd>Lspsaga finder<CR>",
-	-- 			{ noremap = true, silent = true },
-	-- 			{ desc = "Finder code type" }
-	-- 		)
-	-- 	end,
-	-- },
+	{
+		"nvimdev/lspsaga.nvim",
+		lazy = false,
+		priority = 1000,
+		config = function()
+			require("lspsaga").setup({
+
+				outline = {
+					enable = true,
+					layout = "float",
+				},
+				lightbulb = {
+					enable = false,
+				},
+				ui = {
+					border = "rounded",
+				},
+				symbol_in_winbar = {
+					enable = true,
+					separator = "  ",
+					show_file = true,
+					folder_level = 0,
+					color_mode = true,
+				},
+			})
+
+			vim.keymap.set(
+				"n",
+				"<leader>alt",
+				":Lspsaga outline<Return>",
+				{ noremap = true, silent = true },
+				{ desc = "Outline if code" }
+			)
+			vim.keymap.set(
+				"n",
+				"<leader>alf",
+				"<Cmd>Lspsaga finder<CR>",
+				{ noremap = true, silent = true },
+				{ desc = "Finder code type" }
+			)
+		end,
+	},
 }

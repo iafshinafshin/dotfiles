@@ -117,9 +117,11 @@ keymap.set("n", "<Leader>O", "O<Esc>^Da", opts)
 keymap.set("n", "<C-m>", "<C-i>")
 
 -- New tab
-keymap.set("n", "te", ":tabedit<Return>")
+keymap.set("n", "te", ":tabedit<Return>", opts)
 keymap.set("n", "<tab>", ":tabnext<Return>", opts)
 keymap.set("n", "<s-tab>", ":tabprev<Return>", opts)
+keymap.set("n", "H", "h")
+keymap.set("n", "L", "l")
 -- Split window
 keymap.set("n", "ss", ":split<Return>", opts)
 keymap.set("n", "sv", ":vsplit<Return>", opts)

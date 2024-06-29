@@ -1,0 +1,30 @@
+#!/bin/python3.12
+from os import system
+
+s = []
+with open('num.txt', 'r') as f:
+    for line in f:
+        # print(line.strip())
+        s.append(line.split('\n')) 
+
+s = s[0][0]
+s = int(s)
+
+while True:
+    play = f'mpv --fullscreen ./02/js-{s}.mp4'
+    system(play)
+    system('clear')
+    i = str(input('\n\n\n\n\n\n\n\n\n\n                    Next or Quit or Replay ? ( n | q | r ) : '))
+    if i == 'q':
+        system('rm ./num.txt')
+        writer = f'echo {s} > num.txt'
+        system(writer)
+        system('clear')
+        break
+    elif i == 'n':
+        s += 1 
+        system('clear')
+    elif i == 'i':
+        pass
+        system('clear')
+    system('clear')
