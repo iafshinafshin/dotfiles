@@ -7,6 +7,35 @@ keymap.set("n", "<leader>uL", function()
 	require("lazyvim.util").toggle("relativenumber")
 end, { desc = "Toggle Relative Line Numbers" })
 -- Do things without affecting the registers
+
+keymap.set("n", "Y", "y$")
+keymap.set("n", 'y"', 'yi"')
+keymap.set("n", "y'", "yi'")
+keymap.set("n", "y{", "yi{")
+keymap.set("n", "y[", "yi[")
+keymap.set("n", "y<", "yi<")
+keymap.set("n", "y(", "yi(")
+
+keymap.set("n", 'c"', 'ci"')
+keymap.set("n", "c'", "ci'")
+keymap.set("n", "c{", "ci{")
+keymap.set("n", "c[", "ci[")
+keymap.set("n", "c<", "ci<")
+keymap.set("n", "c(", "ci(")
+
+keymap.set("n", 'd"', 'di"')
+keymap.set("n", "d'", "di'")
+keymap.set("n", "d{", "di{")
+keymap.set("n", "d[", "di[")
+keymap.set("n", "d<", "di<")
+keymap.set("n", "d(", "di(")
+
+keymap.set("n", 'v"', 'vi"')
+keymap.set("n", "v'", "vi'")
+keymap.set("n", "v{", "vi{")
+keymap.set("n", "v[", "vi[")
+keymap.set("n", "v<", "vi<")
+keymap.set("n", "v(", "vi(")
 keymap.set("n", "x", '"_x')
 keymap.set("n", "<Leader>ap", '"0p')
 keymap.set("n", "<Leader>aP", '"0P')
@@ -46,40 +75,12 @@ function MyProj()
 end
 -- vim.api.nvim_create_user_command("MyProj", "lua MyProj()", {})
 keymap.set("n", "<Leader>ap", ":lua MyProj()<Return>", opts)
+keymap.set("n", "<leader>an", ":lua NodeDebugMe('~/Development/JavaScript/public/js/javascript.js')<Return>", opts)
 -- keymap.set("i", "<C-f>", "<C-o>$")
 keymap.set("n", "<A-k>", "<S-v>:m '<-2<CR>gv=gv<Esc>", opts)
 keymap.set("n", "<A-j>", "<S-v>:m '>+1<CR>gv=gv<Esc>", opts)
 keymap.set("v", "<A-k>", ":m '<-2<CR>gv=gv", opts)
 keymap.set("v", "<A-j>", ":m '>+1<CR>gv=gv", opts)
-
-keymap.set("n", "Y", "y$")
-keymap.set("n", 'y"', 'yi"')
-keymap.set("n", "y'", "yi'")
-keymap.set("n", "y{", "yi{")
-keymap.set("n", "y[", "yi[")
-keymap.set("n", "y<", "yi<")
-keymap.set("n", "y(", "yi(")
-
-keymap.set("n", 'c"', 'ci"')
-keymap.set("n", "c'", "ci'")
-keymap.set("n", "c{", "ci{")
-keymap.set("n", "c[", "ci[")
-keymap.set("n", "c<", "ci<")
-keymap.set("n", "c(", "ci(")
-
-keymap.set("n", 'd"', 'di"')
-keymap.set("n", "d'", "di'")
-keymap.set("n", "d{", "di{")
-keymap.set("n", "d[", "di[")
-keymap.set("n", "d<", "di<")
-keymap.set("n", "d(", "di(")
-
-keymap.set("n", 'v"', 'vi"')
-keymap.set("n", "v'", "vi'")
-keymap.set("n", "v{", "vi{")
-keymap.set("n", "v[", "vi[")
-keymap.set("n", "v<", "vi<")
-keymap.set("n", "v(", "vi(")
 
 keymap.set("n", "n", "'Nn'[v:searchforward].'zv'", { expr = true, desc = "Next search result" })
 keymap.set("x", "n", "'Nn'[v:searchforward]", { expr = true, desc = "Next search result" })
@@ -100,8 +101,17 @@ keymap.set(
 )
 
 -- Select all
-keymap.set("n", "<C-S-a>", "gg<S-v>G")
-
+keymap.set("n", "<C-a>", "gg<S-v>G")
+-- keymap.set(
+-- 	"n",
+-- 	"<leader>an",
+-- 	':lua require("lazy.util").float_cmd("node ~/Development/JavaScript/public/js/javascript.js")<Return>',
+-- 	{ desc = "Run node" },
+-- 	opts
+-- )
+-- keymap.set("n", "<leader>an", function()
+-- 	require("lazy.util").float_cmd({ "node", "~/Development/JavaScript/public/js/javascript.js" })
+-- end, { desc = "Run node" })
 -- Save with root permission (not working for now)
 -- vim.api.nvim_create_user_command("viw", "", {'bang': n:true})
 -- vim.api.nvim_create_user_command("W", "w !sudo tee > /dev/null %", {})
@@ -155,30 +165,10 @@ keymap.set("n", "<leader>i", function()
 	require("craftzdog.lsp").toggleInlayHints()
 end)
 
--- default keymap in lazyvim
-
--- This file is automatically loaded by lazyvim.config.init
--- better up/down
-
--- Clear search, diff update and redraw
--- taken from runtime/lua/_editor.lua
--- map(
--- 	"n",
--- 	"<leader>ur",
--- 	"<Cmd>nohlsearch<Bar>diffupdate<Bar>normal! <C-L><CR>",
--- 	{ desc = "Redraw / clear hlsearch / diff update" }
--- )
---
--- -- https://github.com/mhinz/vim-galore#saner-behavior-of-n-and-n
---
--- -- better indenting
 -- map("v", "<", "<gv")
 -- map("v", ">", ">gv")
---
--- map("n", "[q", vim.cmd.cprev, { desc = "Previous quickfix" })
--- map("n", "]q", vim.cmd.cnext, { desc = "Next quickfix" })
---
--- -- formatting
--- map({ "n", "v" }, "<leader>cf", function()
--- 	Util.format({ force = true })
--- end, { desc = "Format" })
+
+-- keymap.set("n", "<leader>an", function()
+-- 	LazyVim.terminal("node ~/Development/JavaScript/public/js/javascript.js")
+-- end, { desc = "Run node for Dev Proj" })
+-- require("lazy.util").float_cmd("node", { cwd = vim.fn.expand("~/Development/JavaScript/public/js/javascript.js") })
