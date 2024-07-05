@@ -1,4 +1,4 @@
-./work_code
-./.config/nvim/**.json
-./connect-wifi
+work_code
+.config/nvim/*.json
+connect-wifi
 **node_modules
