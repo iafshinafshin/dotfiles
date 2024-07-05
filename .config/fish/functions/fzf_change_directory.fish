@@ -14,6 +14,7 @@ function fzf_change_directory
         # echo ~/.ghq/github.com/iafshinafshin/seevideo
         # echo ~/.ghq/github.com/iafshinafshin/Development
         echo ~/Development/JavaScript
+        echo ~/l/JavaScript/
         echo ~/.ghq/github.com/iafshinafshin/dotfiles
         echo ~/Development
         echo $HOME/.config

@@ -40,9 +40,6 @@ alias mywarpip='proxychains wget -qO - https://api.ipify.org; echo'
 alias wprox='cd ~/warp-plus_linux-amd64 && ./warp-plus'
 alias tpw='tmux new -s Proxy ; tmux new -s "work"'
 set -gx EDITOR nvim
-set -gx JSPR ~/Development/JavaScript/
-set -gx NVIM_CONF ~/.ghq/github.com/iafshinafshin/dotfiles/.config/nvim/lua/
-set -gx DEV ~/Development/
 set -gx DOT_CONF ~/.ghq/github.com/iafshinafshin/dotfiles/
 export nvm_default_version=22.3.0
 

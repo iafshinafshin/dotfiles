@@ -1,9 +1,9 @@
 lastupdatecheck: 0
 recentrepos:
     - /home/afshin/.ghq/github.com/iafshinafshin/dotfiles
-    - /home/afshin/.ghq/github.com/jadijadi/riverriderust
-    - /home/afshin/.ghq/github.com/iafshinafshin/JavaScript
     - /home/afshin/Development/JavaScript
+    - /home/afshin/.ghq/github.com/iafshinafshin/JavaScript
+    - /home/afshin/.ghq/github.com/jadijadi/riverriderust
     - /home/afshin/.ghq/github.com/craftzdog/dotfiles-public
 startuppopupversion: 5
 lastversion: 0.42.0

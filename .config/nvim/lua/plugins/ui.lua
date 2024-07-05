@@ -106,77 +106,77 @@ return {
 	{
 		"nvim-lualine/lualine.nvim",
 		event = "VeryLazy",
-		opts = {
-			options = {
-				globalstatus = true,
-				theme = "solarized_dark",
-				-- theme = "rose-pine",
-				-- theme = "tokyonight",
-				-- theme = "nightfly",
-				-- theme = "everforest",
-				-- theme = "gruvbox",
-			},
-		},
-		-- opts = function()
-		--   local lualine_nightfly = require("lualine.themes.nightfly")
-		--
-		--   -- new colors for theme
-		--   local new_colors = {
-		--     blue = "#65D1FF",
-		--     green = "#3EFFDC",
-		--     black = "#000000",
-		--     red = "#fc514e",
-		--     malibu = "#87bcff",
-		--     bg_col = "#092236",
-		--     color1 = "#82aaff",
-		--     color2 = "#21c7a8",
-		--     color3 = "#ae81ff",
-		--     color4 = "#f3b25e",
-		--     color5 = "#ff5874",
-		--     color6 = "#092236",
-		--     color7 = "#a1aab8",
-		--     color8 = "#c3ccdc",
-		--     orange = "#f78c6c",
-		--   }
-		--
-		--   -- change nightlfy theme colors
-		--   lualine_nightfly.normal = {
-		--     a = { fg = new_colors.color6, bg = new_colors.malibu, gui = "bold" },
-		--     b = { fg = new_colors.malibu, bg = new_colors.bg_col },
-		--     c = { fg = new_colors.malibu, bg = new_colors.bg_col },
-		--   }
-		--   lualine_nightfly.insert = {
-		--     a = { fg = new_colors.color6, bg = new_colors.green },
-		--     b = { fg = new_colors.green, bg = new_colors.bg_col },
-		--     -- c = { fg = new_colors.green, bg = new_colors.bg_col },
-		--   }
-		--   lualine_nightfly.visual = {
-		--     a = { fg = new_colors.color6, bg = new_colors.color3 },
-		--     b = { fg = new_colors.color3, bg = new_colors.bg_col },
-		--     -- c = { fg = new_colors.color3, bg = new_colors.bg_col },
-		--   }
-		--   lualine_nightfly.command = {
-		--     a = { fg = new_colors.color6, bg = new_colors.color4 },
-		--     b = { fg = new_colors.color4, bg = new_colors.bg_col },
-		--     -- c = { fg = new_colors.color4, bg = new_colors.bg_col },
-		--   }
-		--   lualine_nightfly.replace = {
-		--     a = { fg = new_colors.color6, bg = new_colors.color5 },
-		--     b = { fg = new_colors.color5, bg = new_colors.bg_col },
-		--     -- c = { fg = new_colors.malibu, bg = new_colors.bg_col },
-		--   }
-		--   lualine_nightfly.inactive = {
-		--     a = { fg = new_colors.color7, bg = new_colors.bg_col },
-		--     b = { fg = new_colors.color7, bg = new_colors.bg_col },
-		--     -- c = { fg = new_colors.color7, bg = new_colors.bg_col },
-		--   }
-		--   return {
-		--     options = {
-		--       globalstatus = true,
-		--       theme = lualine_nightfly,
-		--     },
-		--   }
-		-- end,
+		-- opts = {
+		-- 	options = {
+		-- 		globalstatus = true,
+		-- 		-- theme = "solarized_dark",
+		-- 		-- theme = "rose-pine",
+		-- 		-- theme = "tokyonight",
+		-- 		-- theme = "nightfly",
+		-- 		-- theme = "everforest",
+		-- 		-- theme = "gruvbox",
+		-- 	},
+		-- },
+		opts = function()
+			local lualine_nightfly = require("lualine.themes.nightfly")
+
+			-- new colors for theme
+			local new_colors = {
+				blue = "#65D1FF",
+				green = "#00d1ac",
+				black = "#000000",
+				red = "#fc514e",
+				malibu = "#097ad0",
+				bg_col = "#021c32",
+				color1 = "#82aaff",
+				color2 = "#21c7a8",
+				color3 = "#ae81ff",
+				color4 = "#f3b25e",
+				color5 = "#ff5874",
+				color6 = "#092236",
+				color7 = "#a1aab8",
+				color8 = "#c3ccdc",
+				orange = "#f78c6c",
+			}
+
+			-- change nightlfy theme colors
+			lualine_nightfly.normal = {
+				a = { fg = new_colors.color6, bg = new_colors.malibu, gui = "bold" },
+				b = { fg = new_colors.malibu, bg = new_colors.bg_col },
+				c = { fg = new_colors.malibu, bg = new_colors.bg_col },
+			}
+			lualine_nightfly.insert = {
+				a = { fg = new_colors.color6, bg = new_colors.green },
+				b = { fg = new_colors.green, bg = new_colors.bg_col },
+				-- c = { fg = new_colors.green, bg = new_colors.bg_col },
+			}
+			lualine_nightfly.visual = {
+				a = { fg = new_colors.color6, bg = new_colors.color3 },
+				b = { fg = new_colors.color3, bg = new_colors.bg_col },
+				c = { fg = new_colors.color3, bg = new_colors.bg_col },
+			}
+			lualine_nightfly.command = {
+				a = { fg = new_colors.color6, bg = new_colors.color4 },
+				b = { fg = new_colors.color4, bg = new_colors.bg_col },
+				c = { fg = new_colors.color4, bg = new_colors.bg_col },
+			}
+			lualine_nightfly.replace = {
+				a = { fg = new_colors.color6, bg = new_colors.color5 },
+				b = { fg = new_colors.color5, bg = new_colors.bg_col },
+				c = { fg = new_colors.malibu, bg = new_colors.bg_col },
+			}
+			lualine_nightfly.inactive = {
+				a = { fg = new_colors.color7, bg = new_colors.bg_col },
+				b = { fg = new_colors.color7, bg = new_colors.bg_col },
+				c = { fg = new_colors.color7, bg = new_colors.bg_col },
+			}
+			return {
+				options = {
+					globalstatus = true,
+					theme = lualine_nightfly,
+				},
+			}
+		end,
 	},
 
 	-- filename
