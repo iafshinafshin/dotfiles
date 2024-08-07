@@ -11,20 +11,17 @@ s = s[0][0]
 s = int(s)
 
 while True:
-    play = f'mpv --fullscreen ./02/js-{s}.mp4'
+    play = f'"C:/Program Files/VideoLAN/VLC/vlc.exe" -f ./02/js-{s}.mp4'
     system(play)
-    system('clear')
-    i = str(input('\n\n\n\n\n\n\n\n\n\n                    Next or Quit or Replay ? ( n | q | r ) : '))
+    i = str(input('\n\n\n\n\n\n\n\n\n\n                    Next or Quit or Replay ? ( n | q | r | p ) : '))
     if i == 'q':
         system('rm ./num.txt')
         writer = f'echo {s} > num.txt'
         system(writer)
-        system('clear')
         break
     elif i == 'n':
         s += 1 
-        system('clear')
+    elif i == 'p':
+        s -= 1
     elif i == 'i':
         pass
-        system('clear')
-    system('clear')
