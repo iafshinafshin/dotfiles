@@ -11,7 +11,7 @@ s = s[0][0]
 s = int(s)
 
 while True:
-    play = f'"C:/Program Files/VideoLAN/VLC/vlc.exe" -f ./02/js-{s}.mp4'
+    play = f'"C:/Program Files/VideoLAN/MPV/mpv.exe" --fullscreen ./02/js-{s}.mp4'
     system(play)
     i = str(input('\n\n\n\n\n\n\n\n\n\n                    Next or Quit or Replay ? ( n | q | r | p ) : '))
     if i == 'q':
