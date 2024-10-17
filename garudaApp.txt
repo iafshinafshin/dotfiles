@@ -1,0 +1,1 @@
+https://gitlab.com/garuda-linux/applications/garuda-setup-assistant/-/blob/master/usr/lib/setup-assistant/pkgmngrs.txt
