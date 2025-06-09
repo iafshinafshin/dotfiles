@@ -214,21 +214,7 @@ return {
 			require("nvim-surround").setup({})
 		end,
 	},
-	{ "mg979/vim-visual-multi", lazy = false },
-	{
-		"Diogo-ss/five-server.nvim",
-		cmd = { "FiveServer" },
-		build = function()
-			require("fs.utils.install")()
-		end,
-		opts = {
-			notify = true,
-			-- add other options
-		},
-		config = function(_, opts)
-			require("fs").setup(opts)
-		end,
-	},
+	-- { "mg979/vim-visual-multi", lazy = false },
 	{
 		"jmatth11/time-tracker.nvim",
 		dependencies = "nvim-lua/plenary.nvim",

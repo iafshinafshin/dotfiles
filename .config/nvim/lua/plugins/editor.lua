@@ -314,47 +314,47 @@ return {
 			vim.keymap.set("n", "fh", function()
 				harpoon:list():select(4)
 			end)
-			wk.register({
-				f = {
-					name = "Harpoon",
-					l = {
-						function()
-							harpoon.ui:toggle_quick_menu(require("harpoon"):list())
-						end,
-						"Harpoon: List Of Windows",
-					}, -- additional options for creating the keymap
-					e = {
-						function()
-							harpoon:list():select(1)
-						end,
-						"Harpoon: Going To Number 1 Window",
-					}, -- just a label. don't create any mapping
-					i = {
-						function()
-							harpoon:list():select(2)
-						end,
-						"Harpoon: Going To Number 2 Window",
-					}, -- same as above
-					g = {
-						function()
-							harpoon:list():select(3)
-						end,
-						"Harpoon: Going To Number 3 Window",
-					}, -- same as above
-					h = {
-						function()
-							harpoon:list():select(4)
-						end,
-						"Harpoon: Going To Number 4 Window",
-					}, -- same as above
-					a = {
-						function()
-							harpoon:list():add()
-						end,
-						"Harpoon: Add To List",
-					}, -- create a binding with label
-				},
-			})
+			-- wk.register({
+			-- 	f = {
+			-- 		name = "Harpoon",
+			-- 		l = {
+			-- 			function()
+			-- 				harpoon.ui:toggle_quick_menu(require("harpoon"):list())
+			-- 			end,
+			-- 			"Harpoon: List Of Windows",
+			-- 		}, -- additional options for creating the keymap
+			-- 		e = {
+			-- 			function()
+			-- 				harpoon:list():select(1)
+			-- 			end,
+			-- 			"Harpoon: Going To Number 1 Window",
+			-- 		}, -- just a label. don't create any mapping
+			-- 		i = {
+			-- 			function()
+			-- 				harpoon:list():select(2)
+			-- 			end,
+			-- 			"Harpoon: Going To Number 2 Window",
+			-- 		}, -- same as above
+			-- 		g = {
+			-- 			function()
+			-- 				harpoon:list():select(3)
+			-- 			end,
+			-- 			"Harpoon: Going To Number 3 Window",
+			-- 		}, -- same as above
+			-- 		h = {
+			-- 			function()
+			-- 				harpoon:list():select(4)
+			-- 			end,
+			-- 			"Harpoon: Going To Number 4 Window",
+			-- 		}, -- same as above
+			-- 		a = {
+			-- 			function()
+			-- 				harpoon:list():add()
+			-- 			end,
+			-- 			"Harpoon: Add To List",
+			-- 		}, -- create a binding with label
+			-- 	},
+			-- })
 		end,
 	},
 }

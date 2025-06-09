@@ -16,7 +16,6 @@ return {
 				"shfmt",
 				"tailwindcss-language-server",
 				"typescript-language-server",
-				"phpactor",
 				"pylama",
 				"css-lsp",
 				"cssmodules-language-server",
@@ -24,16 +23,11 @@ return {
 				"ast-grep",
 				"beautysh",
 				"emmet-language-server",
-				"easy-coding-standard",
+				-- "easy-coding-standard",
 				"lua-language-server",
 				"eslint_d",
-				"prettierd",
-				"graphql-language-service-cli",
-				"prisma-language-server",
-				"rust-analyzer",
-				"taplo",
-				"easy-coding-standard",
-				"intelephense",
+				-- "prettierd",
+				-- "prisma-language-server",
 			})
 		end,
 	},
@@ -158,46 +152,46 @@ return {
 			setup = {},
 		},
 	},
-	{
-		"nvimdev/lspsaga.nvim",
-		lazy = false,
-		priority = 1000,
-		config = function()
-			require("lspsaga").setup({
-
-				outline = {
-					enable = true,
-					layout = "float",
-				},
-				lightbulb = {
-					enable = false,
-				},
-				ui = {
-					border = "rounded",
-				},
-				symbol_in_winbar = {
-					enable = true,
-					separator = "  ",
-					show_file = true,
-					folder_level = 0,
-					color_mode = true,
-				},
-			})
-
-			vim.keymap.set(
-				"n",
-				"<leader>alt",
-				":Lspsaga outline<Return>",
-				{ noremap = true, silent = true },
-				{ desc = "Outline if code" }
-			)
-			vim.keymap.set(
-				"n",
-				"<leader>alf",
-				"<Cmd>Lspsaga finder<CR>",
-				{ noremap = true, silent = true },
-				{ desc = "Finder code type" }
-			)
-		end,
-	},
+	-- {
+	-- 	"nvimdev/lspsaga.nvim",
+	-- 	lazy = false,
+	-- 	priority = 1000,
+	-- 	config = function()
+	-- 		require("lspsaga").setup({
+	--
+	-- 			outline = {
+	-- 				enable = true,
+	-- 				layout = "float",
+	-- 			},
+	-- 			lightbulb = {
+	-- 				enable = false,
+	-- 			},
+	-- 			ui = {
+	-- 				border = "rounded",
+	-- 			},
+	-- 			symbol_in_winbar = {
+	-- 				enable = true,
+	-- 				separator = "  ",
+	-- 				show_file = true,
+	-- 				folder_level = 0,
+	-- 				color_mode = true,
+	-- 			},
+	-- 		})
+	--
+	-- 		vim.keymap.set(
+	-- 			"n",
+	-- 			"<leader>alt",
+	-- 			":Lspsaga outline<Return>",
+	-- 			{ noremap = true, silent = true },
+	-- 			{ desc = "Outline if code" }
+	-- 		)
+	-- 		vim.keymap.set(
+	-- 			"n",
+	-- 			"<leader>alf",
+	-- 			"<Cmd>Lspsaga finder<CR>",
+	-- 			{ noremap = true, silent = true },
+	-- 			{ desc = "Finder code type" }
+	-- 		)
+	-- 	end,
+	-- },
 }

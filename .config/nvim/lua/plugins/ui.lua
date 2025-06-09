@@ -50,19 +50,19 @@ return {
 			})
 
 			opts.presets.lsp_doc_border = true
-			vim.notify = function(msg, log_level, opts)
-				if
-					string.match(
-						msg,
-						"method textDocument/documentColor is not supported by any of the servers registered for the current buffer"
-					)
-				then
-				-- Do nothing to suppress the warning
-				else
-					-- Call the original vim.notify function for other messages
-					vim.notify(msg, log_level, opts)
-				end
-			end
+			-- vim.notify = function(msg, log_level, opts)
+			-- 	if
+			-- 		string.match(
+			-- 			msg,
+			-- 			"method textDocument/documentColor is not supported by any of the servers registered for the current buffer"
+			-- 		)
+			-- 	then
+			-- 	-- Do nothing to suppress the warning
+			-- 	else
+			-- 		-- Call the original vim.notify function for other messages
+			-- 		vim.notify(msg, log_level, opts)
+			-- 	end
+			-- end
 		end,
 	},
 
@@ -106,77 +106,77 @@ return {
 	{
 		"nvim-lualine/lualine.nvim",
 		event = "VeryLazy",
-		-- opts = {
-		-- 	options = {
-		-- 		globalstatus = true,
-		-- 		-- theme = "solarized_dark",
-		-- 		-- theme = "rose-pine",
-		-- 		-- theme = "tokyonight",
-		-- 		-- theme = "nightfly",
-		-- 		-- theme = "everforest",
-		-- 		-- theme = "gruvbox",
-		-- 	},
-		-- },
-		opts = function()
-			local lualine_nightfly = require("lualine.themes.nightfly")
-
-			-- new colors for theme
-			local new_colors = {
-				blue = "#65D1FF",
-				green = "#00d1ac",
-				black = "#000000",
-				red = "#fc514e",
-				malibu = "#097ad0",
-				bg_col = "#021c32",
-				color1 = "#82aaff",
-				color2 = "#21c7a8",
-				color3 = "#ae81ff",
-				color4 = "#f3b25e",
-				color5 = "#ff5874",
-				color6 = "#092236",
-				color7 = "#a1aab8",
-				color8 = "#c3ccdc",
-				orange = "#f78c6c",
-			}
-
-			-- change nightlfy theme colors
-			lualine_nightfly.normal = {
-				a = { fg = new_colors.color6, bg = new_colors.malibu, gui = "bold" },
-				b = { fg = new_colors.malibu, bg = new_colors.bg_col },
-				c = { fg = new_colors.malibu, bg = new_colors.bg_col },
-			}
-			lualine_nightfly.insert = {
-				a = { fg = new_colors.color6, bg = new_colors.green },
-				b = { fg = new_colors.green, bg = new_colors.bg_col },
-				-- c = { fg = new_colors.green, bg = new_colors.bg_col },
-			}
-			lualine_nightfly.visual = {
-				a = { fg = new_colors.color6, bg = new_colors.color3 },
-				b = { fg = new_colors.color3, bg = new_colors.bg_col },
-				c = { fg = new_colors.color3, bg = new_colors.bg_col },
-			}
-			lualine_nightfly.command = {
-				a = { fg = new_colors.color6, bg = new_colors.color4 },
-				b = { fg = new_colors.color4, bg = new_colors.bg_col },
-				c = { fg = new_colors.color4, bg = new_colors.bg_col },
-			}
-			lualine_nightfly.replace = {
-				a = { fg = new_colors.color6, bg = new_colors.color5 },
-				b = { fg = new_colors.color5, bg = new_colors.bg_col },
-				c = { fg = new_colors.malibu, bg = new_colors.bg_col },
-			}
-			lualine_nightfly.inactive = {
-				a = { fg = new_colors.color7, bg = new_colors.bg_col },
-				b = { fg = new_colors.color7, bg = new_colors.bg_col },
-				c = { fg = new_colors.color7, bg = new_colors.bg_col },
-			}
-			return {
-				options = {
-					globalstatus = true,
-					theme = lualine_nightfly,
-				},
-			}
-		end,
+		opts = {
+			options = {
+				globalstatus = true,
+				theme = "solarized_dark",
+				-- theme = "rose-pine",
+				-- theme = "tokyonight",
+				-- theme = "nightfly",
+				-- theme = "everforest",
+				-- theme = "gruvbox",
+			},
+		},
+		-- opts = function()
+		-- 	local lualine_nightfly = require("lualine.themes.nightfly")
+		--
+		-- 	-- new colors for theme
+		-- 	local new_colors = {
+		-- 		blue = "#65D1FF",
+		-- 		green = "#00d1ac",
+		-- 		black = "#000000",
+		-- 		red = "#fc514e",
+		-- 		malibu = "#097ad0",
+		-- 		bg_col = "#021c32",
+		-- 		color1 = "#82aaff",
+		-- 		color2 = "#21c7a8",
+		-- 		color3 = "#ae81ff",
+		-- 		color4 = "#f3b25e",
+		-- 		color5 = "#ff5874",
+		-- 		color6 = "#092236",
+		-- 		color7 = "#a1aab8",
+		-- 		color8 = "#c3ccdc",
+		-- 		orange = "#f78c6c",
+		-- 	}
+		--
+		-- 	-- change nightlfy theme colors
+		-- 	lualine_nightfly.normal = {
+		-- 		a = { fg = new_colors.color6, bg = new_colors.malibu, gui = "bold" },
+		-- 		b = { fg = new_colors.malibu, bg = new_colors.bg_col },
+		-- 		c = { fg = new_colors.malibu, bg = new_colors.bg_col },
+		-- 	}
+		-- 	lualine_nightfly.insert = {
+		-- 		a = { fg = new_colors.color6, bg = new_colors.green },
+		-- 		b = { fg = new_colors.green, bg = new_colors.bg_col },
+		-- 		-- c = { fg = new_colors.green, bg = new_colors.bg_col },
+		-- 	}
+		-- 	lualine_nightfly.visual = {
+		-- 		a = { fg = new_colors.color6, bg = new_colors.color3 },
+		-- 		b = { fg = new_colors.color3, bg = new_colors.bg_col },
+		-- 		c = { fg = new_colors.color3, bg = new_colors.bg_col },
+		-- 	}
+		-- 	lualine_nightfly.command = {
+		-- 		a = { fg = new_colors.color6, bg = new_colors.color4 },
+		-- 		b = { fg = new_colors.color4, bg = new_colors.bg_col },
+		-- 		c = { fg = new_colors.color4, bg = new_colors.bg_col },
+		-- 	}
+		-- 	lualine_nightfly.replace = {
+		-- 		a = { fg = new_colors.color6, bg = new_colors.color5 },
+		-- 		b = { fg = new_colors.color5, bg = new_colors.bg_col },
+		-- 		c = { fg = new_colors.malibu, bg = new_colors.bg_col },
+		-- 	}
+		-- 	lualine_nightfly.inactive = {
+		-- 		a = { fg = new_colors.color7, bg = new_colors.bg_col },
+		-- 		b = { fg = new_colors.color7, bg = new_colors.bg_col },
+		-- 		c = { fg = new_colors.color7, bg = new_colors.bg_col },
+		-- 	}
+		-- 	return {
+		-- 		options = {
+		-- 			globalstatus = true,
+		-- 			theme = lualine_nightfly,
+		-- 		},
+		-- 	}
+		-- end,
 	},
 
 	-- filename
@@ -278,34 +278,34 @@ return {
 		keys = { { "<leader>z", "<cmd>ZenMode<cr>", desc = "Zen Mode" } },
 	},
 
-	{
-		"nvimdev/dashboard-nvim",
-		event = "VimEnter",
-		opts = function(_, opts)
-			local logo = [[
-        ███████╗██╗   ██╗███╗   ██╗        ██╗     ██╗███████╗███████╗    
-        ██╔════╝██║   ██║████╗  ██║        ██║     ██║██╔════╝██╔════╝    
-        █████╗  ██║   ██║██╔██╗ ██║█████╗  ██║     ██║█████╗  █████╗      
-        ██╔══╝  ██║   ██║██║╚██╗██║╚════╝  ██║     ██║██╔══╝  ██╔══╝      
-        ██║     ╚██████╔╝██║ ╚████║███████╗███████╗██║██║     ███████╗    
-        ╚═╝      ╚═════╝ ╚═╝  ╚═══╝╚══════╝╚══════╝╚═╝╚═╝     ╚══════╝    
-      ]]
-
-			logo = string.rep("\n", 8) .. logo .. "\n\n"
-			opts.config.header = vim.split(logo, "\n")
-		end,
-	},
-	{
-		"kyazdani42/nvim-web-devicons",
-		config = function()
-			require("nvim-web-devicons").set_icon({
-				gql = {
-					icon = "",
-					color = "#e535ab",
-					cterm_color = "199",
-					name = "GraphQL",
-				},
-			})
-		end,
-	},
+	-- {
+	-- 	"nvimdev/dashboard-nvim",
+	-- 	event = "VimEnter",
+	-- 	opts = function(_, opts)
+	-- 		local logo = [[
+	--        ███████╗██╗   ██╗███╗   ██╗        ██╗     ██╗███████╗███████╗
+	--        ██╔════╝██║   ██║████╗  ██║        ██║     ██║██╔════╝██╔════╝
+	--        █████╗  ██║   ██║██╔██╗ ██║█████╗  ██║     ██║█████╗  █████╗
+	--        ██╔══╝  ██║   ██║██║╚██╗██║╚════╝  ██║     ██║██╔══╝  ██╔══╝
+	--        ██║     ╚██████╔╝██║ ╚████║███████╗███████╗██║██║     ███████╗
+	--        ╚═╝      ╚═════╝ ╚═╝  ╚═══╝╚══════╝╚══════╝╚═╝╚═╝     ╚══════╝
+	--      ]]
+	--
+	-- 		logo = string.rep("\n", 8) .. logo .. "\n\n"
+	-- 		opts.config.header = vim.split(logo, "\n")
+	-- 	end,
+	-- },
+	-- {
+	-- 	"kyazdani42/nvim-web-devicons",
+	-- 	config = function()
+	-- 		require("nvim-web-devicons").set_icon({
+	-- 			gql = {
+	-- 				icon = "",
+	-- 				color = "#e535ab",
+	-- 				cterm_color = "199",
+	-- 				name = "GraphQL",
+	-- 			},
+	-- 		})
+	-- 	end,
+	-- },
 }
