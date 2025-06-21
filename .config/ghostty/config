@@ -43,13 +43,15 @@
 # resize-overlay-duration = 4s 200ms
 # background-opacity = 0.4
 background-opacity = 0.5
-# theme = ToyChest # for day
+# background-opacity = 0.8
 
 font-family = PlemolJPConsoleNF
-# font-size = 18
-font-size = 16
+font-size = 18
+# font-size = 16
 # theme = matugen
-theme = solarized_osaka_dark
+# theme = solarized_osaka_dark
+# theme = matrix 
+theme = ToyChest
 shell-integration-features = no-cursor
 cursor-style-blink = false
 cursor-style = underline
