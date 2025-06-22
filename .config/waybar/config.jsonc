@@ -99,12 +99,12 @@
   "cpu": {
     "format": "󰍛 {usage}% ",
     "tooltip": true,
-    "on-click": "alacritty -e btop",
+    "on-click": "ghostty -e btop",
   },
   "memory": {
     "format": "{}%  ",
     "tooltip": true,
-    "on-click": "alacritty -e btop",
+    "on-click": "ghostty -e btop",
   },
   "network": {
     // "interface": "wlp2*", // (Optional) To force the use of this interface
