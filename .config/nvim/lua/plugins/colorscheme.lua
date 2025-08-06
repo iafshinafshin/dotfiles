@@ -161,4 +161,28 @@ return {
 
 	-- Load onedarkpro nvim theme
 	{ "olimorris/onedarkpro.nvim", lazy = false, priority = 1000 },
+	{
+		"hachy/eva01.vim",
+		lazy = false,
+		priority = 1000,
+		-- config = function()
+		-- vim.cmd.colorscheme "eva01"
+		-- or
+		-- vim.cmd.colorscheme "eva01-LCL"
+		-- end,
+	},
+	{
+		"xero/evangelion.nvim",
+		lazy = false,
+		priority = 1000,
+		-- opts = { transparent = true },
+		-- init = function()
+		--   vim.cmd.colorscheme("evangelion")
+		-- end,
+	},
+	{
+		"catppuccin/nvim",
+		lazy = false,
+		priority = 1000,
+	},
 }

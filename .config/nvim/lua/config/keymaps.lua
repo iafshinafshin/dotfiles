@@ -52,6 +52,7 @@ keymap.set("n", "db", 'vb"_d')
 keymap.set("n", "dw", 'viw"_d')
 keymap.set("n", "cd", '"_ciw')
 keymap.set("i", "<C-a>", "<Esc>A")
+keymap.set("i", "jk", "<Esc>")
 -- Delete and backwards
 
 keymap.set({ "n", "v" }, "<leader>y", [["+y]])
